@@ -11,7 +11,7 @@
 - 去程：BR215　TPE 09:25 → SIN **T3** 13:50
 - 回程：BR226　SIN **T3** 13:10 → TPE 17:45
 - 住宿：Dao by Dorsett AMTD Singapore（6 Shenton Way, OUE Downtown 1，大廳在 7 樓）
-- 早餐：Day 2 吐司工坊 Toast Box、Day 3 亞坤 Ya Kun（樟宜 T3）
+- 早餐：Day 2、Day 3 都在飯店附近的吐司工坊 Toast Box（長輩先吃飽再出門，機場只留彈性候機時間）
 
 ## 網址
 
