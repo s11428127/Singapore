@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>札幌 3天2夜 · 11/21–11/23</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="札幌行程">
+<meta name="theme-color" content="#1B3348">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE4; --paper-2:#EAE3D3;
+    --ink:#211D17; --ink-soft:#5B5548;
+    --frost:#1B3348; --frost-l:#2E5A7A; --frost-ll:#4A86B0;
+    --gold:#E3A542; --gold-l:#F0C878;
+    --coral:#C1442B; --jungle:#1F4D3E;
+    --line:#D8CFB8; --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Noto Sans TC',sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:60px;}
+  h1,h2,h3{font-family:'Noto Serif TC',serif;}
+
+  header{background:var(--frost);color:var(--paper);padding:24px 20px 22px;
+    position:relative;overflow:hidden;border-bottom:4px solid var(--frost-ll);}
+  header::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 85% -10%,rgba(255,255,255,0.16),transparent 55%),
+               radial-gradient(circle at -10% 110%,rgba(74,134,176,0.38),transparent 50%);
+    pointer-events:none;}
+  .homelink{display:inline-block;margin-bottom:10px;font-size:12px;font-weight:700;
+    color:#BFD4E4;text-decoration:none;position:relative;
+    border:1px solid rgba(255,255,255,0.22);padding:4px 10px;border-radius:999px;}
+  .eyebrow{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--gold-l);margin:0 0 6px;font-weight:600;position:relative;}
+  header h1{font-size:28px;margin:0 0 4px;font-weight:900;position:relative;}
+  header p.sub{margin:0 0 16px;color:#BFD4E4;font-size:14px;position:relative;}
+
+  .board{background:#122536;border-radius:var(--radius);padding:14px;
+    position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.07);}
+  .board-note{font-size:11.5px;color:#93AEC4;line-height:1.6;margin:0;}
+  .board-note b{color:var(--gold-l);}
+  .cd{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;
+    color:#fff;margin:0 0 8px;}
+  .cd span{color:var(--gold-l);}
+
+  nav.tabs{position:sticky;top:0;z-index:10;display:flex;gap:6px;overflow-x:auto;
+    background:var(--paper);padding:12px 16px;border-bottom:1px solid var(--line);
+    -ms-overflow-style:none;scrollbar-width:none;}
+  nav.tabs::-webkit-scrollbar{display:none;}
+  nav.tabs button{flex:0 0 auto;font-family:'Noto Sans TC',sans-serif;
+    font-size:13.5px;font-weight:700;padding:8px 14px;border-radius:999px;
+    border:1px solid var(--line);background:#fff;color:var(--ink-soft);cursor:pointer;}
+  nav.tabs button.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+  main{max-width:640px;margin:0 auto;padding:20px 16px 0;}
+  section.panel{display:none;}
+  section.panel.active{display:block;animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+  .day-title{display:flex;align-items:baseline;gap:10px;margin:4px 0 18px;}
+  .day-title .num{font-family:'Noto Serif TC',serif;font-weight:900;font-size:34px;line-height:1;}
+  .day-title h2{margin:0;font-size:17px;}
+  .day-title .date{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+
+  .callout{background:#fff;border:1px solid var(--line);border-left:4px solid var(--coral);
+    border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:13px;
+    line-height:1.6;color:var(--ink-soft);}
+  .callout b{color:var(--ink);}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px;margin-bottom:14px;}
+  .card h3{margin:0 0 8px;font-size:15px;}
+  .card h4{margin:14px 0 5px;font-size:12.5px;font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
+  .card h4:first-of-type{margin-top:0;}
+  .card p{margin:0 0 6px;font-size:13.5px;color:var(--ink-soft);line-height:1.65;}
+  .card ul,.card ol{margin:0 0 6px;padding-left:18px;font-size:13.5px;
+    color:var(--ink-soft);line-height:1.7;}
+  .card li{margin-bottom:4px;}
+  .card b{color:var(--ink);}
+  .card.alert{border-left:4px solid var(--coral);}
+  .card.alert h3{color:var(--coral);}
+
+  .tag{display:inline-block;margin:0 6px 6px 0;font-size:11px;padding:2px 8px;
+    border-radius:6px;background:var(--paper-2);color:var(--ink-soft);}
+  .tag.warn{background:#F6E2DC;color:var(--coral);}
+  .tag.cold{background:#DCE8F2;color:var(--frost-l);}
+
+  .note-warn{background:#F9EAE5;border-left:3px solid var(--coral);border-radius:8px;
+    padding:9px 11px;margin:8px 0;font-size:12.5px;color:#7A2A18;line-height:1.6;}
+  .note-warn b{color:var(--coral);}
+  .note-ok{background:#DCE8F2;border-left:3px solid var(--frost-l);border-radius:8px;
+    padding:9px 11px;margin:8px 0;font-size:12.5px;color:#1B3348;line-height:1.6;}
+
+  table.mini{width:100%;border-collapse:collapse;margin:8px 0;font-size:12.5px;}
+  table.mini th,table.mini td{border:1px solid var(--line);padding:6px 8px;
+    text-align:left;vertical-align:top;}
+  table.mini th{background:var(--paper-2);font-weight:700;color:var(--ink);}
+
+  .check-group{margin-bottom:20px;}
+  .check-group h3{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;
+    color:var(--ink-soft);margin:0 0 10px;}
+  .check-item{display:flex;gap:10px;align-items:flex-start;background:#fff;
+    border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:8px;cursor:pointer;}
+  .check-item input{margin-top:3px;width:17px;height:17px;accent-color:var(--frost-l);flex:0 0 auto;}
+  .check-item .txt b{display:block;font-size:14px;margin-bottom:2px;}
+  .check-item .txt span{font-size:12.5px;color:var(--ink-soft);line-height:1.5;}
+  .check-item.done .txt b{text-decoration:line-through;color:var(--ink-soft);}
+
+  .todo{background:#FFF8E8;border:1px dashed var(--gold);border-radius:var(--radius);
+    padding:16px;margin-bottom:14px;}
+  .todo h3{margin:0 0 8px;font-size:15px;color:#8A6115;}
+  .todo p{margin:0 0 6px;font-size:13.5px;color:#6B4F18;line-height:1.65;}
+  .todo ul{margin:0;padding-left:18px;font-size:13.5px;color:#6B4F18;line-height:1.7;}
+
+  footer{text-align:center;font-size:12px;color:var(--ink-soft);padding:30px 20px 0;}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="homelink" href="./">← 回行程主頁</a>
+  <p class="eyebrow">Winter Trip · TPE → CTS</p>
+  <h1>札幌 3天2夜</h1>
+  <p class="sub">2026.11.21（六）— 11.23（一）· 初冬的北海道</p>
+  <div class="board">
+    <p class="cd" id="cd">計算中…</p>
+    <p class="board-note">11/23 是日本 <b>勤労感謝の日</b>，這三天是全日本的<b>三連休</b>・札幌<b>白色燈樹節 11/20 剛開幕</b></p>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="active" data-tab="overview">總覽</button>
+  <button data-tab="weather">天氣＆穿著</button>
+  <button data-tab="illum">燈樹節</button>
+  <button data-tab="prep">行前準備</button>
+  <button data-tab="plan">行程規劃</button>
+</nav>
+
+<main>
+
+  <section class="panel active" id="overview">
+    <div class="day-title">
+      <span class="num">❄</span>
+      <div><h2>這趟的三個關鍵</h2><div class="date">11/21（六）– 11/23（一）</div></div>
+    </div>
+
+    <div class="card alert">
+      <h3>⚠️ 一：你們撞上日本三連休</h3>
+      <p><b>11/23（一）是勤労感謝の日</b>，所以 11/21–11/23 是全日本的三連休。這代表：</p>
+      <ul>
+        <li><b>機票、住宿會比平日貴</b>，而且熱門飯店可能已經滿房</li>
+        <li>札幌市區景點、人氣餐廳<b>排隊時間會拉長</b></li>
+        <li>JR、地鐵、機場巴士在連休頭尾兩天<b>特別擠</b></li>
+        <li>人氣餐廳（成吉思汗烤羊肉、迴轉壽司、拉麵名店）<b>強烈建議先訂位</b></li>
+      </ul>
+      <div class="note-warn"><b>只剩 4 天：</b>今天是 11/17。如果住宿或機票還沒訂，三連休的札幌現在訂會很吃力也很貴，建議<b>今天就處理</b>。餐廳訂位也是現在就要打。</div>
+    </div>
+
+    <div class="card">
+      <h3>✨ 二：白色燈樹節剛好開幕</h3>
+      <p>札幌白色燈樹節（さっぽろホワイトイルミネーション）<b>大通會場 11/20 開幕</b>，你們 11/21 抵達，等於<b>開幕第二天</b>就遇上。</p>
+      <p>點燈時間 <b>16:30–22:00</b>。11 月下旬札幌下午 4 點多就天黑，所以傍晚一定看得到。</p>
+      <div class="note-ok">這是這趟最值得排的夜間行程，而且<b>免費</b>。詳見「燈樹節」分頁。</div>
+    </div>
+
+    <div class="card">
+      <h3>🧥 三：要當成冬天準備，不是秋天</h3>
+      <p>11 月下旬的札幌日間約 <b>10°C 以下</b>，入夜可能到 <b>0°C 或更低</b>。可能下雪，<b>路面會結冰</b>。</p>
+      <p>台灣人最常犯的錯是穿秋天的衣服來——帶羽絨外套、防水防滑的鞋，不要只穿球鞋。詳見「天氣＆穿著」分頁。</p>
+    </div>
+
+    <div class="todo">
+      <h3>📝 這個行程還缺的資料</h3>
+      <p>我還不知道你的班機、住宿和同行者，所以行程時間軸還沒辦法排。跟我說以下幾項，我就能把完整行程做出來：</p>
+      <ul>
+        <li><b>班機</b>：去程／回程的航班號與起降時間</li>
+        <li><b>住宿</b>：飯店名稱（或大概在哪一區，例如札幌車站、大通、薄野）</li>
+        <li><b>同行者</b>：這次也是帶外公外婆嗎？還是朋友／自己去？</li>
+        <li><b>想去的地方</b>：有沒有特別想吃或想去的（小樽、登別、二世谷滑雪、海鮮市場…）</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="panel" id="weather">
+    <div class="day-title">
+      <span class="num">🌡</span>
+      <div><h2>天氣與穿著</h2><div class="date">11 月下旬的札幌</div></div>
+    </div>
+
+    <div class="card">
+      <h3>🌡️ 實際氣溫</h3>
+      <table class="mini">
+        <tr><th>時段</th><th>氣溫</th></tr>
+        <tr><td>白天</td><td>約 <b>10°C 以下</b></td></tr>
+        <tr><td>夜間／清晨</td><td>常低於 5°C，<b>可能到 0°C 以下</b></td></tr>
+        <tr><td>下雪</td><td>11 月下旬<b>可能下雪</b>，但通常還不是積整個冬天的「根雪」，多半下了又融</td></tr>
+        <tr><td>路面</td><td><b>可能結冰</b>，市區也會有雨雪和濕滑路面</td></tr>
+      </table>
+      <div class="note-warn">年度差異很大，有些年 11 月下旬就積雪，有些年還沒下。<b>出發前 2–3 天一定要再看一次天氣預報</b>，再決定要不要帶到最厚的裝備。</div>
+    </div>
+
+    <div class="card">
+      <h3>🧥 穿什麼</h3>
+      <h4>外套</h4>
+      <p><b>羽絨外套或厚大衣</b>是基本盤。有帽子的款式特別方便（下雪時不用撐傘）。台灣的薄外套、風衣完全不夠。</p>
+      <h4>鞋子（最容易出錯的地方）</h4>
+      <p>建議<b>防水、鞋底有止滑設計</b>的鞋，雪靴最理想。如果只能穿球鞋，至少配<b>厚襪</b>，並且走路要特別小心結冰路面。</p>
+      <div class="note-warn"><b>帶長輩的話這點最重要：</b>結冰路面對長輩是真正的風險。防滑鞋底不是舒適問題，是安全問題。市區藥妝店和雜貨店有賣外掛式的<b>鞋底防滑套</b>（約 1,000 日圓上下），可以到當地再買。</div>
+      <h4>內層</h4>
+      <p>發熱衣（HEATTECH 之類）＋<b>發熱褲／衛生褲</b>。北海道人下半身保暖做得比台灣人徹底很多。</p>
+      <h4>小配件（不要省）</h4>
+      <ul>
+        <li><b>手套</b>——手機操作會用到，建議買可觸控的</li>
+        <li><b>圍巾</b>——脖子保暖對體感溫度影響很大</li>
+        <li><b>毛帽</b>或有帽子的外套</li>
+        <li><b>暖暖包</b>——台灣帶過去比較便宜，貼式的貼在背後最有效</li>
+      </ul>
+      <div class="note-ok"><b>室內會很熱：</b>日本的商場、餐廳、地鐵暖氣開很強，常到 24–26°C。<b>洋蔥式穿法</b>很重要，外套要好脫好收，不然在室內會悶到流汗，出門時反而更冷。</div>
+    </div>
+
+    <div class="card">
+      <h3>🧴 其他季節性注意</h3>
+      <p><b>非常乾燥</b>——暖氣加上低溫，皮膚和嘴唇很容易裂。護唇膏、乳液、保濕面膜建議帶。</p>
+      <p><b>天黑得早</b>——11 月下旬札幌下午 <b>4 點多</b>就天黑。白天的戶外行程要排在上午到下午 3 點之間，之後自然就轉成夜間行程（剛好接燈樹節）。</p>
+      <p><b>室內外溫差大</b>——眼鏡進室內會起霧，相機鏡頭也會。相機從冷的地方進室內，建議先放在包包裡回溫再拿出來。</p>
+    </div>
+  </section>
+
+  <section class="panel" id="illum">
+    <div class="day-title">
+      <span class="num">✨</span>
+      <div><h2>札幌白色燈樹節</h2><div class="date">11/20 開幕・你們第二天就遇上</div></div>
+    </div>
+
+    <div class="card">
+      <h3>📍 大通會場（主會場）</h3>
+      <table class="mini">
+        <tr><th>期間</th><td><b>2026/11/20 – 12/25</b></td></tr>
+        <tr><th>點燈時間</th><td><b>16:30 – 22:00</b></td></tr>
+        <tr><th>地點</th><td>大通公園 1–5 丁目</td></tr>
+        <tr><th>費用</th><td><b>免費</b></td></tr>
+      </table>
+      <p>你們 11/21–11/23 三天<b>每個晚上都看得到</b>，不用特別卡日期。</p>
+      <div class="note-ok"><b>天黑得早反而是優點：</b>札幌 11 月下旬 4 點多就天黑，16:30 點燈時天已經暗了，不用等到很晚，<b>晚餐前就能順路看</b>。</div>
+    </div>
+
+    <div class="card">
+      <h3>🗺️ 其他會場（期間更長）</h3>
+      <table class="mini">
+        <tr><th>會場</th><th>期間</th></tr>
+        <tr><td><b>大通公園</b>（主會場）</td><td>11/20 – 12/25</td></tr>
+        <tr><td>驛前通（站前大道）</td><td>到 2027/2/11</td></tr>
+        <tr><td>札幌站南口</td><td>到 2027/3/14</td></tr>
+        <tr><td>北 3 条廣場（Akapla）</td><td>到 2027/3/14</td></tr>
+      </table>
+      <p>札幌站南口和站前大道<b>一出車站就看得到</b>，從車站走到大通公園的路上本身就是燈飾動線，不用特地安排交通。</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 現場建議</h3>
+      <p><b>走法</b>：從札幌車站南口出來 → 沿站前大道往南走 → 大通公園，全程約 10–15 分鐘，一路都有燈飾。地下街（チカホ）也可以走，怕冷的話走地下、到大通再上來。</p>
+      <p><b>拍照</b>：大通公園 1 丁目的電視塔方向是經典角度，可以把塔和燈飾一起入鏡。</p>
+      <div class="note-warn"><b>三連休人會很多</b>，而且戶外站久了很冷。建議安排在晚餐前後，看個 30–40 分鐘就進室內，不要排太長時間在戶外。</div>
+      <div class="note-ok">大通公園旁邊就是地下街和百貨，冷了隨時可以躲進去。帶長輩的話這點很重要。</div>
+    </div>
+  </section>
+
+  <section class="panel" id="prep">
+    <div class="day-title">
+      <span class="num">✓</span>
+      <div><h2>行前準備清單</h2><div class="date">只剩 4 天，紅色的最急</div></div>
+    </div>
+
+    <div class="check-group">
+      <h3>最急・今天就要處理</h3>
+      <label class="check-item">
+        <input type="checkbox" data-key="vjw">
+        <span class="txt"><b>Visit Japan Web 線上入境申報</b><span>日本入境前要先在 Visit Japan Web 填好入境審查和海關申報，拿到 QR Code。沒填的話現場要排人工櫃檯，連休入境人潮會很可觀</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="hotel">
+        <span class="txt"><b>確認住宿已訂</b><span>三連休的札幌很滿，還沒訂的話今天一定要處理</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="resto">
+        <span class="txt"><b>人氣餐廳訂位</b><span>成吉思汗烤羊肉、迴轉壽司、蟹料理這類名店，三連休不訂位可能排 1 小時以上</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="passport">
+        <span class="txt"><b>護照效期確認</b><span>日本要求效期涵蓋停留期間即可，但還是確認一下</span></span>
+      </label>
+    </div>
+
+    <div class="check-group">
+      <h3>出發前</h3>
+      <label class="check-item">
+        <input type="checkbox" data-key="esim">
+        <span class="txt"><b>網路：eSIM 或 WiFi 機</b><span>日本 eSIM 現在很方便，出發前在台灣買好開通。Google Maps 查路線整趟都會用到</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="cash">
+        <span class="txt"><b>換日幣現金</b><span>札幌市區刷卡普及，但小店、部分拉麵店、計程車仍可能只收現金。另外日本的自動販賣機很多，零錢會用到</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="ic">
+        <span class="txt"><b>IC 卡（Suica／Kitaca）</b><span>札幌地鐵、JR 都能用。手機 Apple Pay 可以直接加 Suica，不用買實體卡</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="coat">
+        <span class="txt"><b>羽絨外套＋防滑鞋</b><span>夜間可能 0°C 以下、路面可能結冰。鞋子是最容易準備不足的一項</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="acc">
+        <span class="txt"><b>手套、圍巾、毛帽、暖暖包</b><span>暖暖包在台灣買比較便宜，帶過去</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="skin">
+        <span class="txt"><b>保濕用品</b><span>暖氣＋低溫非常乾燥，護唇膏和乳液一定要帶</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="med">
+        <span class="txt"><b>常備藥</b><span>感冒藥、腸胃藥、個人處方藥。溫差大容易感冒</span></span>
+      </label>
+    </div>
+
+    <div class="check-group">
+      <h3>當地提醒</h3>
+      <label class="check-item">
+        <input type="checkbox" data-key="ice">
+        <span class="txt"><b>走路小心結冰路面</b><span>重心放低、步伐放小、不要把手插口袋（跌倒時來不及撐）。藥妝店有賣鞋底防滑套</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="onion">
+        <span class="txt"><b>洋蔥式穿法</b><span>室內暖氣常開到 24–26°C，外套要好脫好收，不然室內會悶到流汗</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="dark">
+        <span class="txt"><b>下午 4 點多就天黑</b><span>戶外行程排上午到下午 3 點，之後轉室內或夜景行程</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" data-key="crowd">
+        <span class="txt"><b>三連休人潮</b><span>景點和餐廳都會比平常擠，行程之間多抓緩衝時間</span></span>
+      </label>
+    </div>
+  </section>
+
+  <section class="panel" id="plan">
+    <div class="day-title">
+      <span class="num">📋</span>
+      <div><h2>行程規劃</h2><div class="date">等你補資料</div></div>
+    </div>
+
+    <div class="todo">
+      <h3>📝 需要你提供的四項資料</h3>
+      <p>有了這些我就能像新加坡那本一樣，把每天的時間軸、現場指引、交通方式、餐廳點餐方式全部排出來：</p>
+      <ul>
+        <li><b>班機</b>：去程／回程航班號與起降時間（會決定 Day 1 和 Day 3 能排多少行程）</li>
+        <li><b>住宿</b>：飯店名稱或大概區域（札幌車站／大通／薄野，三個區的動線差很多）</li>
+        <li><b>同行者</b>：這次也是帶外公外婆嗎？還是朋友或自己去？（會決定行程強度和用餐選擇）</li>
+        <li><b>想去的地方</b>：有沒有特別想吃或想去的？例如小樽、登別溫泉、海鮮市場、滑雪、藻岩山夜景</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🗺️ 先給你一個大方向</h3>
+      <p>以 3 天 2 夜、11 月下旬、又遇上三連休的條件來說，比較務實的架構是：</p>
+      <table class="mini">
+        <tr><th>Day 1（六）</th><td>抵達 → 進市區放行李 → 札幌站／大通一帶輕鬆逛 → <b>傍晚燈樹節</b> → 晚餐</td></tr>
+        <tr><th>Day 2（日）</th><td>整天的主行程。市區（海鮮市場、藻岩山）或近郊一日（小樽、登別）二選一</td></tr>
+        <tr><th>Day 3（一）</th><td>退房 → 市區收尾採買 → 新千歲機場（機場本身就很好逛，建議留 2–3 小時）</td></tr>
+      </table>
+      <div class="note-ok"><b>新千歲機場值得留時間：</b>它是日本數一數二好逛的機場，有拉麵道場、溫泉、各種伴手禮，Day 3 不要卡太緊。</div>
+      <div class="note-warn"><b>近郊行程要謹慎：</b>小樽單程約 35–50 分鐘、登別約 1.5 小時以上。三連休的 JR 會很擠，帶長輩的話建議市區為主，不要排太遠。</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>製作給這趟旅程 · 資料以實際訂位與現場狀況為準</p>
+</footer>
+
+<script>
+  // 倒數
+  (function(){
+    var dep=new Date(2026,10,21), end=new Date(2026,10,23,23,59), now=new Date();
+    var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    var d=Math.round((dep-today)/86400000), el=document.getElementById('cd');
+    if(!el) return;
+    if(now>end) el.innerHTML='旅程已結束';
+    else if(d>0) el.innerHTML='距離出發還有 <span>'+d+'</span> 天';
+    else if(d===0) el.innerHTML='<span>今天出發</span>';
+    else el.innerHTML='<span>旅程進行中</span>';
+  })();
+
+  // 分頁
+  var tabs=document.querySelectorAll('nav.tabs button');
+  var panels=document.querySelectorAll('section.panel');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      tabs.forEach(function(b){b.classList.remove('active');});
+      panels.forEach(function(p){p.classList.remove('active');});
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({top:document.querySelector('main').offsetTop-70,behavior:'smooth'});
+    });
+  });
+
+  // 清單記憶
+  var items=document.querySelectorAll('.check-item input');
+  var KEY='sapporo-trip-checklist', saved={};
+  try{ saved=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){}
+  items.forEach(function(inp){
+    var k=inp.dataset.key;
+    if(saved[k]){ inp.checked=true; inp.closest('.check-item').classList.add('done'); }
+    inp.addEventListener('change',function(){
+      saved[k]=inp.checked;
+      try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){}
+      inp.closest('.check-item').classList.toggle('done',inp.checked);
+    });
+  });
+</script>
+
+</body>
+</html>

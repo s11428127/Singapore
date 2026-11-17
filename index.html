@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>新加坡 3天2夜 · 家族旅行 9/6–9/8</title>
+<title>我的旅行行程</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="新加坡行程">
+<meta name="apple-mobile-web-app-title" content="旅行行程">
 <meta name="theme-color" content="#1B2340">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,1482 +24,199 @@
     --indigo:#1B2340;
     --indigo-l:#2B3560;
     --coral:#C1442B;
-    --coral-l:#DC6647;
+    --frost:#2E5A7A;
+    --frost-l:#4A86B0;
     --line:#D8CFB8;
-    --radius:14px;
+    --radius:16px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
+    margin:0; background:var(--paper); color:var(--ink);
     font-family:'Noto Sans TC', sans-serif;
-    -webkit-font-smoothing:antialiased;
-    padding-bottom:60px;
+    -webkit-font-smoothing:antialiased; padding-bottom:50px;
   }
-  h1,h2,h3,.disp{font-family:'Noto Serif TC', serif;}
-  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  h1,h2,h3{font-family:'Noto Serif TC', serif;}
 
   header{
-    background:var(--indigo);
-    color:var(--paper);
-    padding:28px 20px 22px;
-    position:relative;
-    overflow:hidden;
+    background:var(--indigo); color:var(--paper);
+    padding:36px 20px 30px; position:relative; overflow:hidden;
     border-bottom:4px solid var(--gold);
   }
   header::before{
-    content:"";
-    position:absolute; inset:0;
+    content:""; position:absolute; inset:0;
     background:
-      radial-gradient(circle at 85% -10%, rgba(227,165,66,0.18), transparent 55%),
-      radial-gradient(circle at -10% 110%, rgba(46,107,87,0.35), transparent 50%);
+      radial-gradient(circle at 88% -12%, rgba(227,165,66,0.20), transparent 55%),
+      radial-gradient(circle at -8% 112%, rgba(46,107,87,0.32), transparent 50%);
     pointer-events:none;
   }
   .eyebrow{
-    font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
-    color:var(--gold-l); margin:0 0 6px; font-weight:600;
+    font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold-l); margin:0 0 8px; font-weight:600; position:relative;
   }
-  header h1{ font-size:28px; margin:0 0 4px; font-weight:900; position:relative; }
-  header p.sub{ margin:0 0 18px; color:#C9CADA; font-size:14px; position:relative;}
+  header h1{ font-size:30px; margin:0 0 6px; font-weight:900; position:relative;}
+  header p{ margin:0; color:#C9CADA; font-size:13.5px; position:relative;}
 
-  .board{
-    background:#12172B; border-radius:var(--radius); padding:14px 14px 10px;
-    position:relative; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+  main{ max-width:640px; margin:0 auto; padding:24px 16px 0;}
+
+  .sec-label{
+    font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink-soft); font-weight:700; margin:0 0 12px;
   }
-  .board-row{
-    display:grid; grid-template-columns: 56px 1fr 1fr 70px; gap:8px;
-    align-items:center; padding:9px 4px; border-bottom:1px dashed rgba(255,255,255,0.12);
+  .sec-label:not(:first-child){ margin-top:32px; }
+
+  a.trip{
+    display:block; text-decoration:none; color:inherit;
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+    padding:0; margin-bottom:16px; overflow:hidden;
+    box-shadow:0 1px 2px rgba(33,29,23,0.04);
+    transition:transform .15s ease, box-shadow .15s ease;
   }
-  .board-row:last-child{border-bottom:none;}
-  .board-row .flap{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; color:var(--gold-l); }
-  .board-row .route{ font-size:13px; color:#E9E6DA;}
-  .board-row .route small{display:block; color:#8B8FA8; font-size:10px; margin-top:1px;}
-  .board-row .time{ font-family:'IBM Plex Mono', monospace; text-align:right; font-size:15px; font-weight:600; color:#fff; }
-  .board-head{
-    display:grid; grid-template-columns:56px 1fr 1fr 70px; gap:8px;
-    font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:#6D7290; padding:0 4px 6px;
+  a.trip:active{ transform:scale(0.985); }
+  @media (hover:hover){
+    a.trip:hover{ box-shadow:0 6px 18px rgba(33,29,23,0.10); }
   }
-  .board-note{ font-size:11px; color:#9AA0C2; margin-top:8px; padding:0 4px; line-height:1.5;}
-  .board-note b{ color:var(--gold-l); }
 
-  nav.tabs{
-    position:sticky; top:0; z-index:10; display:flex; gap:6px; overflow-x:auto;
-    background:var(--paper); padding:12px 16px; border-bottom:1px solid var(--line);
-    -ms-overflow-style:none; scrollbar-width:none;
+  .trip-top{
+    padding:18px 18px 16px; color:#fff; position:relative; overflow:hidden;
   }
-  nav.tabs::-webkit-scrollbar{display:none;}
-  nav.tabs button{
-    flex:0 0 auto; font-family:'Noto Sans TC', sans-serif; font-size:13.5px; font-weight:700;
-    padding:8px 14px; border-radius:999px; border:1px solid var(--line);
-    background:#fff; color:var(--ink-soft); cursor:pointer;
+  .trip-top.sapporo{ background:var(--frost); }
+  .trip-top.sapporo::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 92% -20%, rgba(255,255,255,0.22), transparent 58%);
   }
-  nav.tabs button.active{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
-
-  main{ max-width:640px; margin:0 auto; padding:20px 16px 0;}
-  section.panel{ display:none; }
-  section.panel.active{ display:block; animation:fade .25s ease; }
-  @keyframes fade{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;} }
-
-  .day-title{ display:flex; align-items:baseline; gap:10px; margin:4px 0 18px; }
-  .day-title .num{ font-family:'Noto Serif TC', serif; font-weight:900; font-size:34px; line-height:1; }
-  .day-title h2{ margin:0; font-size:17px; }
-  .day-title .date{ font-size:12px; color:var(--ink-soft); margin-top:2px;}
-
-  .callout{
-    background:#fff; border:1px solid var(--line); border-left:4px solid var(--coral);
-    border-radius:10px; padding:12px 14px; margin-bottom:16px; font-size:13px; line-height:1.6; color:var(--ink-soft);
+  .trip-top.sg{ background:var(--jungle); }
+  .trip-top.sg::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 92% -20%, rgba(227,165,66,0.26), transparent 58%);
   }
-  .callout b{ color:var(--ink); }
-
-  .timeline{ position:relative; padding-left:26px; }
-  .timeline::before{ content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:var(--line); }
-  .stop{ position:relative; padding-bottom:22px; }
-  .stop:last-child{ padding-bottom:0; }
-  .stop::before{
-    content:""; position:absolute; left:-26px; top:4px; width:12px; height:12px; border-radius:50%;
-    background:var(--accent, var(--jungle)); border:3px solid var(--paper); box-shadow:0 0 0 2px var(--accent, var(--jungle));
+  .trip-top .flag{ font-size:26px; line-height:1; margin-bottom:8px; position:relative;}
+  .trip-top h2{ margin:0 0 4px; font-size:21px; font-weight:900; position:relative;}
+  .trip-top .dates{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    color:rgba(255,255,255,0.86); position:relative;
   }
-  .stop .t{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; font-weight:600; color:var(--accent, var(--jungle)); margin-bottom:2px; }
-  .stop h3{ margin:0 0 4px; font-size:15.5px; font-weight:700; font-family:'Noto Sans TC',sans-serif;}
-  .stop p{ margin:0; font-size:13.5px; color:var(--ink-soft); line-height:1.55; }
-  .stop .tag{ display:inline-block; margin-top:6px; margin-right:6px; font-size:11px; padding:2px 8px; border-radius:6px; background:var(--paper-2); color:var(--ink-soft); }
-  .stop .tag.warn{ background:#F6E2DC; color:var(--coral); }
 
-  #day1 .stop::before, #day1 .stop .t{ --accent:var(--indigo-l); color:var(--indigo-l); }
-  #day1 .stop::before{ background:var(--indigo-l); box-shadow:0 0 0 2px var(--indigo-l);}
-  #day2 .stop::before, #day2 .stop .t{ --accent:var(--jungle-l); color:var(--jungle-l);}
-  #day2 .stop::before{ background:var(--jungle-l); box-shadow:0 0 0 2px var(--jungle-l);}
-  #day3 .stop::before, #day3 .stop .t{ --accent:var(--coral); color:var(--coral);}
-  #day3 .stop::before{ background:var(--coral); box-shadow:0 0 0 2px var(--coral);}
-
-  .card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px; margin-bottom:14px; }
-  .card h3{ margin:0 0 6px; font-size:15px; }
-  .card p{ margin:0 0 4px; font-size:13.5px; color:var(--ink-soft); line-height:1.6;}
-  .card a{ color:var(--jungle); font-weight:600; }
-  .card.alert{ border-left:4px solid var(--coral); }
-  .card.alert h3{ color:var(--coral); }
-
-  .check-group{ margin-bottom:20px; }
-  .check-group h3{ font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-soft); margin:0 0 10px; }
-  .check-item{ display:flex; gap:10px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px; margin-bottom:8px; cursor:pointer; }
-  .check-item input{ margin-top:3px; width:17px; height:17px; accent-color:var(--gold); flex:0 0 auto;}
-  .check-item .txt b{ display:block; font-size:14px; margin-bottom:2px; }
-  .check-item .txt span{ font-size:12.5px; color:var(--ink-soft); line-height:1.5; }
-  .check-item.done .txt b{ text-decoration:line-through; color:var(--ink-soft); }
-
-  footer{ text-align:center; font-size:12px; color:var(--ink-soft); padding:30px 20px 0; }
-  .badge-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;}
-  .badge{ font-size:11px; background:var(--paper-2); padding:3px 9px; border-radius:6px; color:var(--ink-soft);}
-
-
-  /* ===== 現場指引 ===== */
-  details.guide{ margin-top:10px; background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden; }
-  details.guide summary{
-    list-style:none; cursor:pointer; padding:9px 12px; font-size:12.5px; font-weight:700;
-    color:var(--jungle); display:flex; align-items:center; gap:6px;
+  .status{
+    position:absolute; top:16px; right:16px; z-index:2;
+    font-size:11px; font-weight:700; padding:5px 11px; border-radius:999px;
+    letter-spacing:0.02em;
   }
-  details.guide summary::-webkit-details-marker{display:none;}
-  details.guide summary::after{ content:"＋"; margin-left:auto; color:var(--ink-soft); }
-  details.guide[open] summary::after{ content:"－"; }
-  details.guide[open] summary{ border-bottom:1px solid var(--line); }
-  .guide-body{ padding:12px; font-size:13px; line-height:1.65; color:var(--ink-soft); }
-  .guide-body h4{ margin:14px 0 5px; font-size:12.5px; font-family:'Noto Sans TC',sans-serif; color:var(--ink); }
-  .guide-body h4:first-child{ margin-top:0; }
-  .guide-body p{ margin:0 0 6px; }
-  .guide-body ol,.guide-body ul{ margin:0 0 6px; padding-left:18px; }
-  .guide-body li{ margin-bottom:4px; }
-  .guide-body b{ color:var(--ink); }
-  .gmap{
-    display:inline-flex; align-items:center; gap:5px; margin:4px 6px 4px 0; font-size:12px;
-    font-weight:700; text-decoration:none; background:var(--jungle); color:#fff;
-    padding:6px 11px; border-radius:999px;
+  .status.soon{ background:var(--gold); color:#3A2A08; }
+  .status.done{ background:rgba(255,255,255,0.18); color:#fff; }
+  .status.today{ background:var(--coral); color:#fff; }
+
+  .trip-body{ padding:14px 18px 16px; }
+  .trip-body p{ margin:0 0 10px; font-size:13px; color:var(--ink-soft); line-height:1.6;}
+  .chips{ display:flex; gap:6px; flex-wrap:wrap; }
+  .chip{
+    font-size:11px; background:var(--paper-2); color:var(--ink-soft);
+    padding:3px 9px; border-radius:6px;
   }
-  .gmap.alt{ background:var(--indigo); }
-  .gmap.buy{ background:var(--gold); color:#3A2A08; }
-  .svgwrap{ margin:10px 0; overflow-x:auto; }
-  .svgwrap svg{ display:block; min-width:300px; max-width:100%; height:auto; }
-  .svgcap{ font-size:11px; color:var(--ink-soft); margin-top:2px; }
-  .note-warn{
-    background:#F9EAE5; border-left:3px solid var(--coral); border-radius:8px;
-    padding:9px 11px; margin:8px 0; font-size:12.5px; color:#7A2A18; line-height:1.6;
+  .chip.warn{ background:#F6E2DC; color:var(--coral); font-weight:700;}
+  .go{
+    margin-top:12px; font-size:12.5px; font-weight:700; color:var(--jungle);
+    display:flex; align-items:center; gap:5px;
   }
-  .note-warn b{ color:var(--coral); }
-  .note-ok{
-    background:#E6F0EA; border-left:3px solid var(--jungle); border-radius:8px;
-    padding:9px 11px; margin:8px 0; font-size:12.5px; color:#1F4D3E; line-height:1.6;
+  .trip-top.sapporo ~ .trip-body .go{ color:var(--frost); }
+
+  .countdown{
+    font-family:'IBM Plex Mono', monospace; font-weight:600;
   }
-  table.mini{ width:100%; border-collapse:collapse; margin:8px 0; font-size:12.5px; }
-  table.mini th,table.mini td{ border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
-  table.mini th{ background:var(--paper-2); font-weight:700; color:var(--ink); }
-  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+
+  footer{
+    text-align:center; font-size:12px; color:var(--ink-soft);
+    padding:34px 20px 0; line-height:1.7;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <p class="eyebrow">Family Trip · TPE → SIN</p>
-  <h1>新加坡 3天2夜</h1>
-  <p class="sub">2026.09.06（日）— 09.08（二）· 我、媽媽、外公、外婆</p>
-
-  <div class="board">
-    <div class="board-head"><span>班機</span><span>航線</span><span>備註</span><span>時間</span></div>
-    <div class="board-row">
-      <span class="flap" data-flap="BR225">BR225</span>
-      <span class="route">桃園 TPE → 樟宜 SIN T3<small>去程・9/6（日）</small></span>
-      <span class="route" style="color:#8B8FA8;">11:55 抵達</span>
-      <span class="time" data-flap="07:30">07:30</span>
-    </div>
-    <div class="board-row">
-      <span class="flap" data-flap="BR226">BR226</span>
-      <span class="route">樟宜 SIN T3 → 桃園 TPE<small>回程・9/8（二）</small></span>
-      <span class="route" style="color:#8B8FA8;">17:45 抵達</span>
-      <span class="time" data-flap="13:10">13:10</span>
-    </div>
-    <p class="board-note">住宿 <b>Dao by Dorsett AMTD</b>（珊頓道 CBD）・實際起降航廈為 <b>Terminal 3</b></p>
-  </div>
+  <p class="eyebrow">Travel Itineraries</p>
+  <h1>我的旅行行程</h1>
+  <p>點進去看完整行程、現場指引與準備清單</p>
 </header>
 
-<nav class="tabs">
-  <button class="active" data-tab="day1">Day 1</button>
-  <button data-tab="day2">Day 2</button>
-  <button data-tab="day3">Day 3</button>
-  <button data-tab="exit">出境須知</button>
-  <button data-tab="kaya">咖椰醬攻略</button>
-  <button data-tab="pay">付款與預算</button>
-  <button data-tab="diet">長輩飲食</button>
-  <button data-tab="prep">行前準備</button>
-  <button data-tab="info">住宿＆美食</button>
-</nav>
-
 <main>
+  <p class="sec-label">即將出發</p>
 
-  <section class="panel active" id="day1">
-    <div class="day-title">
-      <span class="num">01</span>
-      <div><h2>松發午餐 · 補眠 · 雞飯 · 夜遊船</h2><div class="date">9/6（日）</div></div>
+  <a class="trip" href="sapporo.html">
+    <div class="trip-top sapporo">
+      <span class="status soon" id="sapporo-status">籌備中</span>
+      <div class="flag">🇯🇵</div>
+      <h2>札幌 3天2夜</h2>
+      <div class="dates">2026.11.21（六）— 11.23（一）</div>
     </div>
-    <div class="callout"><b>改搭 07:30 的 BR225 之後：</b>11:55 就落地，比原本早 2 小時，但代價是凌晨 4 點就要起床。所以下午<b>刻意留了 2.5 小時補眠</b>，晚上才有體力走完晚餐＋魚尾獅＋遊船。午餐直接在機場 Jewel 的松發肉骨茶解決，不用餓著肚子進市區。</div>
-
-    <div class="timeline">
-      <div class="stop">
-        <div class="t">11:55–12:45</div>
-        <h3>抵達樟宜機場 T3 與入境</h3>
-        <p>BR225 落地 Terminal 3，順著「Arrival / Immigration」指引走。符合資格的台灣護照可直接用<b>自動通關通道</b>刷臉／指紋，不用排人工櫃檯。之後提領行李。</p>
-        <details class="guide">
-          <summary>🛂 入境流程與可能卡關的地方</summary>
-          <div class="guide-body">
-            <h4>順序</h4>
-            <ol>
-              <li>下機沿 <b>Arrival</b> 指標走，樟宜 T3 到入境大廳要走一段，長輩走不動可在登機門附近找機場服務人員<b>要輪椅</b>（免費）</li>
-              <li><b>自動通關閘門</b>：護照放上讀取器 → 看鏡頭 → 按指紋 → 閘門開。<b>不會蓋章</b>，這是正常的，新加坡已經全面電子化</li>
-              <li>提領行李（看螢幕找 BR225 的轉盤）</li>
-              <li>綠線通關出關</li>
-            </ol>
-            <div class="note-warn"><b>最容易卡在這裡：</b>沒填 SG Arrival Card 的人閘門會過不去，要被請去人工櫃檯重填。出發前 72 小時內（<b>9/3 之後</b>）四個人都要填完，填完的確認信截圖存在手機裡。</div>
-            <h4>長輩通關小提醒</h4>
-            <p>指紋辨識對長輩常常失敗（手指紋路較淺、乾燥）。試兩次不過就直接走旁邊<b>人工櫃檯</b>，不要一直重試卡住後面的人。人工櫃檯一樣快。</p>
-            <h4>現金：這趟主要刷卡，不用換太多</h4>
-            <p>Grab、餐廳、超市、門票都刷信用卡就好。<b>只有熟食中心攤位需要現金</b>（詳見「付款與預算」分頁）。機場入境大廳有換匯櫃檯和 ATM，但匯率通常比市區差，媽媽換的那筆已經很夠用。</p>
-          </div>
-        </details>
+    <div class="trip-body">
+      <p id="sapporo-sub">初冬的北海道，11/23 遇上日本勤労感謝日三連休。行程細節整理中。</p>
+      <div class="chips">
+        <span class="chip">初冬・可能下雪</span>
+        <span class="chip">三連休</span>
+        <span class="chip warn" id="sapporo-chip">倒數計算中</span>
       </div>
+      <div class="go">開啟行程 →</div>
+    </div>
+  </a>
 
-      <div class="stop">
-        <div class="t">12:45–13:00</div>
-        <h3>走連通橋到星耀樟宜 Jewel</h3>
-        <p>從 T3 出境／入境大廳走連通天橋到 Jewel，<b>約 5–10 分鐘</b>，全程室內有冷氣、平路推行李。</p>
-        <span class="tag">室內・平路</span>
-        <details class="guide">
-          <summary>🧳 帶著行李方便嗎？</summary>
-          <div class="guide-body">
-            <p>Jewel 本來就是機場商場，<b>到處都是拖行李的旅客</b>，餐廳也習慣了，不用擔心。松發在 B2，有電梯直達，不用搬行李下樓梯。</p>
-            <div class="note-ok">如果覺得帶四個人的行李吃飯太擠，Jewel 一樓有<b>行李寄存服務</b>（Baggage Storage），寄放幾小時再回來拿。不過吃個飯而已，通常直接帶著就好。</div>
-          </div>
-        </details>
+  <p class="sec-label">已完成</p>
+
+  <a class="trip" href="singapore.html">
+    <div class="trip-top sg">
+      <span class="status done">已結束</span>
+      <div class="flag">🇸🇬</div>
+      <h2>新加坡 3天2夜</h2>
+      <div class="dates">2026.09.06（日）— 09.08（二）</div>
+    </div>
+    <div class="trip-body">
+      <p>我、媽媽、外公、外婆。松發肉骨茶、天天海南雞飯、濱海灣花園、WaterB 夜遊船。含付款預算、長輩飲食與咖椰醬採買攻略。</p>
+      <div class="chips">
+        <span class="chip">BR225 / BR226</span>
+        <span class="chip">Dao by Dorsett</span>
+        <span class="chip">4 人同行</span>
       </div>
-
-      <div class="stop">
-        <div class="t">13:00–14:15</div>
-        <h3>午餐・松發肉骨茶 Song Fa（Jewel B2）</h3>
-        <p>單元號 <b>#B2-278/279/280</b>。潮州式<b>清湯胡椒肉骨茶</b>，湯可免費續，米其林必比登連續多年入選。這正好是長輩飲食原則裡⭕推薦的類型：清湯底、吃燉軟瘦肉，不是馬來西亞的濃黑藥材湯。</p>
-        <span class="tag">10:30–21:30</span>
-        <span class="tag">全冷氣・可刷卡</span>
-        <span class="tag warn">假日尖峰可能排隊</span>
-        <details class="guide">
-          <summary>🍜 怎麼點、付款、避開排隊</summary>
-          <div class="guide-body">
-            <h4>建議點法（含長輩版）</h4>
-            <ul>
-              <li><b>排骨肉骨茶 ×4</b>，一人一碗。湯可以免費續，跟店員說 <b>"more soup"</b></li>
-              <li><b>滷豬腳</b>——燉到軟爛不用費力咬，長輩接受度高</li>
-              <li><b>油條</b>泡湯、<b>麵線</b>或白飯當主食</li>
-              <li><b>滷豆干、青菜</b>平衡一下</li>
-            </ul>
-            <p>四人吃下來大約 <b>S$70–90</b>（機場店比市區稍貴）。</p>
-            <div class="note-ok"><b>長輩吃法：</b>主要吃燉軟的瘦肉補蛋白質，<b>濃湯喝 2–3 口嚐鮮就好</b>，不要整碗喝完——胡椒湯頭鈉含量高。怕辣可以說 <b>"less pepper"</b>。詳見「長輩飲食」分頁。</div>
-            <h4>付款</h4>
-            <p><b>可刷信用卡</b>（Visa／Mastercard 感應付款都行），也收現金。這是正式餐廳不是路邊攤，不用擔心付款問題。</p>
-            <h4>尖峰時間</h4>
-            <div class="note-warn">9/6 是<b>週日</b>，Jewel 假日人多，松發<b>假日尖峰（12:00–14:00）可能排到 30–60 分鐘</b>。你們 13:00 到達正好在尖峰中段。如果隊伍太長：現場先領號碼牌，帶長輩去旁邊看雨漩渦（就在同一棟），叫號了再回來，不用站著排。</div>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Song+Fa+Bak+Kut+Teh+Jewel+Changi+Airport" target="_blank" rel="noopener">📍 松發肉骨茶 Jewel 店</a>
-          </div>
-        </details>
-      </div>
-
-      <div class="stop">
-        <div class="t">14:15–14:45</div>
-        <h3>順道看雨漩渦 Rain Vortex</h3>
-        <p>吃完就在同一棟，走幾步就到。<b>9/6 是週日，瀑布 10:00 就開始放水</b>（週五至週日 10:00–22:00），這個時段過去一定看得到——比 Day 3 回程那天（週二要等到 11:00）更寬鬆。</p>
-        <span class="tag">週日 10:00–22:00 放水</span>
-        <span class="tag">免費・室內冷氣</span>
-        <div class="note-ok"><b>等於提前解鎖：</b>Day 3 回程本來也排了 Jewel 看瀑布。今天先看過的話，Day 3 那段就可以純粹拿來買伴手禮或坐著休息，壓力更小。</div>
-      </div>
-
-      <div class="stop">
-        <div class="t">14:45–15:15</div>
-        <h3>Grab 前往飯店</h3>
-        <p>回到 T3 到達層的「Ride-Hailing / Taxi Zone」搭 Grab 到 <b>Dao by Dorsett AMTD Singapore</b>（6 Shenton Way, OUE Downtown 1），車程約 20–25 分鐘。</p>
-        <details class="guide">
-          <summary>🚕 叫車與入住須知</summary>
-          <div class="guide-body">
-            <h4>叫車</h4>
-            <p>目的地輸入 <b>Dao by Dorsett AMTD Singapore</b> 或 <b>OUE Downtown 1, 6 Shenton Way</b>。4 人加行李記得叫 <b>GrabCar 6-seater（大車）</b>，一般 4 人座塞不下。車資約 <b>S$25–35</b>，<b>App 內直接刷信用卡</b>，不用付現金。</p>
-            <h4>大廳在 7 樓</h4>
-            <p>這是辦公大樓改建的服務式公寓，<b>Check-in 櫃檯在 7 樓</b>，不是一樓。進大樓後直接搭電梯上去，第一次來很容易在一樓繞。</p>
-            <div class="note-warn"><b>如果房間還沒好：</b>飯店標準 check-in 通常 15:00。你們 15:15 左右到，時間剛好；萬一房間還沒整理完，可以先寄行李，在 7 樓大廳或頂樓泳池區坐著等。</div>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Dao+by+Dorsett+AMTD+Singapore+6+Shenton+Way" target="_blank" rel="noopener">📍 飯店位置</a>
-          </div>
-        </details>
-      </div>
-
-      <div class="stop">
-        <div class="t">15:15–17:30</div>
-        <h3>入住・午睡補眠</h3>
-        <p>今天凌晨 4 點就起床了，這段<b>刻意空著不排任何行程</b>。進房睡個 2 小時，晚上才有體力走完晚餐、魚尾獅、遊船。房內有 Nespresso 咖啡機，起床想提神可以喝一杯。</p>
-        <span class="tag">關鍵補眠時段</span>
-        <div class="note-ok">體力好的人可以去頂樓無邊際泳池泡一下（記得帶泳衣），但至少讓外公外婆躺著休息。今晚的行程會走到 21:00 左右。</div>
-      </div>
-
-      <div class="stop">
-        <div class="t">17:45–19:00</div>
-        <h3>晚餐・天天海南雞飯・麥士威熟食中心</h3>
-        <p>攤位 <b>#01-10/11</b>，1 Kadayanallur Street。飯店樓下 Shenton Way 站搭棕線<b>1 站</b>到 Maxwell 站，出站即達；或 Grab 約 5 分鐘。新加坡最知名的雞飯之一，滑嫩白斬雞配香濃雞油飯。</p>
-        <span class="tag warn">約10:00–19:30・週一公休</span>
-        <span class="tag">無冷氣・電扇</span>
-        <span class="tag warn">只收現金／掃碼</span>
-        <details class="guide">
-          <summary>🍛 熟食中心規矩、付款、點餐</summary>
-          <div class="guide-body">
-            <h4>先搞懂熟食中心的規矩</h4>
-            <p>麥士威是<b>沒有冷氣的半開放式</b>大棚，有電風扇，傍晚會比中午涼快一些。運作方式和台灣美食街不同：</p>
-            <ol>
-              <li><b>先佔位</b>再點餐。當地人習慣放一包面紙在桌上就代表這位子有人了（叫 chope），這是公認的規矩，看到面紙不要坐</li>
-              <li>建議<b>先讓外公外婆坐下</b>，你和媽媽去排隊點餐</li>
-              <li>各攤<b>各自付錢</b></li>
-              <li>吃完<b>要自己收餐盤</b>到回收架，新加坡有規定不收會罰款</li>
-            </ol>
-            <div class="note-warn"><b>付款：這一餐一定要用現金。</b>熟食中心攤位大多不收信用卡，掛出來的 PayNow QR <b>觀光客用不了</b>（需要新加坡銀行帳戶）。四個人抓 <b>S$40–50 現金</b>，帶 S$10／S$5／S$2 小鈔，攤販不喜歡收大鈔。</div>
-            <h4>怎麼找到天天</h4>
-            <p>從 Maxwell Road 正面主入口進去，攤位號 <b>#01-10 / #01-11</b>。最好認的特徵：<b>排最長隊的那一攤</b>，招牌是紅底白字，掛著一排烤好的白斬雞。旁邊常有另一家也叫「天天」的類似店家，認攤位號碼最準。</p>
-            <h4>點餐</h4>
-            <p>直接說「<b>four chicken rice</b>」，會問你要 <b>steamed（白斬，經典）</b>還是 <b>roasted（燒雞）</b>。一份約 S$6–8。桌上有三種醬：紅色辣椒醬、黑色甜醬油、薑蓉，雞飯沾辣椒醬是標準吃法，長輩怕辣就用薑蓉。</p>
-            <div class="note-ok"><b>長輩吃法：</b>白斬雞<b>去皮</b>吃，醬油少量沾取。雞油飯升糖較快，建議跟家人分食或少吃兩口。詳見「長輩飲食」分頁。</div>
-            <div class="note-warn"><b>這家週一公休：</b>Day 2（9/7）是週一，天天那天不開，所以雞飯排在今天（週日）、叻沙留到明天午餐——兩個分開排剛好都吃得到，不會撲空。各方資料對打烊時間略有出入（19:30–21:00 不等），17:45 過去絕對來得及。</div>
-            <h4>尖峰時間</h4>
-            <p>傍晚 17:45 是離峰，大約排 10–15 分鐘。真正的尖峰是中午 12:00–13:30（排 40 分鐘以上）。</p>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Tian+Tian+Hainanese+Chicken+Rice+Maxwell+Food+Centre" target="_blank" rel="noopener">📍 天天海南雞飯</a>
-          </div>
-        </details>
-      </div>
-
-      <div class="stop">
-        <div class="t">19:15–20:00</div>
-        <h3>魚尾獅公園 Merlion Park（夜景版）</h3>
-        <p>麥士威熟食中心門口搭 Grab，車程約 10 分鐘。9 月新加坡日落約 19:10，到的時候天正好暗下來，拍魚尾獅噴水與金沙酒店天際線最漂亮。</p>
-        <span class="tag">24小時開放・戶外無冷氣</span>
-        <div class="note-warn"><b>上船前先上廁所：</b>遊船上沒有洗手間。魚尾獅公園旁的 <b>One Fullerton 商場</b>有洗手間，上船前務必先解決。</div>
-      </div>
-
-      <div class="stop">
-        <div class="t">20:15–20:55</div>
-        <h3>WaterB 遊船・魚尾獅上船</h3>
-        <p>在 <b>Merlion Park 碼頭</b>上船，沿新加坡河往上游開，依序經過 <b>Raffles Landing → Raffles Place → Eu Tong Sen（克拉碼頭）→ Fort Canning</b>，全程約 40 分鐘。<b>坐好坐滿到 Eu Tong Sen 或 Fort Canning 再下船</b>，不要在 Raffles Place 就下（那樣只坐一小段）。</p>
-        <span class="tag">14:00–21:00・末班21:00</span>
-        <span class="tag">出發前線上先買</span>
-        <details class="guide">
-          <summary>🚤 WaterB 的路線、購票與注意事項</summary>
-          <div class="guide-body">
-            <h4>全線 7 個碼頭（由下游往上游）</h4>
-            <ol>
-              <li>Bayfront North（藝術科學博物館旁）</li>
-              <li>Esplanade（濱海藝術中心旁）</li>
-              <li><b>Merlion Park（魚尾獅公園）← 你們上船</b></li>
-              <li>Raffles Landing（萊佛士登陸點雕像）</li>
-              <li>Raffles Place（離飯店最近，<b>但別在這裡下</b>）</li>
-              <li><b>Eu Tong Sen（克拉碼頭）← 建議下船</b></li>
-              <li><b>Fort Canning（最上游）← 或這裡下船</b></li>
-            </ol>
-            <div class="note-warn"><b>下船就不能再上船。</b>WaterB 可以在沿途任一碼頭下船，但<b>下了就不能重新登船</b>。所以要坐到 Eu Tong Sen 或 Fort Canning 才下，才算把整段精華河景看完。</div>
-            <h4>購票（出發前先買）</h4>
-            <p>現場價約 <b>S$28/人</b>，<b>Klook／KKday 線上買通常便宜一截</b>（有看過 US$19–22 的價格）。出發前在台灣就買好，刷信用卡、拿 QR Code，到碼頭掃碼上船，不佔用現金也不用排售票隊。</p>
-            <h4>班次</h4>
-            <p>每天 <b>14:00–21:00</b>，約每 30 分鐘一班，<b>末班 21:00</b>。你們 20:15 上船很安全，不用趕。</p>
-            <div class="note-ok"><b>坐哪邊都可以：</b>兩岸都有燈光，不用糾結。夜間河風涼，長輩帶件薄外套。</div>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Merlion+Park+Jetty+Singapore" target="_blank" rel="noopener">📍 魚尾獅碼頭</a>
-          </div>
-        </details>
-      </div>
-
-      <div class="stop">
-        <div class="t">21:05</div>
-        <h3>返回飯店休息</h3>
-        <p>在克拉碼頭（Eu Tong Sen）或 Fort Canning 下船，走到叫車點搭 Grab，車程約 <b>7–8 分鐘</b>回飯店。週日晚上新加坡 Grab 供給量大，等車通常 3–8 分鐘，不用擔心叫不到。</p>
-        <div class="note-ok">今天從凌晨 4 點起床撐到現在，回房洗漱就早點睡。明天早上 7:30 亞坤早餐，還要走一段河濱路線。</div>
-      </div>
+      <div class="go">回顧行程 →</div>
     </div>
-  </section>
-
-  <section class="panel" id="day2">
-    <div class="day-title">
-      <span class="num">02</span>
-      <div><h2>亞坤 · 河濱漫步 · 花穹 · 沙嗲晚餐</h2><div class="date">9/7（一）</div></div>
-    </div>
-    <div class="timeline">
-      <div class="stop">
-        <div class="t">07:30–08:15</div>
-        <h3>早餐・亞坤 Ya Kun Kaya Toast（Robinson Road 店）</h3>
-        <p>61 Robinson Road #01-01，從飯店走路約 7–8 分鐘，同一個 CBD 街區。這是亞坤的老字號門市（不是連鎖商場店），招牌炭烤咖椰吐司、半熟蛋、南洋 Kopi。</p>
-        <span class="tag">07:30 開始營業・冷氣</span>
-        <span class="tag">可刷卡</span>
-        <details class="guide">
-          <summary>☕ 點餐建議</summary>
-          <div class="guide-body">
-            <h4>建議點法</h4>
-            <ul>
-              <li><b>咖椰吐司</b>＋<b>半熟蛋</b>＋<b>Kopi</b> 經典套餐，一人約 S$6–8</li>
-              <li>長輩不敢吃流動蛋黃：點餐時說 <b>"hard boiled"</b></li>
-              <li>怕咖啡太甜：點 <b>Kopi C Kosong</b>（淡奶不加糖）</li>
-            </ul>
-            <div class="note-ok">7:30 剛開門過去人最少，位子最好找。今天走比較長的路線，早餐吃飽一點，中間不特別安排點心。</div>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Ya+Kun+Kaya+Toast+61+Robinson+Road+Singapore" target="_blank" rel="noopener">📍 亞坤 Robinson Road 店</a>
-          </div>
-        </details>
-      </div>
-
-      <div class="svgwrap">
-        <svg viewBox="0 0 320 342" role="img" aria-label="Day2 早晨河濱漫步動線" xmlns="http://www.w3.org/2000/svg">
-          <style>
-            .wn{fill:#fff;stroke:#2B3560;stroke-width:1.4;rx:7}
-            .wnt{font:700 11px 'Noto Sans TC',sans-serif;fill:#211D17}
-            .wns{font:400 9.5px 'Noto Sans TC',sans-serif;fill:#5B5548}
-            .wtime{font:600 9px 'IBM Plex Mono',monospace;fill:#2B3560}
-            .wline{stroke:#2B3560;stroke-width:1.6;fill:none;stroke-dasharray:4 3}
-          </style>
-          <rect class="wn" x="8" y="8" width="304" height="38"/>
-          <text class="wnt" x="18" y="24">亞坤（早餐）</text>
-          <text class="wns" x="18" y="38">07:30–08:15　Robinson Road</text>
-          <path class="wline" d="M40,46 L40,62"/><text class="wtime" x="50" y="58">走 7 分</text>
-
-          <rect class="wn" x="8" y="64" width="304" height="38"/>
-          <text class="wnt" x="18" y="80">萊佛士坊 Raffles Place</text>
-          <text class="wns" x="18" y="94">08:15–08:35　金融區摩天樓</text>
-          <path class="wline" d="M40,102 L40,118"/><text class="wtime" x="50" y="114">走 10 分</text>
-
-          <rect class="wn" x="8" y="120" width="304" height="38" style="stroke:#E3A542"/>
-          <text class="wnt" x="18" y="136">魚尾獅公園（白天版）</text>
-          <text class="wns" x="18" y="150">08:35–09:15　戶外・拍照重點</text>
-          <path class="wline" d="M40,158 L40,174"/><text class="wtime" x="50" y="170">走 3 分</text>
-
-          <rect class="wn" x="8" y="176" width="304" height="38"/>
-          <text class="wnt" x="18" y="192">富麗敦酒店・克拉佛橋</text>
-          <text class="wns" x="18" y="206">09:15–09:35　歷史建築＋古橋</text>
-          <path class="wline" d="M40,214 L40,230"/><text class="wtime" x="50" y="226">走 5 分</text>
-
-          <rect class="wn" x="8" y="232" width="304" height="38"/>
-          <text class="wnt" x="18" y="248">駁船碼頭 Boat Quay</text>
-          <text class="wns" x="18" y="262">09:35–10:05　彩色老店屋沿河</text>
-          <path class="wline" d="M40,270 L40,286"/><text class="wtime" x="50" y="282">走 12 分</text>
-
-          <rect class="wn" x="8" y="288" width="304" height="38" style="stroke:#E3A542"/>
-          <text class="wnt" x="18" y="304">麥士威熟食中心（午餐）</text>
-          <text class="wns" x="18" y="318">10:50 抵達　11:00 老娘惹叻沙開門</text>
-        </svg>
-        <p class="svgcap">全程平路沿河，總步行時間約 35–40 分鐘，其餘都是拍照休息的餘裕時間。</p>
-      </div>
-
-      <div class="stop">
-        <div class="t">08:15–08:35</div>
-        <h3>萊佛士坊 Raffles Place</h3>
-        <p>亞坤門口沿 Robinson Road 走過去，約 7 分鐘。新加坡的金融心臟地帶，摩天樓環繞的廣場，週一早上會有不少上班族匆匆走過，是很不一樣的城市生活風景。</p>
-        <span class="tag">戶外・平路</span>
-      </div>
-      <div class="stop">
-        <div class="t">08:35–09:15</div>
-        <h3>魚尾獅公園（白天版）Merlion Park</h3>
-        <p>從萊佛士坊沿 Fullerton Road 走到 One Fullerton，約 10 分鐘。白天版魚尾獅背後是藍天和濱海灣沙灘酒店、藝術科學博物館，跟昨晚遊船看到的夜景完全是兩種光線，很適合這個時段拍全家福。</p>
-        <span class="tag">24小時開放・戶外無冷氣</span>
-        <div class="note-ok">One Fullerton 商場（魚尾獅旁）有洗手間可以用，這段長走中途休息的好地方。</div>
-      </div>
-      <div class="stop">
-        <div class="t">09:15–09:35</div>
-        <h3>富麗敦酒店周邊・克拉佛橋 Cavenagh Bridge</h3>
-        <p>魚尾獅公園旁邊就是富麗敦酒店（The Fullerton Hotel），前身是 1928 年的新加坡中央郵政局，白色新古典建築很好拍。旁邊的克拉佛橋建於 1869 年，是新加坡現存最古老的橋樑之一，懸索式結構、僅供行人通行。</p>
-        <span class="tag">戶外・平路無台階</span>
-      </div>
-      <div class="stop">
-        <div class="t">09:35–10:05</div>
-        <h3>沿河散步到駁船碼頭 Boat Quay</h3>
-        <p>過橋後沿新加坡河北岸走，約 5 分鐘到駁船碼頭。整排色彩繽紛的老店屋是曾經的貿易碼頭，現在是餐廳酒吧一條街，早上多半還沒開張、人不多，適合慢慢拍照散步。</p>
-        <span class="tag">戶外・平路</span>
-        <div class="note-warn"><b>順便買咖椰醬或名產？</b>這一段沿路沒有特別值得掃貨的店，大宗採購已經排在午餐後、走幾分鐘就到的 FairPrice（比這裡便宜很多），不用現在提著東西走完剩下的路。如果剛好經過便利商店，可以先買點小零食當路上點心。</div>
-      </div>
-      <div class="stop">
-        <div class="t">10:05–10:50</div>
-        <h3>繼續散步到麥士威熟食中心</h3>
-        <p>沿南橋路（South Bridge Road）方向走，約 12 分鐘到麥士威。老娘惹叻沙 <b>11:00 才開門</b>，提早到的話可以在熟食中心周邊找地方坐著休息、喝杯冷飲，不用站著等。</p>
-      </div>
-      <div class="stop">
-        <div class="t">11:00–12:30</div>
-        <h3>午餐・老娘惹叻沙 Old Nyonya・麥士威熟食中心</h3>
-        <p>攤位 <b>#01-04</b>，昨晚吃過雞飯的同一個熟食中心，換一攤吃娘惹叻沙。椰漿湯頭濃郁、蝦米豆芽鮮蝦，是麥士威裡評價很高的叻沙攤。</p>
-        <span class="tag warn">11:00–21:00・週三公休</span>
-        <span class="tag">無冷氣・電扇</span>
-        <span class="tag warn">只收現金</span>
-        <span class="tag warn">長輩湯只喝2-3口</span>
-        <details class="guide">
-          <summary>🍜 點餐與現場狀況</summary>
-          <div class="guide-body">
-            <p>熟食中心的規矩（chope 佔位、自己收餐盤、各攤各自付現金）昨晚已經體驗過，今天一樣適用，這裡就不重複。</p>
-            <h4>建議點法</h4>
-            <ul>
-              <li><b>叻沙 ×4</b>，一份約 S$6–8，椰漿湯頭偏濃郁香辣，長輩怕辣可以問店員能不能少辣</li>
-              <li>招牌<b>仁當雞 Rendang Chicken</b> 也有名，可以加點一份配飯分著吃</li>
-            </ul>
-            <div class="note-ok"><b>11:00 準時開門剛剛好：</b>你們散步抓的時間會在 10:50 左右抵達，比午餐人潮早到，不用排隊，還能挑到好位子。</div>
-            <div class="note-warn"><b>付款要現金：</b>熟食中心攤位不收卡，掛出來的 PayNow QR 觀光客用不了。四人抓 <b>S$40–50 現金</b>。</div>
-            <div class="note-warn"><b>長輩吃法（重要）：</b>叻沙湯頭是濃縮椰漿＋蝦膏，鉀、磷、鈉都很高，對腎臟負擔大。<b>湯只喝 2–3 口嚐味道</b>、麵和料撈起來吃、不要整碗喝完。同一棟的<b>金華魚片米粉</b>（點餐說 "No milk"）是清湯底的安全替代，長輩狀況不好可以直接改點那攤。詳見「長輩飲食」分頁。</div>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Nyonya+1+Kadayanallur+Street+Maxwell+Food+Centre+Singapore" target="_blank" rel="noopener">📍 老娘惹叻沙</a>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">12:30–13:15</div>
-        <h3>牛車水採買咖椰醬・FairPrice</h3>
-        <p>從麥士威走到 <b>Chinatown Point 地下一樓的 FairPrice</b>（133 New Bridge Road #B1-01），步行約 8 分鐘、或 Grab 3 分鐘。這是這趟<b>大量採買咖椰醬最划算的地方</b>，超市價一罐約 S$2.4 起，比亞坤門市便宜一半以上。買完直接搭車回飯店午休，順手把東西放進房間，不用扛著逛。</p>
-        <span class="tag">超市價最划算</span>
-        <span class="tag">買完直接回房放</span>
-        <details class="guide">
-          <summary>🛒 買什麼、買多少、怎麼挑</summary>
-          <div class="guide-body">
-            <p>詳細的品牌比較和帶回台灣的規定，看「<b>咖椰醬攻略</b>」分頁。這裡只講現場動作：</p>
-            <h4>在超市要找的位置</h4>
-            <p>果醬／抹醬區，通常和花生醬、果醬放一起。找 <b>Kaya</b> 字樣，綠色的是原味斑蘭咖椰，褐色的是海南式焦糖咖椰。</p>
-            <h4>建議數量</h4>
-            <p>台灣海關規定食品類每人限 6 公斤，4 個人合計 24 公斤，額度非常夠。但<b>玻璃罐很重</b>，一罐約 300–400 公克，買 20 罐就 7–8 公斤，還要考慮行李重量上限。建議 Day 2 在 FairPrice 就先抓 <b>15–20 罐</b>買齊，Day 3 機場候機空檔只是備用補貨，不用刻意留量給它。</p>
-            <div class="note-ok">超市有免費紙箱可以問店員拿，或買個 S$0.2 的購物袋。搬回飯店後<b>當天晚上就先塞進行李箱</b>，別留到最後一天早上手忙腳亂。</div>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=FairPrice+Chinatown+Point+133+New+Bridge+Road+Singapore" target="_blank" rel="noopener">📍 FairPrice 牛車水店</a>
-            <a class="gmap alt" href="https://www.google.com/maps/search/?api=1&amp;query=FairPrice+Blk+50+Havelock+Road+Singapore" target="_blank" rel="noopener">📍 24 小時店（Havelock 路備案）</a>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">13:15–15:30</div>
-        <h3>飯店午休</h3>
-        <p>搭 Grab 約 7 分鐘返回飯店，把咖椰醬放進房間，午休約 2 小時，避開新加坡正午酷熱，養足體力應付下半場。</p>
-        <span class="tag">關鍵體力補充</span>
-      </div>
-      <div class="stop">
-        <div class="t">15:30–17:00</div>
-        <h3>濱海灣花園・花穹 Flower Dome</h3>
-        <p>飯店搭 Grab 直達落客區約 8–10 分鐘；或 Shenton Way 站搭棕線 <b>2 站</b>到 Gardens by the Bay 站（經 Marina Bay）。室內保持 23–25 度恆溫，全平路無障礙步道，輕鬆賞珍稀植物與花卉展。</p>
-        <span class="tag">09:00–21:00（末班20:30）</span>
-        <span class="tag">室內恆溫</span>
-        <span class="tag">先線上買票</span>
-        <details class="guide">
-          <summary>🎟️ 購票方式與入場流程</summary>
-          <div class="guide-body">
-            <h4>在哪裡買</h4>
-            <p>官網 <b>gardensbythebay.com.sg</b> 線上購票最單純，付款後 e-ticket 直接寄到 email，<b>手機出示 QR Code 就能入場</b>，不用去現場排售票機。KKday／KLOOK 有時更便宜，但要注意兌換方式（有些要先換實體票）。</p>
-            <h4>戶外花園 vs 收費溫室，先分清楚</h4>
-            <p>濱海灣花園的<b>戶外園區完全免費</b>——超級樹周邊、Garden Rhapsody 燈光秀、步道，這些都不用買票，直接走進去就好。<b>只有花穹和雲霧林兩個溫室要收費</b>，你們今天下午排的就是這個。</p>
-            <h4>票種怎麼選</h4>
-            <p>觀光客票分「單館」和「雙館套票（花穹＋雲霧林）」，兩種在不同平台買到的划算程度不一樣：</p>
-            <ul>
-              <li><b>官網</b>（gardensbythebay.com.sg）：有賣<b>單館花穹票</b>，只想去花穹的話這裡最便宜</li>
-              <li><b>Klook／KKday</b>：主要賣的是<b>雙館套票</b>（約 S$46/人），單館選項較少，但能快速通關、有時比現場便宜</li>
-            </ul>
-            <p><b>你們排的行程只去花穹</b>——雲霧林要走坡道和樓梯，對外公外婆比較吃力，花穹是全平路。建議直接上<b>官網</b>買單館票最划算；如果全家討論後想順便加雲霧林，Klook/KKday 的雙館套票也方便，但要有心理準備多花 1–1.5 小時、且雲霧林有樓梯，體力要抓夠。</p>
-            <div class="note-warn"><b>票價會變動</b>（雲霧林近年常有加價的特展），出發前直接看官網當下的價格，不要用網路上舊文章的數字。訂票時記得選 <b>9/7 當天</b>的日期。</div>
-            <h4>現場流程</h4>
-            <ol>
-              <li>Grab 直接開到 <b>Flower Dome / Cloud Forest 落客區</b>，跟司機說 "Gardens by the Bay, the domes"</li>
-              <li>入口閘門<b>掃手機上的 QR Code</b>，一人一張，四張都先開好在手機上</li>
-              <li>進去就是冷氣，全程平路，園內有輪椅可免費借用（在遊客中心）</li>
-            </ol>
-            <div class="note-ok"><b>帶薄外套：</b>花穹恆溫 23–25 度，從 32 度的室外走進去溫差 10 度，長輩很容易著涼。</div>
-            <a class="gmap buy" href="https://www.gardensbythebay.com.sg/" target="_blank" rel="noopener">🎟️ 官網購票</a>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Flower+Dome+Gardens+by+the+Bay" target="_blank" rel="noopener">📍 花穹</a>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">17:00–17:10</div>
-        <h3>走到 Satay by the Bay</h3>
-        <p>從花穹出口沿花園步道走約 10 分鐘，18 Marina Gardens Drive #01-19。全程平路，不用叫車。</p>
-      </div>
-      <div class="stop">
-        <div class="t">17:10–18:20</div>
-        <h3>晚餐・Satay by the Bay</h3>
-        <p>戶外沙嗲大排檔，多個攤位各自烤沙嗲，濱海灣邊用餐、離超級樹只要 5 分鐘，是很多人推薦的「秀前晚餐」地點。</p>
-        <span class="tag warn">露天・無冷氣</span>
-        <span class="tag">約11:00–22:00</span>
-        <span class="tag">多數收卡・備現金</span>
-        <span class="tag warn">花生醬另外裝</span>
-        <details class="guide">
-          <summary>🍢 現場狀況與怎麼點</summary>
-          <div class="guide-body">
-            <h4>怎麼運作</h4>
-            <p>和麥士威一樣是熟食攤形式，但主打<b>沙嗲</b>，多攤各自現烤現賣，另外也有海鮮、飲料攤。<b>先佔位再去點餐</b>，各攤各自付錢，吃完自己收餐盤，規矩和熟食中心一樣。</p>
-            <h4>建議點法</h4>
-            <ul>
-              <li><b>雞肉／羊肉沙嗲</b>各點一些，論支賣，沾花生醬配黃瓜洋蔥</li>
-              <li>可以配<b>沙嗲米粉</b>或炒粿條當主食</li>
-              <li>飲料攤是<b>24 小時營業</b>，天氣熱可以先買杯冰的</li>
-            </ul>
-            <div class="note-warn"><b>戶外用餐提醒：</b>整個園區露天無冷氣，傍晚炭烤的煙有時會飄過來，如果長輩不喜歡煙味，可以選離烤爐遠一點的桌子。蚊蟲也可能有，薄外套順便防蚊。</div>
-            <div class="note-ok"><b>付款：</b>多數攤位有刷卡機，但小攤可能只收現金，身上留 <b>S$30–40</b> 比較保險。</div>
-            <div class="note-warn"><b>長輩吃法：</b>問題不在肉串而在<b>花生醬</b>（高糖高鈉）。點餐時說 <b>"sauce on the side"</b> 醬另外裝、用沾的少量沾；多吃雞肉串和配的小黃瓜洋蔥；避開沙嗲米粉、炒粿條這類重油重醬主食。飲料點 <b>Teh O Kosong</b>。</div>
-            <div class="note-ok"><b>這裡即將吹熄燈號：</b>Satay by the Bay 預計 2026 年 10 月起停業改建，你們 9 月去還來得及。</div>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Satay+by+the+Bay+18+Marina+Gardens+Drive+Singapore" target="_blank" rel="noopener">📍 Satay by the Bay</a>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">18:20–18:35</div>
-        <h3>走到超級樹區・散步卡位</h3>
-        <p>從 Satay by the Bay 沿花園步道走約 5 分鐘到超級樹叢，提前在座椅區坐下休息，等天色暗下來。</p>
-      </div>
-      <div class="stop">
-        <div class="t">19:45–19:55</div>
-        <h3>Garden Rhapsody 燈光秀</h3>
-        <p>19:45 準時開始，坐在座椅區欣賞約 10 分鐘音樂燈光秀，免費、不用移動。</p>
-        <span class="tag">免費</span>
-        <details class="guide">
-          <summary>✨ 兩場燈光秀的取捨與走法</summary>
-          <div class="guide-body">
-            <h4>晚間這段的動線</h4>
-            <div class="svgwrap">
-              <svg viewBox="0 0 320 200" role="img" aria-label="濱海灣花園晚間步行動線" xmlns="http://www.w3.org/2000/svg">
-                <style>
-                  .n{fill:#fff;stroke:#2E6B57;stroke-width:1.4;rx:7}
-                  .nt{font:700 11px 'Noto Sans TC',sans-serif;fill:#211D17}
-                  .ns{font:400 9.5px 'Noto Sans TC',sans-serif;fill:#5B5548}
-                  .wk{font:600 9px 'IBM Plex Mono',monospace;fill:#2E6B57}
-                  .ln{stroke:#2E6B57;stroke-width:1.6;fill:none;stroke-dasharray:4 3}
-                </style>
-                <rect class="n" x="8" y="8" width="304" height="38"/>
-                <text class="nt" x="18" y="24">花穹 Flower Dome</text>
-                <text class="ns" x="18" y="38">15:30–17:00　室內冷氣</text>
-                <path class="ln" d="M40,46 L40,62"/><text class="wk" x="50" y="58">步行 10 分</text>
-                <rect class="n" x="8" y="64" width="304" height="38"/>
-                <text class="nt" x="18" y="80">Satay by the Bay（晚餐）</text>
-                <text class="ns" x="18" y="94">17:10–18:20　露天無冷氣</text>
-                <path class="ln" d="M40,102 L40,118"/><text class="wk" x="50" y="114">步行 5 分</text>
-                <rect class="n" x="8" y="120" width="304" height="38" style="stroke:#E3A542"/>
-                <text class="nt" x="18" y="136">超級樹 · Garden Rhapsody</text>
-                <text class="ns" x="18" y="150">18:35 卡位　19:45 開演（10 分鐘）</text>
-                <path class="ln" d="M40,158 L40,174" style="stroke:#C1442B"/><text class="wk" x="50" y="170" style="fill:#C1442B">天橋步行 8–10 分</text>
-                <rect class="n" x="8" y="176" width="304" height="22" style="stroke:#C1442B"/>
-                <text class="nt" x="18" y="191" style="fill:#C1442B">金沙 Spectra　20:00（可略過）</text>
-              </svg>
-              <p class="svgcap">全程平路，中間不用搭車。</p>
-            </div>
-            <h4>Garden Rhapsody</h4>
-            <p>每晚 <b>19:45</b> 和 <b>20:45</b> 兩場，各約 10 分鐘，免費、不用票。超級樹下方有<b>環狀座椅</b>，18:35 過去坐著等，中間還有 1 小時多可以慢慢逛超級樹、拍照，不用一直坐著。抬頭直接看就是，不用擠到特定位置。</p>
-            <h4>要不要接 Spectra？誠實建議</h4>
-            <p>Spectra 在金沙水岸的 Event Plaza，走天橋過去 <b>8–10 分鐘</b>，看完 20:15 還要走回來或從金沙叫車。這時候外公外婆已經連續在外面 5 個小時了。</p>
-            <div class="note-ok"><b>我的建議：</b>把 Spectra 當成加分題不是必修。Garden Rhapsody 19:45 看完，20:00 直接從花園的叫車點回飯店，20:20 就能洗澡休息，隔天早上還要 7:45 起床趕飛機。真的還有體力再說。</div>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Supertree+Grove+Gardens+by+the+Bay" target="_blank" rel="noopener">📍 超級樹</a>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">20:00–20:15</div>
-        <h3>Spectra 金沙水舞燈光秀</h3>
-        <p>邊欣賞超級樹邊沿濱海灣花園天橋走約 8 分鐘到金沙水岸 Event Plaza，剛好接上 20:00 場次。體力不夠的話這場可以跳過，Garden Rhapsody 看完就先回飯店也很滿足。</p>
-        <span class="tag">可視體力調整</span>
-      </div>
-      <div class="stop">
-        <div class="t">20:25</div>
-        <h3>搭車返回飯店</h3>
-        <p>金沙購物中心叫車點搭 Grab，車程約 8 分鐘（或走地下通道搭棕線 2 站回 Shenton Way），20:35 就能回到房間洗漱放鬆。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="panel" id="day3">
-    <div class="day-title">
-      <span class="num">03</span>
-      <div><h2>吐司工坊早餐 · 星耀樟宜 · 返程</h2><div class="date">9/8（二）</div></div>
-    </div>
-    <div class="callout"><b>這天先吃飽再出門：</b>早餐改在飯店附近的吐司工坊，長輩不用餓著肚子等機場開店。長榮櫃檯 10:40 才開，抵達機場後有段空檔可以逛逛或喝杯咖啡；Jewel 的瀑布週二 11:00 才開始放水，所以擺在報到之後。</div>
-
-    <div class="svgwrap">
-      <svg viewBox="0 0 320 556" role="img" aria-label="樟宜 T3 出境動線圖" xmlns="http://www.w3.org/2000/svg">
-        <style>
-          .bx{fill:#fff;stroke:#D8CFB8;stroke-width:1.2;rx:8}
-          .lv{font:600 9px 'IBM Plex Mono',monospace;fill:#8B8FA8}
-          .tt{font:700 11.5px 'Noto Sans TC',sans-serif;fill:#211D17}
-          .sb{font:400 9.5px 'Noto Sans TC',sans-serif;fill:#5B5548}
-          .ar{stroke:#D8CFB8;stroke-width:1.6;fill:none;marker-end:url(#a3)}
-          .gate{fill:#F9EAE5;stroke:#C1442B;stroke-width:1.4;rx:8}
-          .gtt{font:700 11.5px 'Noto Sans TC',sans-serif;fill:#C1442B}
-        </style>
-        <defs><marker id="a3" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
-          <path d="M0,0 L6,3 L0,6 z" fill="#D8CFB8"/></marker></defs>
-
-        <rect class="bx" x="8" y="6" width="304" height="56" style="stroke:#2E6B57;stroke-width:1.8"/>
-        <text class="lv" x="18" y="21" style="fill:#1F4D3E">飯店 · 07:45–08:30</text>
-        <text class="tt" x="18" y="35">吐司工坊早餐（吃飽再出發）</text>
-        <text class="sb" x="18" y="51">🍞 咖椰吐司＋半熟蛋＋Kopi，不趕時間</text>
-
-        <path class="ar" d="M160,64 L160,80"/>
-        <rect class="bx" x="8" y="84" width="304" height="42"/>
-        <text class="lv" x="18" y="99">L3 · 09:30–10:00</text>
-        <text class="tt" x="18" y="113">Grab 抵達 T3 出境大廳</text>
-
-        <path class="ar" d="M160,128 L160,144"/>
-        <rect class="bx" x="8" y="148" width="304" height="56" style="stroke:#E3A542;stroke-width:1.8"/>
-        <text class="lv" x="18" y="163" style="fill:#B8801F">候機 · 10:00–10:40（彈性）</text>
-        <text class="tt" x="18" y="177">逛店／喝咖啡／補買咖椰醬</text>
-        <text class="sb" x="18" y="193">🛍️ 已經吃飽了，這段不特別安排</text>
-
-        <path class="ar" d="M160,206 L160,222"/>
-        <rect class="gate" x="8" y="226" width="304" height="56"/>
-        <text class="lv" x="18" y="241" style="fill:#C1442B">L3 · 10:40 開櫃</text>
-        <text class="gtt" x="18" y="255">長榮櫃檯報到・託運行李</text>
-        <text class="sb" x="18" y="271" style="fill:#7A2A18">⛔ 液體關卡：過了就不能再託運</text>
-
-        <path class="ar" d="M160,284 L160,300"/>
-        <rect class="bx" x="8" y="304" width="304" height="56"/>
-        <text class="lv" x="18" y="319">Jewel · 11:10–11:50</text>
-        <text class="tt" x="18" y="333">雨漩渦（11:00 開始放水）</text>
-        <text class="sb" x="18" y="349">⚠️ 這裡只買乾貨，液體帶不上飛機</text>
-
-        <path class="ar" d="M160,362 L160,378"/>
-        <rect class="bx" x="8" y="382" width="304" height="42"/>
-        <text class="lv" x="18" y="397">L3 · 11:50–12:10</text>
-        <text class="tt" x="18" y="411">出境證照查驗（可用自動通關）</text>
-
-        <path class="ar" d="M160,426 L160,442"/>
-        <rect class="gate" x="8" y="446" width="304" height="56"/>
-        <text class="lv" x="18" y="461" style="fill:#C1442B">登機門 · 12:10–12:40</text>
-        <text class="gtt" x="18" y="475">登機門旁安檢</text>
-        <text class="sb" x="18" y="491" style="fill:#7A2A18">🚻 進去前一定要先上廁所</text>
-
-        <path class="ar" d="M160,504 L160,520"/>
-        <rect class="bx" x="8" y="524" width="304" height="24" style="fill:#1B2340;stroke:#1B2340"/>
-        <text class="tt" x="18" y="540" style="fill:#F3EFE4">13:10　BR226 起飛</text>
-      </svg>
-      <p class="svgcap">樟宜 T3 出境動線。早餐挪到飯店，機場只剩彈性空檔和兩道不可逆的紅色關卡。</p>
-    </div>
-
-    <div class="timeline">
-      <div class="stop">
-        <div class="t">07:15–07:45</div>
-        <h3>起床・梳洗收拾</h3>
-        <p>比前兩天早一點起床，把還沒收的行李先收好，留一個好整理的順序：早餐吃飽 → 回飯店退房 → 去機場，不用在機場邊等邊餓肚子。</p>
-      </div>
-      <div class="stop">
-        <div class="t">07:45–08:30</div>
-        <h3>早餐・吐司工坊 Toast Box</h3>
-        <p>走路走到 <b>Guoco Tower #01-14</b>，約 7 分鐘。這是這趟最後一餐正式坐下來吃的早餐，<b>不用趕</b>，讓長輩吃到飽再出發，機場那段就不用靠它墊肚子。</p>
-        <span class="tag">正式吃飽</span>
-        <details class="guide">
-          <summary>🍞 這餐怎麼吃比較安心</summary>
-          <div class="guide-body">
-            <h4>為什麼特地安排這頓</h4>
-            <p>原本的排法是留到機場的亞坤才吃早餐，但長榮櫃檯 10:40 才開，等於長輩要餓著肚子撐到快 10 點。現在改成先在飯店附近吃飽，機場那段行程完全不靠它，心裡踏實很多。</p>
-            <h4>建議點法</h4>
-            <ul>
-              <li><b>咖椰厚片吐司</b>＋<b>半熟蛋</b>＋<b>Kopi</b>，或想吃鹹的可以點<b>叻沙</b>、<b>咖哩雞麵包</b></li>
-              <li>怕蛋黃流動：跟店員說 <b>"hard boiled"</b></li>
-              <li>怕咖啡太甜：點 <b>Kopi C Kosong</b>（淡奶不加糖）</li>
-            </ul>
-            <div class="note-ok">7:45 過去是上班族尖峰剛過的空檔，通常有位子。慢慢吃到 8:15、8:20 都沒關係，這天的行程留了餘裕。</div>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Toast+Box+Guoco+Tower+7+Wallich+Street+Singapore" target="_blank" rel="noopener">📍 吐司工坊 Guoco Tower</a>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">08:30–08:45</div>
-        <h3>走回飯店</h3>
-        <p>原路走回 Dao by Dorsett，約 7 分鐘。</p>
-      </div>
-      <div class="stop">
-        <div class="t">08:45–09:30</div>
-        <h3>收拾最後行李・辦理退房</h3>
-        <p>把咖椰醬用衣服包好塞進行李箱正中間（做法看「咖椰醬攻略」分頁），<b>7 樓大廳</b>櫃檯 Check-out。時間留得比較寬，不用趕。</p>
-        <span class="tag warn">咖椰醬務必放託運箱</span>
-      </div>
-      <div class="stop">
-        <div class="t">09:30–10:00</div>
-        <h3>搭車前往機場 T3</h3>
-        <p>飯店樓下搭 Grab 直達樟宜機場 <b>第 3 航廈 (T3)</b>，車程約 20–25 分鐘。上車前跟司機確認是 Terminal 3。</p>
-        <span class="tag warn">實際為T3，非T1</span>
-        <details class="guide">
-          <summary>🚕 叫車細節</summary>
-          <div class="guide-body">
-            <h4>叫 Grab 的細節</h4>
-            <p>目的地直接輸入「Changi Airport Terminal 3 Departure」，Grab 會帶到 <b>3 樓出境層</b>的落客區，下車推個行李車就到大廳，不用爬樓梯。4 個人加行李記得叫 <b>GrabCar 6-seater（大車）</b>，一般 4 人座塞不下 4 人＋行李。</p>
-            <h4>費用參考</h4>
-            <p>市區到樟宜約 S$25–35，尖峰或叫大車會再高一些。App 上是先確認價格才叫車，不會被繞路。</p>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Changi+Airport+Terminal+3+Departure+Hall" target="_blank" rel="noopener">📍 T3 出境大廳地圖</a>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">10:00–10:40</div>
-        <h3>候機空檔（彈性，不特別安排）</h3>
-        <p>已經吃飽了，這段時間單純等長榮開櫃。可以在 <b>B2 亞坤</b>喝杯咖啡、逛逛 T3 的商店，或想再補一些咖椰醬送人也可以在這裡買。沒有硬性行程，坐著休息也完全 OK。</p>
-        <span class="tag">已吃飽・純候機</span>
-        <details class="guide">
-          <summary>☕ 想找點事做的話</summary>
-          <div class="guide-body">
-            <h4>亞坤（可選，不是正餐）</h4>
-            <p>單元號 <b>#B2-07</b>，從出境大廳搭手扶梯下 B2，走路約 5 分鐘。已經吃飽了，這裡純粹是喝杯 Kopi、吃一小份咖椰吐司當點心，或單純想找地方坐。<b>不用勉強吃完一整套</b>。</p>
-            <h4>順便再買一點咖椰醬</h4>
-            <p>Day 2 在 FairPrice 買的量應該已經夠，如果還想加碼送禮版本（亞坤罐裝、有包裝比較好看），這裡買了直接放進待會要託運的行李箱。</p>
-            <div class="note-warn"><b>10:40 前要回到 3 樓：</b>不管在做什麼，10:35 左右該收尾，走回出境大廳排長榮櫃檯。</div>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Ya+Kun+Kaya+Toast+Changi+Airport+Terminal+3" target="_blank" rel="noopener">📍 亞坤 T3 店</a>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">10:40–11:10</div>
-        <h3>長榮櫃檯報到・託運行李</h3>
-        <p>回到 T3 <b>3 樓出境大廳</b>，長榮櫃檯在靠近中央證照查驗、往 A 登機門方向。櫃檯<b>起飛前 2.5 小時開放（10:40）</b>，起飛前 40 分鐘（12:30）準時關閉。</p>
-        <span class="tag">10:40 開櫃</span>
-        <details class="guide">
-          <summary>🧳 報到前最後確認</summary>
-          <div class="guide-body">
-            <h4>送進輸送帶前，這些東西必須在大行李箱裡</h4>
-            <ul>
-              <li>所有<b>咖椰醬</b>（超過 100ml 的膏狀物）</li>
-              <li>辣椒醬、叻沙醬、肉骨茶湯包裡的液體包</li>
-              <li>任何超過 100ml 的瓶罐</li>
-            </ul>
-            <h4>行李額度</h4>
-            <p>長榮亞洲線經濟艙常見是每人 30kg 或 2 件 23kg，<b>依票種而定</b>。出發前用訂位代號上長榮官網查一下實際額度。4 個人合計的額度買咖椰醬絕對夠用。</p>
-            <div class="note-ok">櫃檯可以要求把 4 個人的行李<b>額度合併計算</b>（同一訂位紀錄通常可以），這樣某一箱超重也沒關係，總重不超過就好。報到時直接問地勤。</div>
-            <h4>報到後拿到什麼</h4>
-            <p>登機證上會印<b>登機門號碼</b>和<b>登機時間</b>，但樟宜的登機門常常會變更，之後還是要看大廳的電子看板確認。</p>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">11:10–11:50</div>
-        <h3>星耀樟宜 Jewel・雨漩渦</h3>
-        <p>從 T3 出境大廳走連通天橋過去，<b>實際步行約 5–10 分鐘</b>。40 公尺高的室內瀑布<b>週一至週四 11:00 才開始放水</b>，這個時間過去剛好看得到。</p>
-        <span class="tag">11:00 開始放水</span>
-        <span class="tag warn">只買乾貨</span>
-        <span class="tag">Day 1 已看過</span>
-        <details class="guide">
-          <summary>💧 拍照位置與採買提醒</summary>
-          <div class="guide-body">
-            <h4>放水時間（很重要）</h4>
-            <table class="mini">
-              <tr><th>週一–週四</th><td>11:00–22:00</td></tr>
-              <tr><th>週五–週日、假日</th><td>10:00–22:00</td></tr>
-            </table>
-            <p>9/8 是<b>週二</b>，11:00 前過去只會看到一個沒有水的天井。燈光秀是晚上 8 點、9 點場，這趟看不到。</p>
-            <div class="note-ok"><b>Day 1 已經看過了：</b>9/6 是週日，瀑布 10:00 就放水，你們抵達當天吃完松發就順道看過。今天這段如果不想再走一趟，<b>可以直接跳過</b>，留在 T3 裡買伴手禮、坐著休息也完全沒問題。</div>
-            <h4>最佳觀賞位置</h4>
-            <p>瀑布貫穿 7 層樓。<b>B1 和 B2 層</b>可以最靠近水幕、水氣感最強；<b>1 樓的環形步道</b>可以把整條水柱和森林谷一起入鏡，拍全景最好。長輩走不動的話，B1 有一圈座位可以坐著看。</p>
-            <div class="note-warn"><b>採買紅線：</b>行李已經託運掉了，這裡買的東西全部要<b>手提上飛機</b>。Jewel 是管制區外的商場，<b>買到的液體不會有免稅密封袋</b>，超過 100ml 的咖椰醬、辣椒醬在登機門安檢會被丟掉。這裡<b>只買固體乾貨</b>：Bengawan Solo 斑蘭蛋糕、百勝廚叻沙泡麵、餅乾、肉乾（肉乾不能帶回台灣，只能當場吃）。</div>
-            <h4>時間控管</h4>
-            <p>來回步行加逛街抓 40 分鐘。11:50 一定要往回走，去程回程各抓 10 分鐘不要低估。</p>
-            <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Jewel+Changi+Airport+Rain+Vortex" target="_blank" rel="noopener">📍 Jewel 雨漩渦</a>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">11:50–12:10</div>
-        <h3>出境證照查驗</h3>
-        <p>走連通道回到 T3 出境大廳，前往出境證照查驗。符合資格的台灣護照可用自動通關通道，臉部辨識／指紋比對即可，通常很快通過。</p>
-      </div>
-      <div class="stop">
-        <div class="t">12:10–12:40</div>
-        <h3>前往登機門並通過安檢</h3>
-        <p>新加坡機場安檢設在<b>各登機門旁</b>，不是集中式安檢。過了安檢就進入候機室，<b>裡面通常沒有洗手間</b>，請務必先讓長輩上完廁所再進去。</p>
-        <span class="tag warn">安檢前先上廁所</span>
-        <details class="guide">
-          <summary>🚻 最後一段的節奏</summary>
-          <div class="guide-body">
-            <h4>順序</h4>
-            <ol>
-              <li>看電子看板<b>確認登機門號碼</b>（可能和登機證上印的不同）</li>
-              <li>往登機門方向走，T3 走到底部的登機門可能要 10–15 分鐘</li>
-              <li><b>在登機門外的洗手間全部上完廁所</b></li>
-              <li>過登機門安檢，進候機室</li>
-            </ol>
-            <div class="note-warn"><b>這是台灣人最常踩的雷：</b>在桃園是「安檢完就自由逛免稅店」，在樟宜是「逛完免稅店最後才安檢」。逛街時很容易忘記還有一關要過，而且那一關只服務你這個登機門，排隊人數不一定少。起飛前 50–60 分鐘就該往登機門移動。</div>
-            <h4>免稅店買的液體</h4>
-            <p>如果是在<b>過了證照查驗之後</b>的管制區免稅店買的液體，店家會裝進<b>透明密封袋（STEB）</b>並附收據，這種可以正常手提通過登機門安檢。<b>不要自己拆開袋子</b>，拆了就失效。</p>
-          </div>
-        </details>
-      </div>
-      <div class="stop">
-        <div class="t">12:40</div>
-        <h3>候機・登機</h3>
-        <p>找位置坐著休息，等待登機廣播。</p>
-      </div>
-      <div class="stop">
-        <div class="t">13:10 起飛</div>
-        <h3>BR226 返回桃園</h3>
-        <p>17:45 抵達桃園機場。入境時如果咖椰醬總量超過 6 公斤，或不確定要不要申報，走<b>紅線（應申報）</b>櫃檯主動講，不會罰你；走綠線被查到才會有事。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="panel" id="exit">
-    <div class="day-title">
-      <span class="num">!</span>
-      <div><h2>新加坡出境須知</h2><div class="date">和台灣／日本不一樣的地方</div></div>
-    </div>
-
-    <div class="card alert">
-      <h3>⚠️ 最大差異：安檢在「各登機門旁」，不是集中一處</h3>
-      <p>在桃園機場或日本各機場，流程通常是「證照查驗 → 集中安檢 → 自由逛免稅店 → 直接到任何登機門」，安檢一次就結束。</p>
-      <p>新加坡樟宜機場（T1／T2／T3）則是「證照查驗 → 自由逛免稅店／用餐 → 走到<b>自己班機的登機門旁才安檢</b>」。安檢是壓軸的最後一關，而且只服務那個登機門（或該區登機門群組）的乘客，逛街時容易忘記時間。</p>
-      <p><b>建議：</b>起飛前 50–60 分鐘就要動身前往登機門，抓充裕時間排安檢。</p>
-      <div class="svgwrap">
-        <svg viewBox="0 0 320 210" role="img" aria-label="桃園與樟宜出境流程對照" xmlns="http://www.w3.org/2000/svg">
-          <style>
-            .lb{font:700 10.5px 'Noto Sans TC',sans-serif;fill:#5B5548}
-            .st{font:400 9px 'Noto Sans TC',sans-serif;fill:#211D17}
-            .sec{font:700 9px 'Noto Sans TC',sans-serif;fill:#fff}
-            .bx2{rx:5;fill:#fff;stroke:#D8CFB8;stroke-width:1.2}
-            .secbx{rx:5;fill:#C1442B}
-            .ar2{stroke:#B8AF98;stroke-width:1.3;fill:none;marker-end:url(#a4)}
-          </style>
-          <defs><marker id="a4" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L5,3 L0,6 z" fill="#B8AF98"/></marker></defs>
-
-          <text class="lb" x="8" y="16">桃園 / 日本　安檢在前面</text>
-          <rect class="bx2" x="8" y="24" width="66" height="30"/><text class="st" x="41" y="43" text-anchor="middle">證照查驗</text>
-          <path class="ar2" d="M76,39 L86,39"/>
-          <rect class="secbx" x="88" y="24" width="58" height="30"/><text class="sec" x="117" y="43" text-anchor="middle">安檢 ✓</text>
-          <path class="ar2" d="M148,39 L158,39"/>
-          <rect class="bx2" x="160" y="24" width="66" height="30"/><text class="st" x="193" y="43" text-anchor="middle">逛免稅店</text>
-          <path class="ar2" d="M228,39 L238,39"/>
-          <rect class="bx2" x="240" y="24" width="72" height="30"/><text class="st" x="276" y="43" text-anchor="middle">直接登機</text>
-          <text class="st" x="8" y="70" fill="#5B5548">安檢過了就沒事，逛街可以逛到廣播。</text>
-
-          <line x1="8" y1="86" x2="312" y2="86" stroke="#D8CFB8" stroke-width="1" stroke-dasharray="3 3"/>
-
-          <text class="lb" x="8" y="108" fill="#C1442B">樟宜　安檢在最後一關</text>
-          <rect class="bx2" x="8" y="116" width="66" height="30"/><text class="st" x="41" y="135" text-anchor="middle">證照查驗</text>
-          <path class="ar2" d="M76,131 L86,131"/>
-          <rect class="bx2" x="88" y="116" width="66" height="30"/><text class="st" x="121" y="135" text-anchor="middle">逛免稅店</text>
-          <path class="ar2" d="M156,131 L166,131"/>
-          <rect class="bx2" x="168" y="116" width="66" height="30"/><text class="st" x="201" y="135" text-anchor="middle">走到登機門</text>
-          <path class="ar2" d="M236,131 L246,131"/>
-          <rect class="secbx" x="248" y="116" width="64" height="30"/><text class="sec" x="280" y="130" text-anchor="middle">安檢 ⚠</text>
-          <text class="sec" x="280" y="141" text-anchor="middle" style="font-size:8px">在門口</text>
-          <text class="st" x="8" y="162" fill="#C1442B">逛街時很容易忘記後面還有一關。</text>
-          <rect x="8" y="172" width="304" height="30" rx="6" fill="#F9EAE5" stroke="#C1442B" stroke-width="1.2"/>
-          <text class="st" x="18" y="186" fill="#7A2A18">🚻 過了登機門安檢就進候機室，</text>
-          <text class="st" x="18" y="197" fill="#7A2A18">　 裡面通常沒有洗手間 — 一定要先上。</text>
-        </svg>
-      </div>
-    </div>
-
-    <div class="card alert">
-      <h3>🚻 候機室內通常沒有洗手間</h3>
-      <p>通過登機門安檢後就進入候機室，這個區域大多沒有洗手間。務必在安檢前，先陪長輩把廁所解決。</p>
-    </div>
-
-    <div class="card">
-      <h3>🛂 出境證照查驗</h3>
-      <p>台灣護照（6 歲以上、晶片護照效期 6 個月以上、已完成 SGAC）可使用自動通關通道，系統以臉部辨識與指紋比對，不需人工蓋章，通常幾十秒到 1 分鐘就能通過，比人工櫃檯快很多。</p>
-    </div>
-
-    <div class="card">
-      <h3>🧴 隨身行李液體限制</h3>
-      <p>單件容器超過 100ml 的液狀／膏狀物品（含咖椰醬）一律要放進大行李箱託運。若是在<b>安檢後的管制區免稅店</b>購買的液體或膏狀商品，店家會用透明密封袋包裝，可以直接手提上機不受限制。</p>
-    </div>
-
-    <div class="card">
-      <h3>🚫 違禁品提醒</h3>
-      <p>口香糖、電子煙及其零件、管制藥品、仿冒品、猥褻出版品等嚴禁攜帶出境，隨身與託運行李都會 X 光檢查，請提醒同行的人。</p>
-    </div>
-
-    <div class="card">
-      <h3>💰 GST 退稅（如果有需要）</h3>
-      <p>若單次消費金額達退稅門檻，需在<b>報到託運行李前</b>到退稅專櫃或自助機辦理；已經是在免稅店買的商品因為本來就免稅，不能再申請退稅。</p>
-    </div>
-  </section>
-
-  <section class="panel" id="kaya">
-    <div class="day-title">
-      <span class="num">🥥</span>
-      <div><h2>咖椰醬採買攻略</h2><div class="date">哪裡買 · 買多少 · 怎麼帶回台灣</div></div>
-    </div>
-
-    <div class="callout"><b>一句話結論：</b>大量採買去 <b>Day 2 牛車水的 FairPrice 超市</b>（一罐約 S$2.4），Day 3 機場只是備用補貨的地方，不用特地留給它。全部<b>必須在報到託運前買完</b>，放進大行李箱。台灣海關食品限量<b>每人 6 公斤</b>。</div>
-
-    <div class="card alert">
-      <h3>⏰ 最關鍵的一件事：買的時間點決定帶不帶得回去</h3>
-      <p>咖椰醬是膏狀物，超過 100ml 就<b>不能隨身帶上飛機</b>。而行李一旦託運出去就拿不回來了，所以「什麼時候買」比「在哪裡買」更容易出事。</p>
-      <div class="svgwrap">
-        <svg viewBox="0 0 320 250" role="img" aria-label="咖椰醬購買時機與能否攜帶對照" xmlns="http://www.w3.org/2000/svg">
-          <style>
-            .r{rx:8;stroke-width:1.4}
-            .ok{fill:#E6F0EA;stroke:#1F4D3E}
-            .no{fill:#F9EAE5;stroke:#C1442B}
-            .h{font:700 11px 'Noto Sans TC',sans-serif;fill:#211D17}
-            .d{font:400 9.5px 'Noto Sans TC',sans-serif;fill:#5B5548}
-            .m{font:700 15px 'Noto Sans TC',sans-serif}
-          </style>
-          <rect class="r ok" x="8" y="6" width="304" height="52"/>
-          <text class="h" x="18" y="24">① 市區超市（Day 2）</text>
-          <text class="d" x="18" y="39">放進行李箱 → Day 3 託運</text>
-          <text class="d" x="18" y="52">最便宜，適合大量買</text>
-          <text class="m" x="288" y="34" text-anchor="middle" fill="#1F4D3E">✓</text>
-
-          <rect class="r ok" x="8" y="64" width="304" height="52"/>
-          <text class="h" x="18" y="82">② 候機空檔・亞坤 T3 B2</text>
-          <text class="d" x="18" y="97">候機空檔臨時起意 → 再去櫃檯託運</text>
-          <text class="d" x="18" y="110">貴一點，但有禮盒包裝</text>
-          <text class="m" x="288" y="92" text-anchor="middle" fill="#1F4D3E">✓</text>
-
-          <rect class="r no" x="8" y="122" width="304" height="52"/>
-          <text class="h" x="18" y="140">③ Jewel（報到後）</text>
-          <text class="d" x="18" y="155">行李已託運，只能手提</text>
-          <text class="d" x="18" y="168">登機門安檢會被丟掉</text>
-          <text class="m" x="288" y="150" text-anchor="middle" fill="#C1442B">✕</text>
-
-          <rect class="r ok" x="8" y="180" width="304" height="62"/>
-          <text class="h" x="18" y="198">④ 管制區免稅店（出境後）</text>
-          <text class="d" x="18" y="213">店家給透明密封袋 STEB ＋ 收據</text>
-          <text class="d" x="18" y="226">可手提，但<tspan font-weight="700">不可拆封</tspan></text>
-          <text class="d" x="18" y="238">選擇少、價格最貴</text>
-          <text class="m" x="288" y="211" text-anchor="middle" fill="#1F4D3E">✓</text>
-        </svg>
-        <p class="svgcap">③ 是最常見的悲劇：在 Jewel 看到便宜就買，結果過不了登機門安檢。</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>🛒 哪裡買比較好</h3>
-      <table class="mini">
-        <tr><th>地點</th><th>單價</th><th>適合</th></tr>
-        <tr><td><b>FairPrice 牛車水</b><br><span style="font-size:11px">Chinatown Point #B1-01</span></td><td>約 S$2.4 起<br>（Glory 等超市品牌）</td><td><b>大量掃貨</b><br>Day 2 中午順路</td></tr>
-        <tr><td><b>FairPrice Havelock</b><br><span style="font-size:11px">Blk 50 Havelock Rd・24 小時</span></td><td>同上</td><td>24 小時營業<br>臨時想加買的備案</td></tr>
-        <tr><td><b>亞坤門市</b><br><span style="font-size:11px">T3 #B2-07</span></td><td>約 S$5<br>禮盒裝約 S$5.4</td><td><b>送禮</b><br>牌子有面子</td></tr>
-        <tr><td>Jewel 商場</td><td>觀光價</td><td style="color:#C1442B"><b>不建議</b><br>時間點過不了</td></tr>
-      </table>
-      <p style="margin-top:8px;">超市品牌和亞坤的差別主要在<b>牌子和包裝</b>，味道各有擁護者。自己吃買超市的就很好，要送人再買亞坤。</p>
-      <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=FairPrice+Chinatown+Point+133+New+Bridge+Road+Singapore" target="_blank" rel="noopener">📍 FairPrice 牛車水</a>
-      <a class="gmap alt" href="https://www.google.com/maps/search/?api=1&amp;query=FairPrice+Blk+50+Havelock+Road+Singapore" target="_blank" rel="noopener">📍 24 小時店</a>
-    </div>
-
-    <div class="card">
-      <h3>🥥 兩種咖椰，買之前先分清楚</h3>
-      <p><b>綠色・娘惹式（Nyonya）</b>　斑蘭葉染色，椰香清爽，顏色翠綠。亞坤是這一派。</p>
-      <p><b>褐色・海南式（Hainanese）</b>　糖先焦糖化再調，顏色偏咖啡色，味道較濃、帶焦糖香。</p>
-      <p>不確定家人喜歡哪種就<b>兩種都買幾罐</b>，價差不大。罐子上會標 Pandan（綠）或 Caramel（褐）。</p>
-    </div>
-
-    <div class="card">
-      <h3>📦 買多少？重量才是真正的限制</h3>
-      <p>一罐咖椰醬連玻璃罐約 <b>300–400 公克</b>。</p>
-      <table class="mini">
-        <tr><th>限制</th><th>數字</th><th>換算</th></tr>
-        <tr><td>台灣海關食品限量</td><td>每人 6 公斤<br>4 人共 24 公斤</td><td>約 60–80 罐<br>（幾乎不可能超過）</td></tr>
-        <tr><td>免申請查驗</td><td>價值 &lt; 1,000 美元<br>且 ≤ 6 公斤</td><td>買到爆也不會超值</td></tr>
-        <tr><td><b>真正的瓶頸：行李重量</b></td><td>依票種<br>常見 30kg／人</td><td>20 罐就 7–8 公斤</td></tr>
-      </table>
-      <div class="note-ok"><b>實務建議：</b>抓 <b>15–20 罐</b>是舒服的量，行李不會爆、海關也絕對沒問題。真的要更多，記得四個人的行李額度通常可以在櫃檯要求<b>合併計算</b>。</div>
-    </div>
-
-    <div class="card">
-      <h3>🧳 玻璃罐怎麼打包才不會破</h3>
-      <ol style="padding-left:18px;font-size:13.5px;color:var(--ink-soft);line-height:1.7;">
-        <li>每罐先用<b>衣服或毛巾單獨包一層</b>，不要讓玻璃罐互相碰到</li>
-        <li>全部放在行李箱<b>正中央</b>，四周用衣物塞滿，不要靠近箱子邊角（邊角最容易受撞擊）</li>
-        <li>整批再套一個<b>塑膠袋</b>，萬一真的破了不會毀掉所有衣服</li>
-        <li>蓋子朝上放，不要橫躺</li>
-        <li>Day 2 晚上就打包好，不要留到 Day 3 早上</li>
-      </ol>
-      <div class="note-warn"><b>不要用手提行李帶：</b>就算沒有 100ml 限制，客艙行李架的擠壓和取放才是玻璃罐最大的風險。託運箱反而安全。</div>
-    </div>
-
-    <div class="card">
-      <h3>🇹🇼 帶回台灣的規定</h3>
-      <h4 style="font-size:13px;margin:10px 0 4px;">可以帶嗎？可以。</h4>
-      <p>咖椰醬的成分是椰漿、糖、雞蛋、斑蘭葉，是<b>完全煮熟的加工蛋製品</b>，不含肉類，符合台灣入境檢疫規定。台灣禁止的是<b>生鮮或未煮熟的蛋品</b>（生雞蛋、皮蛋、生鹹蛋、鴨仔蛋）以及<b>所有肉類製品</b>。市售密封罐裝的咖椰醬不在禁止範圍。</p>
-      <div class="note-warn"><b>真正會被重罰的是肉類：</b>肉乾、肉鬆、肉骨茶調理包裡的肉、香腸——從有非洲豬瘟疫區帶豬肉製品進台灣，<b>第一次就可能罰 20 萬元</b>。新加坡的肉乾很有名，但<b>絕對不要帶回台灣</b>，想吃就在當地吃完。</p>
-      <h4 style="font-size:13px;margin:12px 0 4px;">要申報嗎？</h4>
-      <p>總量在 <b>6 公斤以內、價值 1,000 美元以下</b>的自用食品，可以走綠線不用申報。超過就走<b>紅線（應申報）</b>主動跟海關講——主動申報頂多是被要求補件或退運，<b>不會罰款</b>；走綠線被查到才會有事。</p>
-      <div class="note-ok">按建議的 15–20 罐買，總重約 5–8 公斤，四個人分開帶完全在額度內，走綠線就好。</div>
-    </div>
-
-    <div class="card">
-      <h3>🍪 順便一提：其他可以／不可以帶的伴手禮</h3>
-      <table class="mini">
-        <tr><th>品項</th><th>能不能帶</th></tr>
-        <tr><td>咖椰醬</td><td style="color:#1F4D3E"><b>✓</b> 託運</td></tr>
-        <tr><td>Bengawan Solo 斑蘭蛋糕</td><td style="color:#1F4D3E"><b>✓</b> 固體，可手提<br><span style="font-size:11px">效期短，最後一天買</span></td></tr>
-        <tr><td>百勝廚叻沙泡麵</td><td style="color:#1F4D3E"><b>✓</b> 可手提</td></tr>
-        <tr><td>白咖啡、Kopi 沖泡包</td><td style="color:#1F4D3E"><b>✓</b> 粉狀可手提</td></tr>
-        <tr><td>辣椒醬、叻沙醬</td><td style="color:#1F4D3E"><b>✓</b> 但<b>要託運</b></td></tr>
-        <tr><td><b>肉乾（Bee Cheng Hiang 等）</b></td><td style="color:#C1442B"><b>✕ 絕對不要</b><br><span style="font-size:11px">重罰，當地吃完</span></td></tr>
-        <tr><td>新鮮水果（榴槤等）</td><td style="color:#C1442B"><b>✕</b> 禁止</td></tr>
-        <tr><td>口香糖</td><td style="color:#C1442B"><b>✕</b> 新加坡境內就禁</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <section class="panel" id="pay">
-    <div class="day-title">
-      <span class="num">💳</span>
-      <div><h2>付款與預算</h2><div class="date">哪裡刷卡 · 哪裡一定要現金 · 尖峰時間</div></div>
-    </div>
-
-    <div class="callout"><b>一句話結論：</b>這趟<b>絕大多數地方都能刷卡</b>——Grab、餐廳、超市、門票全部刷。<b>只有熟食中心的攤位一定要現金</b>（天天雞飯、老娘惹叻沙、部分沙嗲攤），三餐加起來大約需要 <b>S$120–170 現金</b>。媽媽換的 NT$8,000 ≈ <b>S$318</b>，綽綽有餘。</div>
-
-    <div class="card alert">
-      <h3>⚠️ 最重要的一件事：PayNow 觀光客不能用</h3>
-      <p>熟食中心攤位上會掛著一堆 <b>PayNow／SGQR</b> 的掃碼付款貼紙，看起來很方便——但 <b>PayNow 需要新加坡的銀行帳戶</b>，短期旅客申請不了。台灣的行動支付也掃不了那個碼。</p>
-      <p>所以在熟食中心，你們實際上<b>只有現金這一個選項</b>。看到攤位貼滿 QR Code 不要以為可以掃，先準備好現金。</p>
-      <div class="note-ok"><b>反過來說：</b>正式餐廳、連鎖店、超市、商場都有刷卡機，台灣發的 Visa／Mastercard 感應付款（PayWave）直接嗶就好，Apple Pay／Google Pay 綁同一張卡也通。</div>
-    </div>
-
-    <div class="card">
-      <h3>💰 現金要準備多少</h3>
-      <p>NT$8,000 ≈ <b>S$318</b>（以 1 SGD ≈ 25.2 TWD 估算，實際依當天匯率）。</p>
-      <table class="mini">
-        <tr><th>一定要現金的場合</th><th>金額</th></tr>
-        <tr><td><b>Day 1 晚餐</b>・天天海南雞飯<br><span style="font-size:11px">麥士威熟食中心</span></td><td>S$40–50</td></tr>
-        <tr><td><b>Day 2 午餐</b>・老娘惹叻沙<br><span style="font-size:11px">麥士威熟食中心</span></td><td>S$40–50</td></tr>
-        <tr><td><b>Day 2 晚餐</b>・Satay by the Bay<br><span style="font-size:11px">多數攤收卡，小攤可能只收現金</span></td><td>S$30–40</td></tr>
-        <tr><td>零星飲料、路邊小攤、備用</td><td>S$30</td></tr>
-        <tr><th>現金需求合計</th><th>約 S$140–170</th></tr>
-      </table>
-      <div class="note-ok"><b>換的錢夠不夠？夠，而且剩很多。</b>S$318 扣掉現金需求還剩約 S$150，可以當備用金（萬一某家店刷卡機壞掉、或臨時想加買東西）。<b>不需要再換更多</b>。</div>
-      <div class="note-warn"><b>要小鈔：</b>攤販最怕收 S$50、S$100 大鈔，常常找不開。換錢時請銀行給 <b>S$10 / S$5 / S$2</b> 的組合。如果拿到大鈔，可以先在便利商店或超市買個小東西破鈔。</div>
-    </div>
-
-    <div class="card">
-      <h3>💳 每個地點的付款方式</h3>
-      <table class="mini">
-        <tr><th>地點</th><th>付款</th><th>備註</th></tr>
-        <tr><td><b>Grab 叫車</b>（全程 7–8 趟）</td><td style="color:#1F4D3E"><b>App 內刷卡</b></td><td>出發前先綁好信用卡<br>上車完全不用掏錢</td></tr>
-        <tr><td><b>松發肉骨茶</b> Jewel<br><span style="font-size:11px">D1 午餐</span></td><td style="color:#1F4D3E"><b>刷卡</b>／現金</td><td>正式餐廳，有刷卡機</td></tr>
-        <tr><td><b>天天海南雞飯</b><br><span style="font-size:11px">D1 晚餐</span></td><td style="color:#C1442B"><b>現金</b></td><td>熟食中心攤位<br>PayNow 你們用不了</td></tr>
-        <tr><td><b>亞坤</b> Robinson Road<br><span style="font-size:11px">D2 早餐</span></td><td style="color:#1F4D3E"><b>刷卡</b>／現金</td><td>連鎖店，有刷卡機</td></tr>
-        <tr><td><b>老娘惹叻沙</b><br><span style="font-size:11px">D2 午餐</span></td><td style="color:#C1442B"><b>現金</b></td><td>熟食中心攤位</td></tr>
-        <tr><td><b>FairPrice 超市</b><br><span style="font-size:11px">D2 買咖椰醬</span></td><td style="color:#1F4D3E"><b>刷卡</b></td><td>買 15–20 罐約 S$36–48<br>直接刷卡最省現金</td></tr>
-        <tr><td><b>花穹門票</b><br><span style="font-size:11px">D2 下午</span></td><td style="color:#1F4D3E"><b>線上先刷卡</b></td><td>官網／Klook 買好<br>現場掃 QR 入場</td></tr>
-        <tr><td><b>Satay by the Bay</b><br><span style="font-size:11px">D2 晚餐</span></td><td style="color:#E3A542"><b>多數收卡</b><br>備現金</td><td>大攤有刷卡機<br>小攤可能只收現金</td></tr>
-        <tr><td><b>WaterB 遊船</b><br><span style="font-size:11px">D1 晚上</span></td><td style="color:#1F4D3E"><b>線上先刷卡</b></td><td>Klook/KKday 比現場便宜</td></tr>
-        <tr><td><b>吐司工坊</b> Guoco Tower<br><span style="font-size:11px">D3 早餐</span></td><td style="color:#1F4D3E"><b>刷卡</b>／現金</td><td>連鎖店</td></tr>
-        <tr><td><b>亞坤</b> T3<br><span style="font-size:11px">D3 候機（可選）</span></td><td style="color:#1F4D3E"><b>刷卡</b>／現金</td><td>機場連鎖店</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <h3>🧾 整趟花費抓個範圍（四人合計）</h3>
-      <p>機票、住宿已經付掉了，以下是當地開銷：</p>
-      <table class="mini">
-        <tr><th>項目</th><th>金額</th><th>付款</th></tr>
-        <tr><td>Grab 全程約 7–8 趟</td><td>S$130–170</td><td>刷卡</td></tr>
-        <tr><td>餐費（六餐＋飲料點心）<br><span style="font-size:11px">已考慮你食量大</span></td><td>S$300–390</td><td>混合</td></tr>
-        <tr><td>WaterB 遊船 ×4</td><td>S$80–112</td><td>線上刷卡</td></tr>
-        <tr><td>花穹門票 ×4</td><td>單館較便宜<br>雙館約 S$184</td><td>線上刷卡</td></tr>
-        <tr><td>咖椰醬 15–20 罐</td><td>S$36–48</td><td>刷卡</td></tr>
-        <tr><td>其他伴手禮</td><td>S$50–100</td><td>刷卡</td></tr>
-        <tr><th>合計</th><th>約 S$700–1,000<br><span style="font-size:11px">≈ NT$17,600–25,200</span></th><th>其中現金<br>只需 S$140–170</th></tr>
-      </table>
-      <div class="note-warn">花穹票價會變動，出發前以官網當下價格為準。這裡的數字是抓範圍用的，不是報價。</div>
-    </div>
-
-    <div class="card">
-      <h3>🕐 各地點的尖峰時間</h3>
-      <table class="mini">
-        <tr><th>地點</th><th>尖峰（避開）</th><th>你們的時段</th></tr>
-        <tr><td>松發 Jewel<br><span style="font-size:11px">D1 週日午餐</span></td><td style="color:#C1442B">12:00–14:00<br>假日可排 30–60 分</td><td>13:00<br><span style="color:#C1442B;font-size:11px">在尖峰內，先領號碼牌</span></td></tr>
-        <tr><td>天天雞飯<br><span style="font-size:11px">D1 晚餐</span></td><td style="color:#C1442B">12:00–13:30<br>可排 40 分以上</td><td>17:45<br><span style="color:#1F4D3E;font-size:11px">離峰，排 10–15 分</span></td></tr>
-        <tr><td>亞坤 Robinson<br><span style="font-size:11px">D2 早餐</span></td><td style="color:#C1442B">08:00–09:00<br>上班族尖峰</td><td>07:30<br><span style="color:#1F4D3E;font-size:11px">剛開門，人最少</span></td></tr>
-        <tr><td>老娘惹叻沙<br><span style="font-size:11px">D2 午餐</span></td><td style="color:#C1442B">12:00–13:30</td><td>11:00<br><span style="color:#1F4D3E;font-size:11px">開門就到，不用排</span></td></tr>
-        <tr><td>花穹<br><span style="font-size:11px">D2 下午</span></td><td style="color:#C1442B">10:00–12:00<br>旅行團時段</td><td>15:30<br><span style="color:#1F4D3E;font-size:11px">團客散了</span></td></tr>
-        <tr><td>Satay by the Bay<br><span style="font-size:11px">D2 晚餐</span></td><td style="color:#C1442B">18:30–20:00<br>燈光秀前人潮</td><td>17:10<br><span style="color:#1F4D3E;font-size:11px">早一步吃完再去卡位</span></td></tr>
-        <tr><td>吐司工坊 Guoco<br><span style="font-size:11px">D3 早餐</span></td><td style="color:#C1442B">08:45–09:15</td><td>07:45<br><span style="color:#1F4D3E;font-size:11px">尖峰前</span></td></tr>
-      </table>
-      <div class="note-ok"><b>整體來說行程已經避開大部分尖峰</b>，只有 Day 1 中午的松發卡在假日尖峰上——那是因為你們剛落地，時間沒得選。應對方式就是先領號碼牌，趁等待去看雨漩渦。</div>
-    </div>
-
-    <div class="card">
-      <h3>💡 幾個當地習慣</h3>
-      <p><b>不用給小費。</b>新加坡沒有小費文化，餐廳帳單上如果有 10% service charge 已經含了，不用再加。</p>
-      <p><b>熟食中心不會有人來收錢。</b>都是去攤位前點餐、當場付、自己端回座位，沒有服務生。</p>
-      <p><b>面紙佔位（chope）是真的規矩。</b>看到桌上放著一包面紙就代表有人了，不要坐。你們自己也可以這樣佔位。</p>
-      <p><b>吃完要自己收餐盤。</b>新加坡熟食中心有規定，不收會被開罰單。找「Tray Return」的架子。</p>
-      <p><b>喝水要買。</b>餐廳不會免費送水，飲料要另外點。熟食中心有專門的飲料攤。</p>
-      <p><b>刷卡直接嗶。</b>感應式付款很普及，多數店家不會要求簽名或密碼（小額）。</p>
-    </div>
-  </section>
-
-  <section class="panel" id="diet">
-    <div class="day-title">
-      <span class="num">🩺</span>
-      <div><h2>長輩飲食注意</h2><div class="date">控糖 · 控鈉 · 保護腎臟</div></div>
-    </div>
-
-    <div class="callout"><b>核心原則：</b>選清湯、去濃醬、客製化無糖。新加坡熟食中心多數餐點都可以彈性調整醬料和糖分，<b>開口要求就好</b>，店家很習慣。</div>
-
-    <div class="card">
-      <h3>🗣️ 先記住這幾個字，點餐直接說</h3>
-      <table class="mini">
-        <tr><th>說法</th><th>意思</th></tr>
-        <tr><td><b>Kosong</b>（扣鬆）</td><td>完全無糖、無奶</td></tr>
-        <tr><td><b>Siew Dai</b>（少代）</td><td>少糖</td></tr>
-        <tr><td><b>Clear soup</b> / <b>Less salt</b></td><td>清湯、少鹽</td></tr>
-        <tr><td><b>Sauce on the side</b></td><td>醬料分開裝，自己控制沾多少</td></tr>
-        <tr><td><b>No milk</b></td><td>不要加奶（點魚片湯必說）</td></tr>
-        <tr><td><b>Less pepper</b></td><td>少胡椒（肉骨茶）</td></tr>
-      </table>
-      <div class="note-ok"><b>飲料認明 Kosong：</b><b>Teh O Kosong</b>（無糖黑紅茶）、<b>Kopi O Kosong</b>（無糖黑咖啡）。直接點 Kopi 或 Teh 會加大量煉乳和砂糖，非常甜。</div>
-    </div>
-
-    <div class="card">
-      <h3>⭕ 這趟行程裡的「安全牌」</h3>
-      <p><b>Day 1 午餐・松發潮州式肉骨茶</b>——正好是推薦類型。清湯底、蒜香，主要吃燉軟的瘦肉補蛋白質。<b>濃郁湯頭喝 2–3 口嚐鮮即可</b>，不要整碗喝完，鈉含量高。</p>
-      <p><b>Day 1 晚餐・天天海南雞飯</b>——選<b>白斬雞、去皮</b>，醬油少量沾取。雞汁飯升糖較快，建議跟家人分食或少吃兩口。</p>
-      <p><b>備選・清湯魚片湯／魚片米粉</b>——麥士威裡的<b>金華魚片米粉</b>就是這一類。點的時候務必說 <b>"No milk"</b>（很多店會加奶做成奶白湯）。魚肉是優質蛋白質，清湯底相對低油低鈉，是這趟最安全的選擇。如果哪一餐長輩不想吃重口味的，可以臨時換成這攤。</p>
-      <p><b>備選・客家釀豆腐（湯）</b>——可自選苦瓜、豆腐、蘿蔔與鮮蔬菜，請店家做<b>水煮清湯底</b>，不要加甜醬與辣椒醬。</p>
-      <p><b>飲料</b>——一律 Kosong。</p>
-    </div>
-
-    <div class="card alert">
-      <h3>⚠️ 這趟行程裡需要「控制吃法」的兩餐</h3>
-      <p>你們決定兩餐都保留，所以這裡寫清楚怎麼吃比較安全：</p>
-
-      <h4 style="font-size:13px;margin:12px 0 4px;">Day 2 午餐・老娘惹叻沙</h4>
-      <p>叻沙湯頭含<b>大量濃縮椰漿與蝦膏</b>，飽和脂肪、鉀、磷與鈉含量都很高，對腎臟與心血管負擔大。長輩版吃法：</p>
-      <ul style="padding-left:18px;font-size:13.5px;color:var(--ink-soft);line-height:1.7;">
-        <li><b>湯只喝 2–3 口嚐味道</b>，不要把湯喝完——這是最關鍵的一步</li>
-        <li><b>麵和料撈起來吃</b>，不要泡在湯裡整碗吃</li>
-        <li>多吃裡面的<b>豆芽、蝦、魚餅</b>等配料，少吃吸滿湯汁的麵</li>
-        <li>可以<b>四個人分食一碗</b>，長輩嚐鮮就好，你食量大可以自己點一碗完整的</li>
-      </ul>
-      <div class="note-ok">同一個熟食中心裡就有<b>金華魚片米粉</b>（清湯、No milk），如果當天長輩狀況不好，可以直接改點那攤，叻沙讓年輕人吃。</div>
-
-      <h4 style="font-size:13px;margin:16px 0 4px;">Day 2 晚餐・Satay by the Bay</h4>
-      <p>沙嗲本身是烤肉串，problem 在<b>花生醬</b>——高糖高鈉高油。長輩版吃法：</p>
-      <ul style="padding-left:18px;font-size:13.5px;color:var(--ink-soft);line-height:1.7;">
-        <li>點餐時說 <b>"sauce on the side"</b>，花生醬另外裝，<b>用沾的、少量沾</b>，不要整串泡下去</li>
-        <li>多吃<b>雞肉串</b>（相對瘦），少吃油脂多的部位</li>
-        <li>配的<b>小黃瓜和洋蔥</b>可以多吃，幫助解膩</li>
-        <li>避開<b>沙嗲米粉、炒粿條</b>這類重油重醬的主食，改點白飯或直接吃串</li>
-        <li>飲料攤點 <b>Teh O Kosong</b> 或礦泉水，不要點甜飲</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>❌ 這些在新加坡很有名，但建議只嚐 1 口</h3>
-      <table class="mini">
-        <tr><th>品項</th><th>問題</th></tr>
-        <tr><td><b>叻沙 Laksa</b></td><td>濃縮椰漿＋蝦膏<br>飽和脂肪、鉀、磷、鈉極高</td></tr>
-        <tr><td><b>炒粿條</b> Char Kway Teow</td><td>大量豬油＋甜老抽<br>高糖高鈉，升糖極快</td></tr>
-        <tr><td><b>辣椒螃蟹／黑胡椒蟹</b></td><td>醬汁大量勾芡、砂糖、鹽<br>只吃純蟹肉，<b>絕對不要拿饅頭沾醬</b></td></tr>
-        <tr><td><b>印度煎餅</b> Roti Prata＋咖哩</td><td>精緻澱粉油煎＋高鹽高油沾醬<br>血糖飆升</td></tr>
-        <tr><td><b>珍多冰／紅豆冰</b></td><td>椰奶＋椰糖漿<br>血糖炸彈</td></tr>
-        <tr><td><b>預設的 Kopi / Teh</b></td><td>當地做法加大量煉乳與砂糖<br>務必改點 Kosong</td></tr>
-      </table>
-      <div class="note-ok">這些不是「不能碰」，而是<b>嚐一口就好、不要當正餐</b>。旅行本來就是要吃點好玩的，控制份量比完全禁止更實際。</div>
-    </div>
-  </section>
-
-  <section class="panel" id="prep">
-    <div class="day-title">
-      <span class="num">✓</span>
-      <div><h2>行前準備清單</h2><div class="date">出發前記得完成</div></div>
-    </div>
-
-    <div class="check-group">
-      <h3>證件與入境</h3>
-      <label class="check-item">
-        <input type="checkbox" data-key="sgac">
-        <span class="txt"><b>SG Arrival Card 電子入境卡</b><span>4人都要填，只能在登機前 72 小時內（9/3 之後）上網填，官網 safetravel.ica.gov.sg</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="passport">
-        <span class="txt"><b>護照效期 6 個月以上</b><span>出發前確認 4 人護照效期</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="conscript">
-        <span class="txt"><b>役男線上申請短期出境</b><span>每次出國都要重新申請，出發前 1 個月內於內政部役政署系統申請，核准後 30 天內有效，記得列印或截圖核准通知單</span></span>
-      </label>
-    </div>
-
-    <div class="check-group">
-      <h3>出發前</h3>
-      <label class="check-item">
-        <input type="checkbox" data-key="grab">
-        <span class="txt"><b>下載 Grab App 並綁信用卡</b><span>當地叫車主要用這個。綁好卡之後上車完全不用掏現金，全程約 7–8 趟車</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="cashsmall">
-        <span class="txt"><b>換小鈔（S$10／5／2）</b><span>熟食中心攤位只收現金、PayNow 觀光客用不了。三餐約需 S$140–170 現金，攤販找不開大鈔</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="tickets">
-        <span class="txt"><b>花穹門票先線上訂</b><span>避免現場排隊，尤其六日人潮多</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="breakfast">
-        <span class="txt"><b>確認訂房是否含早餐</b><span>Dao by Dorsett 是服務式公寓，早餐不一定含在房價內。行程已改成外面吃吐司工坊和亞坤，若訂房已含早餐再回來調整</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="jacket">
-        <span class="txt"><b>攜帶薄外套</b><span>室外約 30–32 度，但溫室、商場、遊船、飯店冷氣非常強，長輩建議隨身帶一件薄外套</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="cruise">
-        <span class="txt"><b>WaterB 遊船線上先買票</b><span>Klook／KKday 通常比現場 S$28 便宜，刷卡拿 QR Code。魚尾獅碼頭上船，坐到克拉碼頭或 Fort Canning 才下船</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="baggage">
-        <span class="txt"><b>查一下行李額度</b><span>用訂位代號上長榮官網查實際免費託運額度，咖椰醬買多了才知道夠不夠</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="space">
-        <span class="txt"><b>行李箱留空間給咖椰醬</b><span>15–20 罐約 5–8 公斤，去程行李別塞太滿；帶個環保袋裝戰利品</span></span>
-      </label>
-    </div>
-
-    <div class="check-group">
-      <h3>當地提醒</h3>
-      <label class="check-item">
-        <input type="checkbox" data-key="vape">
-        <span class="txt"><b>電子煙全面禁止</b><span>新加坡禁止攜帶及使用電子煙，查獲會罰款，提醒同行的人</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="lobby7f">
-        <span class="txt"><b>飯店大廳在 7 樓</b><span>Dao by Dorsett 位於 OUE Downtown 1 辦公大樓內，進大樓後要搭電梯上 7 樓才是 Check-in 櫃檯，別在一樓找</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="swim">
-        <span class="txt"><b>帶泳衣</b><span>頂樓無邊際泳池是這間的招牌，Day 2 午休那段時間剛好可以用</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="kaya">
-        <span class="txt"><b>咖椰醬一定要在報到前買完</b><span>超過 100ml 必須託運，行李送出去就來不及了。詳見「咖椰醬攻略」分頁</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="meat">
-        <span class="txt"><b>肉乾絕對不要帶回台灣</b><span>肉類製品違規最高可罰 20 萬元，新加坡肉乾很好吃但請在當地吃完</span></span>
-      </label>
-      <label class="check-item">
-        <input type="checkbox" data-key="counter">
-        <span class="txt"><b>回程 Day 3 先吃飽再去機場</b><span>長榮在樟宜起飛前 2.5 小時（10:40）才開櫃，行程已改成先在飯店附近吃吐司工坊當早餐，機場候機空檔才不會餓肚子乾等</span></span>
-      </label>
-    </div>
-  </section>
-
-  <section class="panel" id="info">
-    <div class="day-title">
-      <span class="num">i</span>
-      <div><h2>住宿與美食資訊</h2><div class="date">確定版</div></div>
-    </div>
-
-    <div class="card">
-      <h3>🏨 Dao by Dorsett AMTD Singapore</h3>
-      <p>6 Shenton Way, OUE Downtown 1, #07-01, Singapore 068809</p>
-      <p><b>大廳與 Check-in 櫃檯在 7 樓</b>，整棟是辦公大樓改建的服務式公寓，進大樓後直接搭電梯上樓。</p>
-      <p>最近地鐵站：<b>Shenton Way 站（棕線）</b>，就在樓下。Tanjong Pagar 站（綠線）和 Downtown 站（藍線）也在走路範圍。</p>
-      <p>設施：頂樓無邊際泳池、24 小時健身房、兒童遊戲區。房間偏大、隔音佳，房內有 Nespresso 咖啡機與雨淋花灑。</p>
-      <div class="note-ok"><b>位置優勢：</b>棕線一條線就串起這趟的重點——Maxwell 雞飯 1 站、濱海灣花園 2 站、魚尾獅公園走路 1.2 公里。比原本的 Holiday Inn Atrium 更靠近濱海灣。</div>
-      <div class="note-warn"><b>要注意：</b>CBD 金融區<b>週末和晚上店家會關得比較多</b>，附近沒有夜市型的熱鬧街區。吃宵夜或臨時買東西要往牛車水、丹戎巴葛方向移動。</div>
-      <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=Dao+by+Dorsett+AMTD+Singapore+6+Shenton+Way" target="_blank" rel="noopener">📍 飯店位置</a>
-    </div>
-
-    <div class="card">
-      <h3>🍛 天天海南雞飯</h3>
-      <p>已排進 <b>Day 1 晚餐</b>：麥士威熟食中心（Maxwell Food Centre）攤位 #01-10/11，1 Kadayanallur Street。新加坡最知名的雞飯之一。</p>
-      <p><b>週一公休</b>，各方資料打烊時間略有出入（約 19:30–21:00），這也是為什麼排在週日晚上而不是週一。</p>
-    </div>
-
-    <div class="card">
-      <h3>🍲 老娘惹叻沙 Old Nyonya</h3>
-      <p>已排進 <b>Day 2 午餐</b>：同一個麥士威熟食中心，攤位 #01-04。椰漿湯頭濃郁的娘惹叻沙，招牌仁當雞也有名。</p>
-      <p>營業 11:00–21:00，<b>週三公休</b>（Day 2 是週一，不受影響）。</p>
-    </div>
-
-    <div class="card">
-      <h3>🍢 Satay by the Bay</h3>
-      <p>已排進 <b>Day 2 晚餐</b>：18 Marina Gardens Drive #01-19，濱海灣花園內、離超級樹只要 5 分鐘。露天沙嗲大排檔，多攤各自現烤，飲料攤 24 小時營業。</p>
-      <p>營業約 11:00–22:00，<b>戶外無冷氣</b>，傍晚會有炭烤煙味和蚊蟲，薄外套順便防蚊。預計 2026 年 10 月起停業改建，9 月造訪還來得及。</p>
-    </div>
-
-    <div class="card">
-      <h3>🍜 亞華肉骨茶 Ya Hua Bak Kut Teh（備案）</h3>
-      <p>59 Havelock Rd, #01-01，從飯店 Grab 約 10 分鐘。老字號潮州胡椒肉骨茶，湯頭免費無限加湯，全冷氣、不需排隊。目前行程主線已改到麥士威吃晚餐，這家留作想換口味或臨時調整時的備案。</p>
-    </div>
-
-    <div class="card">
-      <h3>🍞 吐司工坊 Toast Box</h3>
-      <p>已排進 <b>Day 3 早餐</b>：Guoco Tower（丹戎巴葛中心）7 Wallich Street #01-14，從飯店走路約 7 分鐘。</p>
-      <p>備案：Marina Bay Link Mall（8A Marina Boulevard #B2-18），走地下通道約 10 分鐘，位子較多。</p>
-      <p>營業約 07:30–15:00/17:00（平日），冷氣有座位。和亞坤的差別：吐司是<b>厚片</b>（亞坤是薄片炭烤），咖啡較順口，而且有<b>叻沙、粥、咖哩雞麵包</b>等熱食選擇。</p>
-    </div>
-
-    <div class="card">
-      <h3>☕ 亞坤 Ya Kun Kaya Toast</h3>
-      <p><b>Day 2 早餐</b>：Robinson Road 老字號門市，61 Robinson Road #01-01，從飯店走路約 7–8 分鐘，07:30 開始營業。</p>
-      <p><b>Day 3 候機空檔（10:00–10:40）</b>：可選的點心站，位在樟宜 T3 地下二樓 #B2-07，營業 07:30–23:00，在管制區外，不去也沒關係。Jewel 也有一家（#01-K230/K207，07:30–22:00），但要報到後才會經過，買液體帶不上飛機。</p>
-      <p>經典組合：炭烤咖椰吐司＋半熟蛋（淋醬油白胡椒）＋Kopi。長輩喝咖啡建議點 <b>Kopi C Kosong</b>（淡奶不加糖），原味 Kopi 加了煉乳非常甜。</p>
-    </div>
-
-    <div class="card">
-      <h3>🚤 WaterB 新加坡河遊船</h3>
-      <p><b>出發前在 Klook／KKday 線上先買</b>，通常比現場 S$28 便宜一截，刷信用卡拿 QR Code，到碼頭掃碼上船。</p>
-      <p>營運 <b>14:00–21:00</b>，約每 30 分鐘一班，<b>末班 21:00</b>。全程約 40 分鐘。</p>
-      <p>全線 7 個碼頭（由下游往上游）：Bayfront North → Esplanade → <b>Merlion Park（你們上船）</b> → Raffles Landing → Raffles Place → <b>Eu Tong Sen（克拉碼頭）</b> → <b>Fort Canning</b>。</p>
-      <div class="note-warn"><b>下船就不能再上船。</b>要坐到 Eu Tong Sen 或 Fort Canning 才下船，才算看完整段精華河景；在 Raffles Place 就下只坐到一小段。</div>
-    </div>
-
-    <div class="card">
-      <h3>🍜 松發肉骨茶 Song Fa（Jewel）</h3>
-      <p>已排進 <b>Day 1 午餐</b>：78 Airport Boulevard, Jewel <b>#B2-278/279/280</b>，從 T3 走連通橋 5–10 分鐘。</p>
-      <p>營業 <b>10:30–21:30</b>，全冷氣、可刷卡。潮州式清湯胡椒肉骨茶，湯免費續，米其林必比登常客。</p>
-      <p><b>長輩適合</b>：清湯底、吃燉軟瘦肉，符合控鈉護腎原則——但湯本身鈉高，喝 2–3 口嚐鮮就好。</p>
-      <div class="note-warn">週日中午是尖峰，可能排 30–60 分鐘。先領號碼牌，趁等待去看雨漩渦。</div>
-    </div>
-  </section>
-
+  </a>
 </main>
 
 <footer>
-  <p>製作給這趟旅程 · 資料以實際訂位與現場狀況為準</p>
-  <div class="badge-row" style="justify-content:center;">
-    <span class="badge">BR225 / BR226</span>
-    <span class="badge">Dao by Dorsett AMTD</span>
-    <span class="badge">Terminal 3</span>
-    <span class="badge">4 人同行</span>
-  </div>
+  <p>資料以實際訂位與現場狀況為準</p>
 </footer>
 
 <script>
-  const tabs = document.querySelectorAll('nav.tabs button');
-  const panels = document.querySelectorAll('section.panel');
-  tabs.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      tabs.forEach(b=>b.classList.remove('active'));
-      panels.forEach(p=>p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.tab).classList.add('active');
-      window.scrollTo({top: document.querySelector('main').offsetTop - 70, behavior:'smooth'});
-    });
-  });
+  (function(){
+    var dep = new Date(2026, 10, 21);          // 2026-11-21
+    var end = new Date(2026, 10, 23, 23, 59);  // 2026-11-23 結束
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var days = Math.round((dep - today) / 86400000);
 
-  const items = document.querySelectorAll('.check-item input');
-  const STORE_KEY = 'sg-trip-checklist';
-  let saved = {};
-  try{ saved = JSON.parse(localStorage.getItem(STORE_KEY)) || {}; }catch(e){}
-  items.forEach(inp=>{
-    const key = inp.dataset.key;
-    if(saved[key]){ inp.checked = true; inp.closest('.check-item').classList.add('done'); }
-    inp.addEventListener('change', ()=>{
-      saved[key] = inp.checked;
-      try{ localStorage.setItem(STORE_KEY, JSON.stringify(saved)); }catch(e){}
-      inp.closest('.check-item').classList.toggle('done', inp.checked);
-    });
-  });
+    var chip = document.getElementById('sapporo-chip');
+    var status = document.getElementById('sapporo-status');
+    if(!chip || !status) return;
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduceMotion){
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:';
-    document.querySelectorAll('[data-flap]').forEach(el=>{
-      const final = el.dataset.flap;
-      let frame = 0;
-      const totalFrames = 10;
-      const iv = setInterval(()=>{
-        frame++;
-        if(frame >= totalFrames){ el.textContent = final; clearInterval(iv); return; }
-        el.textContent = final.split('').map((c,i)=>{
-          if(c===' ') return ' ';
-          if(i < frame - 2) return c;
-          return chars[Math.floor(Math.random()*chars.length)];
-        }).join('');
-      }, 45);
-    });
-  }
+    if(now > end){
+      chip.textContent = '已結束';
+      chip.classList.remove('warn');
+      status.textContent = '已結束';
+      status.className = 'status done';
+    } else if(days > 0){
+      chip.textContent = '倒數 ' + days + ' 天';
+      chip.classList.add('countdown');
+      status.textContent = days <= 7 ? '即將出發' : '籌備中';
+      status.className = 'status soon';
+    } else {
+      chip.textContent = days === 0 ? '今天出發' : '旅程進行中';
+      chip.classList.add('countdown');
+      status.textContent = '進行中';
+      status.className = 'status today';
+    }
+  })();
 </script>
 
 </body>
