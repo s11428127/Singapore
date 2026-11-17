@@ -45,8 +45,17 @@
   .board-note{font-size:11.5px;color:#93AEC4;line-height:1.6;margin:0;}
   .board-note b{color:var(--gold-l);}
   .cd{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;
-    color:#fff;margin:0 0 8px;}
+    color:#fff;margin:0 0 10px;}
   .cd span{color:var(--gold-l);}
+  .board-row{display:grid;grid-template-columns:52px 1fr 76px;gap:8px;align-items:center;
+    padding:8px 2px;border-bottom:1px dashed rgba(255,255,255,0.13);}
+  .board-row:last-of-type{border-bottom:none;}
+  .board-row .flap{font-family:'IBM Plex Mono',monospace;font-weight:600;
+    font-size:12.5px;color:var(--gold-l);}
+  .board-row .route{font-size:12.5px;color:#E4EDF4;}
+  .board-row .route small{display:block;color:#8AA6BC;font-size:10px;margin-top:1px;}
+  .board-row .time{font-family:'IBM Plex Mono',monospace;text-align:right;
+    font-size:14px;font-weight:600;color:#fff;}
 
   nav.tabs{position:sticky;top:0;z-index:10;display:flex;gap:6px;overflow-x:auto;
     background:var(--paper);padding:12px 16px;border-bottom:1px solid var(--line);
@@ -130,16 +139,28 @@
   <p class="sub">2026.11.21（六）— 11.23（一）· 初冬的北海道</p>
   <div class="board">
     <p class="cd" id="cd">計算中…</p>
-    <p class="board-note">11/23 是日本 <b>勤労感謝の日</b>，這三天是全日本的<b>三連休</b>・札幌<b>白色燈樹節 11/20 剛開幕</b></p>
+    <div class="board-row">
+      <span class="flap">BR116</span>
+      <span class="route">桃園 TPE → 新千歲 CTS<small>去程・11/21（六）14:05 抵達</small></span>
+      <span class="time">09:30</span>
+    </div>
+    <div class="board-row">
+      <span class="flap">BR165</span>
+      <span class="route">新千歲 CTS → 桃園 TPE<small>回程・11/23（一）16:05 抵達</small></span>
+      <span class="time">12:10</span>
+    </div>
+    <p class="board-note">住宿 <b>Vessel Hotel Campana 薄野</b>（3 人房・含早餐）・11/23 是<b>勤労感謝の日三連休</b>・<b>燈樹節與聖誕市集 11/20 剛開幕</b></p>
   </div>
 </header>
 
 <nav class="tabs">
   <button class="active" data-tab="overview">總覽</button>
+  <button data-tab="day1">Day 1</button>
+  <button data-tab="day2">Day 2</button>
+  <button data-tab="day3">Day 3</button>
+  <button data-tab="where">還能去哪</button>
   <button data-tab="weather">天氣＆穿著</button>
-  <button data-tab="illum">燈樹節</button>
   <button data-tab="prep">行前準備</button>
-  <button data-tab="plan">行程規劃</button>
 </nav>
 
 <main>
@@ -147,43 +168,293 @@
   <section class="panel active" id="overview">
     <div class="day-title">
       <span class="num">❄</span>
-      <div><h2>這趟的三個關鍵</h2><div class="date">11/21（六）– 11/23（一）</div></div>
+      <div><h2>快閃的真相：實際只有 1.5 天</h2><div class="date">11/21（六）– 11/23（一）</div></div>
+    </div>
+
+    <div class="callout"><b>先把時間算清楚：</b>Day 1 下午兩點才落地、扣掉入境和進市區，<b>16:20 才會到飯店</b>；Day 3 中午 12:10 的飛機，<b>8:45 就要出門</b>。所以真正能用的是 <b>Day 1 傍晚起約 5 小時 ＋ Day 2 一整天</b>。行程要照這個現實排，不要塞太多。</div>
+
+    <div class="card">
+      <h3>⏱️ 可用時間一覽</h3>
+      <table class="mini">
+        <tr><th>Day 1（六）</th><td>16:20 進飯店 → 約 <b>5 小時</b><br><span style="font-size:11px">傍晚＋晚上，剛好接燈樹節</span></td></tr>
+        <tr><th>Day 2（日）</th><td><b>一整天</b>，唯一的完整日<br><span style="font-size:11px">這天決定整趟的內容</span></td></tr>
+        <tr><th>Day 3（一）</th><td>早餐＋退房＋直奔機場<br><span style="font-size:11px">幾乎排不了行程</span></td></tr>
+      </table>
     </div>
 
     <div class="card alert">
-      <h3>⚠️ 一：你們撞上日本三連休</h3>
-      <p><b>11/23（一）是勤労感謝の日</b>，所以 11/21–11/23 是全日本的三連休。這代表：</p>
+      <h3>🎄 你 2 月去的時候沒有的東西</h3>
+      <p>這次最大的差異是<b>兩個冬季活動剛好在 11/20 開幕</b>，等於你們是開幕第二天到：</p>
       <ul>
-        <li><b>機票、住宿會比平日貴</b>，而且熱門飯店可能已經滿房</li>
-        <li>札幌市區景點、人氣餐廳<b>排隊時間會拉長</b></li>
-        <li>JR、地鐵、機場巴士在連休頭尾兩天<b>特別擠</b></li>
-        <li>人氣餐廳（成吉思汗烤羊肉、迴轉壽司、拉麵名店）<b>強烈建議先訂位</b></li>
+        <li><b>白色燈樹節</b>（大通 1–5 丁目）11/20–12/25，點燈 16:30–22:00</li>
+        <li><b>慕尼黑聖誕市集</b>（大通 2 丁目）11/20–12/25，11:00–21:00，有熱紅酒、德國香腸、聖誕雜貨</li>
       </ul>
-      <div class="note-warn"><b>只剩 4 天：</b>今天是 11/17。如果住宿或機票還沒訂，三連休的札幌現在訂會很吃力也很貴，建議<b>今天就處理</b>。餐廳訂位也是現在就要打。</div>
+      <p>兩個都免費、都在大通公園、從薄野走路約 8 分鐘。2 月的札幌是雪祭和雪景，這次是聖誕燈飾和市集，<b>氣氛完全不同</b>。</p>
+      <div class="note-ok">這也是為什麼 Day 1 傍晚直接排大通——不是因為你沒去過，而是因為這個時間點才有。</div>
     </div>
 
     <div class="card">
-      <h3>✨ 二：白色燈樹節剛好開幕</h3>
-      <p>札幌白色燈樹節（さっぽろホワイトイルミネーション）<b>大通會場 11/20 開幕</b>，你們 11/21 抵達，等於<b>開幕第二天</b>就遇上。</p>
-      <p>點燈時間 <b>16:30–22:00</b>。11 月下旬札幌下午 4 點多就天黑，所以傍晚一定看得到。</p>
-      <div class="note-ok">這是這趟最值得排的夜間行程，而且<b>免費</b>。詳見「燈樹節」分頁。</div>
+      <h3>🏨 住宿・Vessel Hotel Campana 薄野</h3>
+      <p>〒064-0805 札幌市中央區南 5 条西 6 丁目 16-1<br>ベッセルホテルカンパーナすすきの</p>
+      <p>地鐵南北線<b>薄野站 4 號出口步行約 4 分鐘</b>，走到狸小路約 4 分鐘。</p>
+      <p><b>3 人房</b>（1 張日式床墊＋2 張單人床，24 m²）、<b>含早餐</b>、禁菸。</p>
+      <div class="note-ok"><b>有大浴場。</b>11 月下旬走一整天戶外回來，泡大浴場比房間浴缸舒服太多，這間的大浴場評價很好。早餐也是這間的賣點，Day 2、Day 3 都記得吃。</div>
+      <div class="note-ok"><b>位置優勢：</b>住薄野等於把「晚上」解鎖了——燈樹節走路 8 分、狸小路 4 分、居酒屋和<b>シメパフェ</b>（札幌的收尾聖代文化）都在步行圈內，晚上不用算末班車。</div>
+    </div>
+
+    <div class="card alert">
+      <h3>⚠️ 三連休，訂位要趁現在</h3>
+      <p>11/23 是勤労感謝の日，11/21–23 是全日本三連休。住宿你已經訂好了，但<b>餐廳還沒訂的話今天就要打</b>——成吉思汗、蟹料理、人氣壽司在連休不訂位可能排 1 小時以上。</p>
+      <p>JR 和地鐵在連休頭尾會比較擠，Day 1 抵達和 Day 3 去機場都多抓一點緩衝。</p>
+    </div>
+  </section>
+
+  <section class="panel" id="day1">
+    <div class="day-title">
+      <span class="num">01</span>
+      <div><h2>抵達 · 燈樹節 · 聖誕市集</h2><div class="date">11/21（六）</div></div>
+    </div>
+    <div class="callout"><b>這天的節奏：</b>前半段全部是移動，16:20 才真正開始。好消息是燈樹節 16:30 點燈、札幌 4 點多就天黑，所以你們一進市區就直接接上夜景，沒有浪費時間。</div>
+
+        <div class="card">
+      <h3>14:05　BR116 落地 新千歲 CTS</h3>
+      <p>國際線航廈。入境審查＋提行李＋海關，<b>抓 60 分鐘</b>——三連休第一天，入境人潮會比平常多。</p>
+      <div class="note-warn"><b>Visit Japan Web 一定要先填。</b>填好的 QR Code 存在手機裡，入境審查和海關都用得到。沒填要排人工，連休時那條隊伍會很長。</div>
     </div>
 
     <div class="card">
-      <h3>🧥 三：要當成冬天準備，不是秋天</h3>
-      <p>11 月下旬的札幌日間約 <b>10°C 以下</b>，入夜可能到 <b>0°C 或更低</b>。可能下雪，<b>路面會結冰</b>。</p>
-      <p>台灣人最常犯的錯是穿秋天的衣服來——帶羽絨外套、防水防滑的鞋，不要只穿球鞋。詳見「天氣＆穿著」分頁。</p>
+      <h3>15:05　走到 JR 新千歲空港駅</h3>
+      <p>JR 車站在<b>國內線航廈地下 1 樓</b>，從國際線航廈走連絡通路過去約 <b>300 公尺、10–15 分鐘</b>（拖行李會更慢）。沿「JR」指標走就好。</p>
     </div>
 
-    <div class="todo">
-      <h3>📝 這個行程還缺的資料</h3>
-      <p>我還不知道你的班機、住宿和同行者，所以行程時間軸還沒辦法排。跟我說以下幾項，我就能把完整行程做出來：</p>
+    <div class="card">
+      <h3>15:25　JR 快速エアポート → 札幌駅</h3>
+      <table class="mini">
+        <tr><th>車程</th><td>約 <b>37 分鐘</b></td></tr>
+        <tr><th>票價</th><td>自由席 <b>¥1,230</b></td></tr>
+        <tr><th>班距</th><td>日間約 <b>10 分鐘一班</b></td></tr>
+      </table>
+      <p>IC 卡（Suica／Kitaca／手機 Apple Pay 的 Suica）可以直接刷進站，不用買票。想坐劃位的 <b>U-Seat</b> 要另外加錢。</p>
+      <div class="note-warn"><b>冬季有運休風險。</b>11 月下旬通常還好，但如果當天下大雪，JR 可能延誤或停駛。備案是機場連絡巴士（到札幌市區約 70–80 分）。出發前看一下 JR 北海道官網。</div>
+    </div>
+
+    <div class="card">
+      <h3>16:05　札幌駅 → 薄野 → 飯店</h3>
+      <p>地鐵<b>南北線</b>札幌 → すすきの，<b>2 站約 4 分鐘</b>。薄野站 <b>4 號出口</b>走 4 分鐘到飯店。</p>
+      <p><b>16:20 進飯店</b>，Check in、放行李、換上保暖裝備。</p>
+      <div class="note-ok">行李放好再出門，不要拖著行李去大通。大通公園全程戶外，拖行李在可能結冰的路面上很不方便。</div>
+    </div>
+
+    <div class="card alert">
+      <h3>16:50–19:00　大通公園・燈樹節＋聖誕市集</h3>
+      <p>從飯店走到大通公園約 <b>8 分鐘</b>（或地鐵南北線 1 站）。怕冷可以走<b>地下街（チカホ）</b>，從薄野一路走到大通幾乎不用出地面。</p>
+      <table class="mini">
+        <tr><th>白色燈樹節</th><td>大通 1–5 丁目<br><b>16:30–22:00</b>・免費</td></tr>
+        <tr><th>慕尼黑聖誕市集</th><td>大通 2 丁目<br><b>11:00–21:00</b>（L.O. 20:45）・免費入場</td></tr>
+      </table>
+      <p>聖誕市集有熱紅酒（Glühwein）、德國香腸、椒鹽捲餅和聖誕雜貨。<b>買杯熱紅酒邊走邊看燈飾</b>是這個季節最對的玩法。</p>
+      <div class="note-warn"><b>戶外很冷，不要排太久。</b>11 月下旬入夜可能到 0°C 以下。看 1.5–2 小時就夠，冷了旁邊就是地下街和百貨可以躲。</div>
+    </div>
+
+    <div class="card">
+      <h3>19:00　晚餐</h3>
+      <p>大通和薄野之間餐廳密度很高，走回飯店方向一路都有。11 月下旬是<b>螃蟹、牡蠣、新蕎麥</b>的季節。</p>
+      <div class="note-warn"><b>三連休第一晚，人氣店沒訂位會排很久。</b>如果有特別想吃的（蟹料理、成吉思汗、壽司），現在就打電話訂。</div>
+    </div>
+
+    <div class="card">
+      <h3>21:00　シメパフェ（札幌限定文化）</h3>
+      <p>札幌人喝完酒後會吃一份聖代收尾，叫「<b>シメパフェ</b>」。這是札幌獨有的夜間文化，薄野一帶有一整排專門店，<b>你們住薄野等於住在核心區</b>。</p>
+      <p>知名店：<b>ななかま堂</b>、<b>パフェテリア パル</b>（薄野站走路 3 分，營業到深夜）、<b>佐々木</b>、<b>ROJIURA CAFE</b>。多數營業到凌晨 1–2 點。</p>
+      <div class="note-ok">第三次來札幌的話，這個比再逛一次狸小路有意思。週末會排隊，但店多，一間滿就換下一間。</div>
+    </div>
+  </section>
+
+  <section class="panel" id="day2">
+    <div class="day-title">
+      <span class="num">02</span>
+      <div><h2>唯一的完整一天</h2><div class="date">11/22（日）</div></div>
+    </div>
+    <div class="callout"><b>這天是整趟的重點，但方案還沒定。</b>下面是我依「第三次來、11 月下旬、快閃」條件排的<b>提案</b>，你去過的部分可以直接換掉——替代選項都放在「還能去哪」分頁。跟我說哪些去過，我再調整。</div>
+
+    <div class="card">
+      <h3>🥐 07:30–08:30　飯店早餐</h3>
+      <p>這間早餐評價很好，吃飽再出門。11 月下旬戶外活動很耗體力。</p>
+    </div>
+
+    <div class="card">
+      <h3>🌳 09:30–12:00　円山・北海道神宮</h3>
+      <p>地鐵東西線<b>円山公園站</b>（薄野→大通轉東西線，約 15 分鐘）。</p>
+      <p>円山是札幌的高級住宅區，和狸小路、大通完全不同氣氛——<b>觀光客少、以當地人為主</b>，咖啡廳和麵包店密度非常高。北海道神宮在円山公園裡，走進去是一片林地，11 月下旬的蕭瑟感和 2 月的雪景是兩種東西。</p>
+      <div class="note-ok">神宮境內的<b>六花亭神宮茶屋店</b>有只在這裡吃得到的「判官さま」（現烤麻糬），免費熱茶，進去避寒剛好。</div>
+      <div class="note-warn">公園內步道可能結冰或泥濘，鞋子要防滑。</div>
+    </div>
+
+    <div class="card">
+      <h3>🍽️ 12:00–13:30　円山一帶午餐</h3>
+      <p>円山・裏参道有很多質感小店，和市區的觀光餐廳是不同路線。</p>
+    </div>
+
+    <div class="card">
+      <h3>🍺 14:00–16:00　札幌啤酒博物館</h3>
+      <p>地鐵東豐線<b>東區役所前站</b>走路約 10 分，或從札幌站搭巴士。<b>室內行程</b>，11 月下旬的下午很適合。</p>
+      <p>博物館本身免費參觀，付費可以試飲（含已停產的復刻啤酒）。紅磚建築本身就很好拍。</p>
+      <div class="note-ok">隔壁就是<b>サッポロビール園</b>，可以直接接晚餐吃成吉思汗烤羊肉。要訂位。</div>
+    </div>
+
+    <div class="card">
+      <h3>🌃 16:30–17:30　JR Tower 展望室 T38</h3>
+      <p>札幌站正上方 <b>38 樓</b>，從地面直接搭電梯，<b>不用上山、不用排纜車</b>——這是它比藻岩山適合快閃的地方。札幌 4 點多就天黑，這個時間上去剛好看夜景。</p>
+      <div class="note-ok">如果 Day 2 晚餐訂在啤酒園，這段就跳過；兩個都想要的話把啤酒博物館往前挪。</div>
+    </div>
+
+    <div class="card">
+      <h3>🍖 18:30–20:30　晚餐</h3>
+      <p>成吉思汗烤羊肉、蟹料理、迴轉壽司（根室花まる 等），看你們想吃哪個方向。<b>三連休一定要訂位。</b></p>
+    </div>
+
+    <div class="card">
+      <h3>♨️ 21:30　回飯店泡大浴場</h3>
+      <p>走一整天戶外，回來泡大浴場。這是選這間飯店的主要好處之一。</p>
+    </div>
+  </section>
+
+  <section class="panel" id="day3">
+    <div class="day-title">
+      <span class="num">03</span>
+      <div><h2>早餐 · 直奔機場</h2><div class="date">11/23（一）</div></div>
+    </div>
+    <div class="callout"><b>這天排不了行程。</b>12:10 的飛機、國際線要提前 2 小時報到，加上進機場的 40 分鐘車程，<b>8:45 就得出門</b>。把它當成移動日，想買的東西留到機場。</div>
+
+    <div class="card">
+      <h3>07:30–08:20　飯店早餐</h3>
+      <p>最後一餐飯店早餐，吃飽再走。</p>
+    </div>
+
+    <div class="card">
+      <h3>08:35　退房</h3>
+      <p>行李收好，8:45 出門。</p>
+    </div>
+
+    <div class="card">
+      <h3>08:45–09:05　薄野 → 札幌駅</h3>
+      <p>地鐵南北線 2 站約 4 分鐘＋走路。拖行李的話走地下街到札幌站比地面輕鬆。</p>
+    </div>
+
+    <div class="card alert">
+      <h3>09:15　JR 快速エアポート → 新千歲</h3>
+      <p>約 37 分鐘，<b>09:55 左右抵達</b>。</p>
+      <div class="note-warn"><b>抓這班不要再晚。</b>JR 到的是國內線航廈，走到<b>國際線報到櫃檯還要 7–8 分鐘</b>（人多時 15 分）。10:10 到櫃檯，離 12:10 起飛剛好 2 小時。</div>
+    </div>
+
+    <div class="card">
+      <h3>10:10　長榮櫃檯報到・託運</h3>
+      <p>國際線一般起飛前 2–3 小時開櫃。報到完行李卸掉，剩下的時間就輕鬆了。</p>
+    </div>
+
+    <div class="card">
+      <h3>10:40–11:40　新千歲機場好好逛</h3>
+      <p>新千歲是日本數一數二好逛的機場，<b>伴手禮幾乎都能在這裡一次買齊</b>，所以市區不用急著買。</p>
       <ul>
-        <li><b>班機</b>：去程／回程的航班號與起降時間</li>
-        <li><b>住宿</b>：飯店名稱（或大概在哪一區，例如札幌車站、大通、薄野）</li>
-        <li><b>同行者</b>：這次也是帶外公外婆嗎？還是朋友／自己去？</li>
-        <li><b>想去的地方</b>：有沒有特別想吃或想去的（小樽、登別、二世谷滑雪、海鮮市場…）</li>
+        <li><b>拉麵道場</b>——北海道各家名店集合</li>
+        <li><b>甜點</b>——ロイズ、六花亭、ルタオ、北菓樓</li>
+        <li><b>海鮮</b>——可冷藏宅配或真空包裝</li>
       </ul>
+      <div class="note-warn"><b>注意：</b>生鮮海產、肉類不能帶回台灣。真空包裝的加工品要確認標示。液體（醬油、酒）超過 100ml 要託運，<b>所以想買液體的要在報到前買</b>——但機場的店多半在報到櫃檯之後，這點要留意，必要時在市區先買好放行李箱。</div>
+    </div>
+
+    <div class="card">
+      <h3>12:10　BR165 起飛 → 16:05 抵達桃園</h3>
+    </div>
+  </section>
+
+  <section class="panel" id="where">
+    <div class="day-title">
+      <span class="num">🗺</span>
+      <div><h2>還能去哪</h2><div class="date">第三次來的選項</div></div>
+    </div>
+
+    <div class="callout"><b>這裡列的是避開一般觀光路線的選項。</b>你去過的直接跳過，想換 Day 2 的哪一段跟我說，我重排。每個都標了需要多少時間和適不適合快閃。</div>
+
+    <div class="card">
+      <h3>🌳 円山・裏参道　<span style="font-size:12px;color:var(--ink-soft);">半天</span></h3>
+      <p>札幌的高級住宅區，咖啡廳、麵包店密度最高的一區，<b>觀光客很少</b>。北海道神宮在円山公園內。和狸小路那種觀光感完全不同，適合已經玩過市區的人。</p>
+      <span class="tag cold">地鐵東西線・円山公園站</span>
+      <span class="tag">已排進 Day 2 提案</span>
+    </div>
+
+    <div class="card">
+      <h3>🏛️ 莫埃來沼公園 モエレ沼公園　<span style="font-size:12px;color:var(--ink-soft);">半天以上</span></h3>
+      <p>雕刻家<b>野口勇（Isamu Noguchi）</b>設計的大地藝術公園，整座公園就是一件作品。玻璃金字塔是室內的，冬天也開。</p>
+      <p>11 月下旬草木枯黃、可能有初雪，是很特別的蕭瑟感——和夏天的綠、冬天的全白都不一樣。</p>
+      <div class="note-warn"><b>交通是門檻：</b>地鐵東豐線環狀通東站轉巴士，單程約 1 小時。快閃行程吃掉半天以上，要取捨。</div>
+      <span class="tag warn">單程約 1 小時</span>
+    </div>
+
+    <div class="card">
+      <h3>♨️ 定山渓溫泉　<span style="font-size:12px;color:var(--ink-soft);">半天到一天</span></h3>
+      <p>札幌市內的溫泉區，巴士約 1 小時。可以純日歸泡湯。11 月下旬紅葉季已過，但溫泉本身不受影響。</p>
+      <div class="note-warn">快閃行程排這個就等於放棄市區。而且飯店本身有大浴場，泡湯需求某種程度已經被滿足。除非特別想泡溫泉，否則我不建議。</div>
+      <span class="tag warn">單程約 1 小時</span>
+    </div>
+
+    <div class="card">
+      <h3>🍺 札幌啤酒博物館＋啤酒園　<span style="font-size:12px;color:var(--ink-soft);">2–3 小時</span></h3>
+      <p>紅磚建築，博物館免費參觀、付費試飲。隔壁可以直接接成吉思汗烤羊肉晚餐。<b>室內行程，冬天很適合。</b></p>
+      <span class="tag cold">地鐵東豐線・東區役所前站</span>
+      <span class="tag">已排進 Day 2 提案</span>
+    </div>
+
+    <div class="card">
+      <h3>🌃 JR Tower 展望室 T38　<span style="font-size:12px;color:var(--ink-soft);">1 小時</span></h3>
+      <p>札幌站正上方 38 樓。<b>比藻岩山適合快閃</b>——不用搭車上山、不用排纜車，從車站直接搭電梯。冬天這點差很多。</p>
+      <span class="tag cold">札幌站直結</span>
+      <span class="tag">已排進 Day 2 提案</span>
+    </div>
+
+    <div class="card">
+      <h3>🌆 旭山記念公園　<span style="font-size:12px;color:var(--ink-soft);">2 小時</span></h3>
+      <p>另一個看夜景的地方，<b>比藻岩山人少很多</b>，可以俯瞰整個札幌市區。但冬天山路可能結冰，而且沒有纜車，要開車或搭計程車上去。</p>
+      <span class="tag warn">冬天交通較麻煩</span>
+    </div>
+
+    <div class="card">
+      <h3>🍨 シメパフェ（收尾聖代）　<span style="font-size:12px;color:var(--ink-soft);">1 小時</span></h3>
+      <p>札幌獨有的夜間文化——喝完酒用一份精緻聖代收尾。薄野一帶有一整排專門店，<b>你們住薄野就是核心區</b>，走路就到，多數開到凌晨 1–2 點。</p>
+      <p>ななかま堂、パフェテリア パル、佐々木、ROJIURA CAFE 都是常被提到的店。</p>
+      <span class="tag">走路可到</span>
+      <span class="tag">已排進 Day 1</span>
+    </div>
+
+    <div class="card">
+      <h3>🦀 11 月下旬的當季食材</h3>
+      <p>這個季節的札幌，<b>食材本身就是行程</b>：</p>
+      <ul>
+        <li><b>螃蟹</b>——毛蟹、松葉蟹、鱈場蟹當季</li>
+        <li><b>牡蠣</b>——厚岸、仙鳳趾等產地直送</li>
+        <li><b>新蕎麥</b>——秋收的新そば，風味最好的時候</li>
+        <li><b>鮭魚卵</b>——秋鮭季節剛過，品質正好</li>
+      </ul>
+      <div class="note-ok">如果不知道 Day 2 要排什麼，<b>把一餐升級成蟹料理或壽司</b>可能比多跑一個景點更值得——快閃行程塞景點容易變成趕路。</div>
+    </div>
+
+    <div class="card">
+      <h3>❌ 這次我不建議排的</h3>
+      <p><b>小樽</b>——單程 35–50 分鐘，三連休的 JR 會很擠。你去過的話這次跳過，省下的半天留給札幌市區更划算。</p>
+      <p><b>登別、二世谷</b>——單程 1.5 小時以上，3 天 2 夜的快閃排不進去。</p>
+      <p><b>滑雪</b>——11 月下旬雪量通常還不夠，雪場多半還沒全面開放。這要 12 月以後。</p>
+    </div>
+
+    <div class="card">
+      <h3>✨ 燈樹節其他會場（期間更長）</h3>
+      <table class="mini">
+        <tr><th>會場</th><th>期間</th></tr>
+        <tr><td><b>大通公園</b>（主會場）</td><td>11/20 – 12/25</td></tr>
+        <tr><td>驛前通（站前大道）</td><td>到 2027/2/11</td></tr>
+        <tr><td>札幌站南口</td><td>到 2027/3/14</td></tr>
+        <tr><td>北 3 条廣場（Akapla）</td><td>到 2027/3/14</td></tr>
+      </table>
+      <p>從札幌站走到大通公園的路上本身就是燈飾動線，Day 2 從札幌站移動時會順路經過。</p>
     </div>
   </section>
 
@@ -232,45 +503,6 @@
     </div>
   </section>
 
-  <section class="panel" id="illum">
-    <div class="day-title">
-      <span class="num">✨</span>
-      <div><h2>札幌白色燈樹節</h2><div class="date">11/20 開幕・你們第二天就遇上</div></div>
-    </div>
-
-    <div class="card">
-      <h3>📍 大通會場（主會場）</h3>
-      <table class="mini">
-        <tr><th>期間</th><td><b>2026/11/20 – 12/25</b></td></tr>
-        <tr><th>點燈時間</th><td><b>16:30 – 22:00</b></td></tr>
-        <tr><th>地點</th><td>大通公園 1–5 丁目</td></tr>
-        <tr><th>費用</th><td><b>免費</b></td></tr>
-      </table>
-      <p>你們 11/21–11/23 三天<b>每個晚上都看得到</b>，不用特別卡日期。</p>
-      <div class="note-ok"><b>天黑得早反而是優點：</b>札幌 11 月下旬 4 點多就天黑，16:30 點燈時天已經暗了，不用等到很晚，<b>晚餐前就能順路看</b>。</div>
-    </div>
-
-    <div class="card">
-      <h3>🗺️ 其他會場（期間更長）</h3>
-      <table class="mini">
-        <tr><th>會場</th><th>期間</th></tr>
-        <tr><td><b>大通公園</b>（主會場）</td><td>11/20 – 12/25</td></tr>
-        <tr><td>驛前通（站前大道）</td><td>到 2027/2/11</td></tr>
-        <tr><td>札幌站南口</td><td>到 2027/3/14</td></tr>
-        <tr><td>北 3 条廣場（Akapla）</td><td>到 2027/3/14</td></tr>
-      </table>
-      <p>札幌站南口和站前大道<b>一出車站就看得到</b>，從車站走到大通公園的路上本身就是燈飾動線，不用特地安排交通。</p>
-    </div>
-
-    <div class="card">
-      <h3>💡 現場建議</h3>
-      <p><b>走法</b>：從札幌車站南口出來 → 沿站前大道往南走 → 大通公園，全程約 10–15 分鐘，一路都有燈飾。地下街（チカホ）也可以走，怕冷的話走地下、到大通再上來。</p>
-      <p><b>拍照</b>：大通公園 1 丁目的電視塔方向是經典角度，可以把塔和燈飾一起入鏡。</p>
-      <div class="note-warn"><b>三連休人會很多</b>，而且戶外站久了很冷。建議安排在晚餐前後，看個 30–40 分鐘就進室內，不要排太長時間在戶外。</div>
-      <div class="note-ok">大通公園旁邊就是地下街和百貨，冷了隨時可以躲進去。帶長輩的話這點很重要。</div>
-    </div>
-  </section>
-
   <section class="panel" id="prep">
     <div class="day-title">
       <span class="num">✓</span>
@@ -285,7 +517,7 @@
       </label>
       <label class="check-item">
         <input type="checkbox" data-key="hotel">
-        <span class="txt"><b>確認住宿已訂</b><span>三連休的札幌很滿，還沒訂的話今天一定要處理</span></span>
+        <span class="txt"><b>住宿已訂 ✓</b><span>Vessel Hotel Campana 薄野・3 人房含早餐。地址存手機：南5条西6丁目16-1，薄野站4號出口走4分</span></span>
       </label>
       <label class="check-item">
         <input type="checkbox" data-key="resto">
@@ -347,36 +579,6 @@
         <input type="checkbox" data-key="crowd">
         <span class="txt"><b>三連休人潮</b><span>景點和餐廳都會比平常擠，行程之間多抓緩衝時間</span></span>
       </label>
-    </div>
-  </section>
-
-  <section class="panel" id="plan">
-    <div class="day-title">
-      <span class="num">📋</span>
-      <div><h2>行程規劃</h2><div class="date">等你補資料</div></div>
-    </div>
-
-    <div class="todo">
-      <h3>📝 需要你提供的四項資料</h3>
-      <p>有了這些我就能像新加坡那本一樣，把每天的時間軸、現場指引、交通方式、餐廳點餐方式全部排出來：</p>
-      <ul>
-        <li><b>班機</b>：去程／回程航班號與起降時間（會決定 Day 1 和 Day 3 能排多少行程）</li>
-        <li><b>住宿</b>：飯店名稱或大概區域（札幌車站／大通／薄野，三個區的動線差很多）</li>
-        <li><b>同行者</b>：這次也是帶外公外婆嗎？還是朋友或自己去？（會決定行程強度和用餐選擇）</li>
-        <li><b>想去的地方</b>：有沒有特別想吃或想去的？例如小樽、登別溫泉、海鮮市場、滑雪、藻岩山夜景</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>🗺️ 先給你一個大方向</h3>
-      <p>以 3 天 2 夜、11 月下旬、又遇上三連休的條件來說，比較務實的架構是：</p>
-      <table class="mini">
-        <tr><th>Day 1（六）</th><td>抵達 → 進市區放行李 → 札幌站／大通一帶輕鬆逛 → <b>傍晚燈樹節</b> → 晚餐</td></tr>
-        <tr><th>Day 2（日）</th><td>整天的主行程。市區（海鮮市場、藻岩山）或近郊一日（小樽、登別）二選一</td></tr>
-        <tr><th>Day 3（一）</th><td>退房 → 市區收尾採買 → 新千歲機場（機場本身就很好逛，建議留 2–3 小時）</td></tr>
-      </table>
-      <div class="note-ok"><b>新千歲機場值得留時間：</b>它是日本數一數二好逛的機場，有拉麵道場、溫泉、各種伴手禮，Day 3 不要卡太緊。</div>
-      <div class="note-warn"><b>近郊行程要謹慎：</b>小樽單程約 35–50 分鐘、登別約 1.5 小時以上。三連休的 JR 會很擠，帶長輩的話建議市區為主，不要排太遠。</div>
     </div>
   </section>
 
