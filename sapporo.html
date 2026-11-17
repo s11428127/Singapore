@@ -126,6 +126,23 @@
   .todo p{margin:0 0 6px;font-size:13.5px;color:#6B4F18;line-height:1.65;}
   .todo ul{margin:0;padding-left:18px;font-size:13.5px;color:#6B4F18;line-height:1.7;}
 
+  .spot{background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:13px 14px;margin-bottom:10px;}
+  .spot-h{display:flex;align-items:baseline;gap:7px;margin-bottom:5px;flex-wrap:wrap;}
+  .spot-h b{font-size:14.5px;color:var(--ink);font-family:'Noto Sans TC',sans-serif;}
+  .spot-h .en{font-size:10.5px;color:var(--ink-soft);}
+  .spot p{margin:0 0 7px;font-size:12.5px;color:var(--ink-soft);line-height:1.6;}
+  .spot .tags{margin-bottom:7px;}
+  .pic{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;
+    text-decoration:none;background:var(--frost);color:#fff;padding:5px 11px;border-radius:999px;}
+  .been{background:var(--paper-2);color:var(--ink-soft);border:1px dashed var(--line);}
+  .grp{margin:26px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--frost-l);}
+  .grp h3{margin:0;font-size:15.5px;color:var(--frost);}
+  .grp span{font-size:11.5px;color:var(--ink-soft);display:block;margin-top:2px;
+    font-family:'Noto Sans TC',sans-serif;}
+  .svgwrap{margin:10px 0 18px;overflow-x:auto;}
+  .svgwrap svg{display:block;min-width:300px;max-width:100%;height:auto;}
+  .svgcap{font-size:11px;color:var(--ink-soft);margin-top:2px;}
   footer{text-align:center;font-size:12px;color:var(--ink-soft);padding:30px 20px 0;}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 </style>
@@ -136,7 +153,7 @@
   <a class="homelink" href="./">← 回行程主頁</a>
   <p class="eyebrow">Winter Trip · TPE → CTS</p>
   <h1>札幌 3天2夜</h1>
-  <p class="sub">2026.11.21（六）— 11.23（一）· 初冬的北海道</p>
+  <p class="sub">2026.11.21（六）— 11.23（一）· 我、姐姐、媽媽</p>
   <div class="board">
     <p class="cd" id="cd">計算中…</p>
     <div class="board-row">
@@ -158,7 +175,7 @@
   <button data-tab="day1">Day 1</button>
   <button data-tab="day2">Day 2</button>
   <button data-tab="day3">Day 3</button>
-  <button data-tab="where">還能去哪</button>
+  <button data-tab="where">景點總覽</button>
   <button data-tab="weather">天氣＆穿著</button>
   <button data-tab="prep">行前準備</button>
 </nav>
@@ -371,90 +388,290 @@
   <section class="panel" id="where">
     <div class="day-title">
       <span class="num">🗺</span>
-      <div><h2>還能去哪</h2><div class="date">第三次來的選項</div></div>
+      <div><h2>景點總覽</h2><div class="date">全部列出・分類・附照片連結</div></div>
     </div>
 
-    <div class="callout"><b>這裡列的是避開一般觀光路線的選項。</b>你去過的直接跳過，想換 Day 2 的哪一段跟我說，我重排。每個都標了需要多少時間和適不適合快閃。</div>
+    <div class="callout"><b>關於照片：</b>每張卡片的「<b>看照片</b>」會直接開 Google Maps，裡面有幾十張真實照片和街景。我沒有在頁面裡塞圖片，是因為沒有可靠的授權來源、外連也容易失效——點進去看真的比較準。</div>
 
-    <div class="card">
-      <h3>🌳 円山・裏参道　<span style="font-size:12px;color:var(--ink-soft);">半天</span></h3>
-      <p>札幌的高級住宅區，咖啡廳、麵包店密度最高的一區，<b>觀光客很少</b>。北海道神宮在円山公園內。和狸小路那種觀光感完全不同，適合已經玩過市區的人。</p>
-      <span class="tag cold">地鐵東西線・円山公園站</span>
-      <span class="tag">已排進 Day 2 提案</span>
+    <div class="svgwrap">
+      <svg viewBox="0 0 320 300" role="img" aria-label="各景點距離薄野的時間分布" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .bnd{rx:7;stroke-width:1.4}
+          .b1{fill:#E6F0EA;stroke:#1F4D3E}
+          .b2{fill:#DCE8F2;stroke:#2E5A7A}
+          .b3{fill:#FFF4E0;stroke:#E3A542}
+          .b4{fill:#F9EAE5;stroke:#C1442B}
+          .bt{font:700 11px 'Noto Sans TC',sans-serif;fill:#211D17}
+          .bs{font:400 9.5px 'Noto Sans TC',sans-serif;fill:#5B5548}
+          .bm{font:600 9px 'IBM Plex Mono',monospace}
+        </style>
+        <rect class="bnd b1" x="8" y="6" width="304" height="60"/>
+        <text class="bm" x="18" y="22" fill="#1F4D3E">走路 ~15 分</text>
+        <text class="bt" x="18" y="38">狸小路・大通公園・燈樹節</text>
+        <text class="bs" x="18" y="54">聖誕市集・中島公園・二条市場・札幌站</text>
+
+        <rect class="bnd b2" x="8" y="74" width="304" height="60"/>
+        <text class="bm" x="18" y="90" fill="#2E5A7A">地鐵 ~30 分</text>
+        <text class="bt" x="18" y="106">円山・北海道神宮・啤酒博物館</text>
+        <text class="bs" x="18" y="122">白色戀人公園・北大・藻岩山・T38</text>
+
+        <rect class="bnd b3" x="8" y="142" width="304" height="60"/>
+        <text class="bm" x="18" y="158" fill="#B8801F">60–70 分</text>
+        <text class="bt" x="18" y="174">莫埃來沼公園・開拓之村</text>
+        <text class="bs" x="18" y="190">エスコンフィールド・三井 Outlet</text>
+
+        <rect class="bnd b4" x="8" y="210" width="304" height="40"/>
+        <text class="bm" x="18" y="226" fill="#C1442B">1.5–2 小時</text>
+        <text class="bt" x="18" y="242">小樽・定山渓・支笏湖・登別</text>
+
+        <rect class="bnd b4" x="8" y="258" width="304" height="34" style="fill:#F2DDD7"/>
+        <text class="bm" x="18" y="274" fill="#C1442B">3.5 小時以上</text>
+        <text class="bt" x="18" y="288" style="font-size:10.5px">函館・旭川（這趟放棄）</text>
+      </svg>
+      <p class="svgcap">以你們住的薄野為起點。綠色那層走路就到，紅色那層單程就吃掉半天。</p>
     </div>
+      <div class="grp"><h3>❄ 冬季限定</h3><span>只有這個季節才有，2 月去看不到</span></div>
+      <div class="spot">
+        <div class="spot-h"><b>札幌白色燈樹節</b><span class="en">Sapporo White Illumination</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag ">免費</span><span class="tag cold">16:30–22:00</span></div>
+        <p>大通公園 1–5 丁目。11/20 開幕，你們到的隔天就是第二天。從飯店走路 8 分鐘，怕冷可以走地下街到大通再上來。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Odori+Park+Sapporo+White+Illumination" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>慕尼黑聖誕市集</b><span class="en">Munich Christmas Market</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag ">免費</span><span class="tag cold">11:00–21:00</span></div>
+        <p>大通公園 2 丁目。熱紅酒、德國香腸、聖誕雜貨。你說去一下下就好，排 1 小時當晚餐前過場剛好。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Munich+Christmas+Market+Odori+Park+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="grp"><h3>🌃 展望・夜景</h3><span>札幌的夜景選項，各有優缺</span></div>
+      <div class="spot">
+        <div class="spot-h"><b>藻岩山展望台</b><span class="en">Mt. Moiwa</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag cold">纜車</span><span class="tag ">地鐵+纜車約40分</span></div>
+        <p>最經典的札幌夜景，日本新三大夜景之一。要搭纜車上山，冬天山上很冷但視野最好。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Mount+Moiwa+Observatory+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>JR Tower 展望室 T38</b><span class="en">JR Tower T38</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag ">札幌站上方</span><span class="tag ">¥740</span></div>
+        <p>札幌車站正上方 38 樓、160 公尺。<b>和大通那座紅色電視塔是兩回事</b>——這個在車站樓上，直接搭電梯，不用上山不用排纜車。廁所還有整面落地窗。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=JR+Tower+Observatory+T38+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>札幌電視塔</b><span class="en">Sapporo TV Tower</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag ">大通</span><span class="tag warn">你去過</span></div>
+        <p>大通公園東端那座紅色鐵塔，展望台在 90 公尺。你說去過的應該是這個。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Sapporo+TV+Tower" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>旭山記念公園</b><span class="en">Asahiyama Memorial Park</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag ">免費</span><span class="tag warn">冬天交通麻煩</span></div>
+        <p>免費的夜景點，人比藻岩山少很多。但沒有纜車，冬天要開車或計程車上去，山路可能結冰。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Asahiyama+Memorial+Park+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>大倉山展望台</b><span class="en">Okurayama Ski Jump</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag cold">吊椅</span><span class="tag ">地鐵+巴士約40分</span></div>
+        <p>1972 冬季奧運的跳台滑雪場，可以搭吊椅到跳台頂端往下看，角度很特別。旁邊有奧運博物館。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Okurayama+Ski+Jump+Stadium+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="grp"><h3>🌲 公園・自然</h3><span>11 月下旬草木已枯，但另有一種空曠感</span></div>
+      <div class="spot">
+        <div class="spot-h"><b>莫埃來沼公園</b><span class="en">Moerenuma Park</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag cold">玻璃金字塔室內</span><span class="tag warn">單程60–70分</span></div>
+        <p>野口勇設計的大地藝術公園，189 公頃。玻璃金字塔冬季 9:00–17:00、<b>週一休館</b>（你們去的 11/22 是週日，有開）。<b>但官網公告 8/20 起在改修工程，出發前務必上 moerenumapark.jp 確認。</b></p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Moerenuma+Park+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>中島公園</b><span class="en">Nakajima Park</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag ">免費</span><span class="tag cold">走路可到</span></div>
+        <p>從你們飯店往南走就到，薄野隔壁。有日本庭園和池塘，是市中心難得的大片綠地。早上散步剛好。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Nakajima+Park+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>北海道大學</b><span class="en">Hokkaido University</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag ">免費</span><span class="tag cold">札幌站走10分</span></div>
+        <p>校園開放參觀，銀杏並木很有名——但高峰是 10 月下旬到 11 月上旬，你們去的時候<b>葉子大概掉光了</b>。校內的綜合博物館免費，室內可以避寒。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Hokkaido+University+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>円山公園・北海道神宮</b><span class="en">Maruyama Park &amp; Hokkaido Shrine</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag ">免費</span><span class="tag warn">你去過</span></div>
+        <p>你說去過了。神宮境內的六花亭神宮茶屋店有限定的現烤麻糬「判官さま」，還有免費熱茶。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Hokkaido+Shrine+Maruyama+Park+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="grp"><h3>🏛 歷史・建築</h3><span>室內為主，適合 11 月下旬</span></div>
+      <div class="spot">
+        <div class="spot-h"><b>北海道廳舊本廳舍</b><span class="en">Red Brick Office</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag ">免費</span><span class="tag cold">札幌站走8分</span></div>
+        <p>俗稱「赤れんが」的紅磚廳舍，1888 年建造。經過長期整修後重新開放，內部有展示空間。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Former+Hokkaido+Government+Office+Building" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>札幌時計台</b><span class="en">Sapporo Clock Tower</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag ">¥200</span><span class="tag ">大通附近</span></div>
+        <p>日本三大失望名景之一（被高樓包圍、比想像小）。但它是北海道最早的西式建築之一，內部有展示，當成室內避寒點還行。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Sapporo+Clock+Tower" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>北海道開拓之村</b><span class="en">Historical Village of Hokkaido</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag warn">單程約1小時</span><span class="tag cold">冬天有馬拉雪橇</span></div>
+        <p>新札幌的野外博物館，把明治大正時期的北海道建築整批移築保存。冬天有馬拉雪橇，氣氛很特別，台灣觀光客很少去。但大部分是戶外，冷。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Historical+Village+of+Hokkaido" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="grp"><h3>🏭 博物館・工廠見學</h3><span>全室內，下雨下雪的備案</span></div>
+      <div class="spot">
+        <div class="spot-h"><b>札幌啤酒博物館</b><span class="en">Sapporo Beer Museum</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag ">博物館免費</span><span class="tag cold">地鐵+走路約25分</span></div>
+        <p>紅磚建築，日本唯一的啤酒博物館。參觀免費，付費可以試飲（含已停產的復刻啤酒）。隔壁的啤酒園可以直接接成吉思汗晚餐。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Sapporo+Beer+Museum" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>白色戀人公園</b><span class="en">Shiroi Koibito Park</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag ">¥800</span><span class="tag cold">地鐵約30分</span></div>
+        <p>石屋製菓的工廠兼主題園區，童話風建築，冬天會點燈。可以看餅乾產線，也能自己做白色戀人（要預約）。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Shiroi+Koibito+Park+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>北菓樓 札幌本館</b><span class="en">Kitakaro Sapporo</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag ">免費</span><span class="tag cold">大通旁</span></div>
+        <p>安藤忠雄改建的老建築，二樓是挑高書架的咖啡廳。甜點本身就有名，建築也值得看。離大通公園很近。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Kitakaro+Sapporo+Honkan" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>北海道立近代美術館</b><span class="en">Hokkaido Museum of Modern Art</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag ">依展覽</span><span class="tag cold">円山附近</span></div>
+        <p>在円山一帶，常設展加企劃展。如果當期展覽對胃口，是個安靜的室內選擇。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Hokkaido+Museum+of+Modern+Art" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="grp"><h3>🍜 市場・美食據點</h3><span>11 月下旬是蟹、牡蠣、新蕎麥的季節</span></div>
+      <div class="spot">
+        <div class="spot-h"><b>二条市場</b><span class="en">Nijo Market</span></div>
+        <div class="tags"><span class="tag cold">有室內</span><span class="tag ">大通附近</span><span class="tag ">7:00–18:00 左右</span></div>
+        <p>市中心的小型海鮮市場，規模不大但離大通很近。可以直接在裡面吃海鮮丼。觀光客多，價格偏觀光價。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Nijo+Market+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>札幌場外市場</b><span class="en">Jogai Market</span></div>
+        <div class="tags"><span class="tag cold">有室內</span><span class="tag ">桑園・地鐵約20分</span><span class="tag ">6:00–15:00 左右</span></div>
+        <p>比二条市場大很多，當地採買的市場。想吃海鮮丼或買螃蟹這裡選擇多、價格好一點。<b>下午就收攤</b>，要早上去。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Sapporo+Jogai+Market" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>拉麵橫丁</b><span class="en">Ramen Yokocho</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag cold">飯店走路可到</span><span class="tag ">晚上為主</span></div>
+        <p>薄野的老拉麵街，窄巷裡擠著十幾家店。就在你們飯店附近，宵夜或下雨天的保險牌。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Ganso+Sapporo+Ramen+Yokocho" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>札幌拉麵共和國</b><span class="en">Ramen Republic</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag ">札幌站 ESTA 10F</span><span class="tag ">11:00–22:00</span></div>
+        <p>札幌站樓上，集合北海道各地拉麵名店。昭和風的場景佈置。下雨下雪完全不用出站。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Sapporo+Ramen+Republic+ESTA" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="grp"><h3>🛍 購物</h3><span>你們三個應該會用到這段</span></div>
+      <div class="spot">
+        <div class="spot-h"><b>狸小路商店街</b><span class="en">Tanukikoji</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag cold">飯店走4分</span><span class="tag ">多數到 21:00</span></div>
+        <p>有頂棚的商店街，全長 1 公里。藥妝、伴手禮、餐廳都有，下雪天完全不用撐傘。離你們飯店最近。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Tanukikoji+Shopping+Street+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>COCONO SUSUKINO</b><span class="en">COCONO SUSUKINO</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag cold">薄野站直結</span><span class="tag ">2023 新開幕</span></div>
+        <p>2023 年底才開的綜合商場，就在薄野站上面。有東急百貨、電影院、餐廳。如果你前兩次去是 2023 年之前，這個是新的。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=COCONO+SUSUKINO" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>札幌站周邊</b><span class="en">Sapporo Station Area</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag cold">地下街直通</span><span class="tag ">多數到 21:00</span></div>
+        <p>大丸、STELLAR PLACE、ESTA、APIA。伴手禮和服飾一次買齊，而且全部地下街相連，不用走到地面。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Sapporo+Station+Daimaru" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>大通商圈</b><span class="en">Odori Shopping</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag cold">燈樹節旁邊</span><span class="tag ">多數到 20:00</span></div>
+        <p>PARCO、三越、丸井今井、地下街 Aurora Town。看完燈樹節冷了就躲進來。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Odori+Sapporo+PARCO" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>三井 OUTLET PARK 札幌北廣島</b><span class="en">Mitsui Outlet</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag warn">單程約50分</span><span class="tag ">10:00–20:00</span></div>
+        <p>北廣島的 outlet，約 180 家店。在往機場的方向上。快閃行程專程跑一趟不划算，除非很想買。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Mitsui+Outlet+Park+Sapporo+Kitahiroshima" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="grp"><h3>♨ 溫泉</h3><span>飯店本身就有大浴場，這些是想正式泡湯才需要</span></div>
+      <div class="spot">
+        <div class="spot-h"><b>定山渓温泉</b><span class="en">Jozankei Onsen</span></div>
+        <div class="tags"><span class="tag warn">單程約1小時</span><span class="tag cold">日歸可</span></div>
+        <p>札幌市內的溫泉區，巴士約 1 小時。紅葉季已過但溫泉不受影響。多家飯店有日歸入浴。快閃排這個等於放棄半天市區。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Jozankei+Onsen" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>小金湯温泉</b><span class="en">Koganeyu Onsen</span></div>
+        <div class="tags"><span class="tag warn">單程約50分</span><span class="tag cold">日歸可</span></div>
+        <p>比定山渓近一點、規模小很多的溫泉，人也少。同一條路線上。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Koganeyu+Onsen+Sapporo" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="grp"><h3>🚃 近郊・遠程</h3><span>這趟多數排不進去，但列給你參考</span></div>
+      <div class="spot">
+        <div class="spot-h"><b>小樽</b><span class="en">Otaru</span></div>
+        <div class="tags"><span class="tag warn">單程35–50分</span><span class="tag warn">你去過</span></div>
+        <p>你說夏天冬天都去過兩次了。運河、北一硝子、音樂盒堂。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Otaru+Canal" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>エスコンフィールド HOKKAIDO</b><span class="en">ES CON FIELD</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag warn">單程約40分</span><span class="tag ">2023 開幕</span></div>
+        <p>日本火腿隊的新球場，2023 年開幕。冬天沒比賽，但正因為沒比賽才有球場內部導覽，館內還有釀酒廠、溫泉、餐廳。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=ES+CON+FIELD+HOKKAIDO" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>支笏湖</b><span class="en">Lake Shikotsu</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag warn">單程約1.5小時</span></div>
+        <p>不凍湖，透明度日本數一數二。在往機場的方向。冬天有冰濤祭但那是 1–2 月。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Lake+Shikotsu" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>登別温泉</b><span class="en">Noboribetsu Onsen</span></div>
+        <div class="tags"><span class="tag warn">單程約1.5小時</span><span class="tag cold">地獄谷</span></div>
+        <p>北海道最有名的溫泉地之一，地獄谷的硫磺地貌很震撼。3 天 2 夜排不進去，除非住一晚。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Noboribetsu+Onsen+Jigokudani" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>洞爺湖</b><span class="en">Lake Toya</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag warn">單程約2小時</span></div>
+        <p>火山口湖，有昭和新山和有珠山。需要住一晚才划算。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Lake+Toya" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>旭川・旭山動物園</b><span class="en">Asahiyama Zoo</span></div>
+        <div class="tags"><span class="tag ">戶外</span><span class="tag warn">單程約1.5–2小時</span><span class="tag cold">企鵝散步 12 月起</span></div>
+        <p>冬季限定的企鵝散步要 12 月中才開始，你們去的時間還沒有。單純看動物的話冬天動物活動力反而好。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Asahiyama+Zoo+Asahikawa" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>函館</b><span class="en">Hakodate</span></div>
+        <div class="tags"><span class="tag warn">單程3.5–4小時</span><span class="tag warn">這趟不建議</span></div>
+        <p>夜景、朝市、元町。但來回 7.5 小時，會吃掉你唯一完整的一天，而且回程誤點會害你趕不上 Day 3 的飛機。詳細分析我上次講過了。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=Hakodate+Mount+Hakodate+Night+View" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
+      <div class="spot">
+        <div class="spot-h"><b>新千歲機場</b><span class="en">New Chitose Airport</span></div>
+        <div class="tags"><span class="tag cold">室內</span><span class="tag cold">Day 3 一定會去</span><span class="tag ">伴手禮一次買齊</span></div>
+        <p>日本數一數二好逛的機場。拉麵道場、溫泉、電影院，伴手禮幾乎都買得到。Day 3 早點到就當景點逛。</p>
+        <a class="pic" href="https://www.google.com/maps/search/?api=1&amp;query=New+Chitose+Airport" target="_blank" rel="noopener">📷 看照片</a>
+      </div>
 
     <div class="card">
-      <h3>🏛️ 莫埃來沼公園 モエレ沼公園　<span style="font-size:12px;color:var(--ink-soft);">半天以上</span></h3>
-      <p>雕刻家<b>野口勇（Isamu Noguchi）</b>設計的大地藝術公園，整座公園就是一件作品。玻璃金字塔是室內的，冬天也開。</p>
-      <p>11 月下旬草木枯黃、可能有初雪，是很特別的蕭瑟感——和夏天的綠、冬天的全白都不一樣。</p>
-      <div class="note-warn"><b>交通是門檻：</b>地鐵東豐線環狀通東站轉巴士，單程約 1 小時。快閃行程吃掉半天以上，要取捨。</div>
-      <span class="tag warn">單程約 1 小時</span>
-    </div>
-
-    <div class="card">
-      <h3>♨️ 定山渓溫泉　<span style="font-size:12px;color:var(--ink-soft);">半天到一天</span></h3>
-      <p>札幌市內的溫泉區，巴士約 1 小時。可以純日歸泡湯。11 月下旬紅葉季已過，但溫泉本身不受影響。</p>
-      <div class="note-warn">快閃行程排這個就等於放棄市區。而且飯店本身有大浴場，泡湯需求某種程度已經被滿足。除非特別想泡溫泉，否則我不建議。</div>
-      <span class="tag warn">單程約 1 小時</span>
-    </div>
-
-    <div class="card">
-      <h3>🍺 札幌啤酒博物館＋啤酒園　<span style="font-size:12px;color:var(--ink-soft);">2–3 小時</span></h3>
-      <p>紅磚建築，博物館免費參觀、付費試飲。隔壁可以直接接成吉思汗烤羊肉晚餐。<b>室內行程，冬天很適合。</b></p>
-      <span class="tag cold">地鐵東豐線・東區役所前站</span>
-      <span class="tag">已排進 Day 2 提案</span>
-    </div>
-
-    <div class="card">
-      <h3>🌃 JR Tower 展望室 T38　<span style="font-size:12px;color:var(--ink-soft);">1 小時</span></h3>
-      <p>札幌站正上方 38 樓。<b>比藻岩山適合快閃</b>——不用搭車上山、不用排纜車，從車站直接搭電梯。冬天這點差很多。</p>
-      <span class="tag cold">札幌站直結</span>
-      <span class="tag">已排進 Day 2 提案</span>
-    </div>
-
-    <div class="card">
-      <h3>🌆 旭山記念公園　<span style="font-size:12px;color:var(--ink-soft);">2 小時</span></h3>
-      <p>另一個看夜景的地方，<b>比藻岩山人少很多</b>，可以俯瞰整個札幌市區。但冬天山路可能結冰，而且沒有纜車，要開車或搭計程車上去。</p>
-      <span class="tag warn">冬天交通較麻煩</span>
-    </div>
-
-    <div class="card">
-      <h3>🍨 シメパフェ（收尾聖代）　<span style="font-size:12px;color:var(--ink-soft);">1 小時</span></h3>
-      <p>札幌獨有的夜間文化——喝完酒用一份精緻聖代收尾。薄野一帶有一整排專門店，<b>你們住薄野就是核心區</b>，走路就到，多數開到凌晨 1–2 點。</p>
-      <p>ななかま堂、パフェテリア パル、佐々木、ROJIURA CAFE 都是常被提到的店。</p>
-      <span class="tag">走路可到</span>
-      <span class="tag">已排進 Day 1</span>
-    </div>
-
-    <div class="card">
-      <h3>🦀 11 月下旬的當季食材</h3>
-      <p>這個季節的札幌，<b>食材本身就是行程</b>：</p>
+      <h3>🧭 以你們的條件，我會這樣挑</h3>
+      <p>三個人、快閃、11 月下旬、你去過兩次。扣掉你去過和沒興趣的，實際值得考慮的大概是：</p>
       <ul>
-        <li><b>螃蟹</b>——毛蟹、松葉蟹、鱈場蟹當季</li>
-        <li><b>牡蠣</b>——厚岸、仙鳳趾等產地直送</li>
-        <li><b>新蕎麥</b>——秋收的新そば，風味最好的時候</li>
-        <li><b>鮭魚卵</b>——秋鮭季節剛過，品質正好</li>
+        <li><b>一定會碰到的</b>：燈樹節、聖誕市集（Day 1 傍晚，走路就到）、狸小路、新千歲機場</li>
+        <li><b>Day 2 半天選一</b>：莫埃來沼公園（要先確認金字塔有沒有開）、白色戀人公園、開拓之村、啤酒博物館</li>
+        <li><b>室內備案</b>：COCONO SUSUKINO、札幌站周邊、北菓樓、拉麵共和國——下雪或走不動時用</li>
+        <li><b>吃</b>：場外市場（早上）、蟹料理（晚上，你說當天找）</li>
       </ul>
-      <div class="note-ok">如果不知道 Day 2 要排什麼，<b>把一餐升級成蟹料理或壽司</b>可能比多跑一個景點更值得——快閃行程塞景點容易變成趕路。</div>
-    </div>
-
-    <div class="card">
-      <h3>❌ 這次我不建議排的</h3>
-      <p><b>小樽</b>——單程 35–50 分鐘，三連休的 JR 會很擠。你去過的話這次跳過，省下的半天留給札幌市區更划算。</p>
-      <p><b>登別、二世谷</b>——單程 1.5 小時以上，3 天 2 夜的快閃排不進去。</p>
-      <p><b>滑雪</b>——11 月下旬雪量通常還不夠，雪場多半還沒全面開放。這要 12 月以後。</p>
-    </div>
-
-    <div class="card">
-      <h3>✨ 燈樹節其他會場（期間更長）</h3>
-      <table class="mini">
-        <tr><th>會場</th><th>期間</th></tr>
-        <tr><td><b>大通公園</b>（主會場）</td><td>11/20 – 12/25</td></tr>
-        <tr><td>驛前通（站前大道）</td><td>到 2027/2/11</td></tr>
-        <tr><td>札幌站南口</td><td>到 2027/3/14</td></tr>
-        <tr><td>北 3 条廣場（Akapla）</td><td>到 2027/3/14</td></tr>
-      </table>
-      <p>從札幌站走到大通公園的路上本身就是燈飾動線，Day 2 從札幌站移動時會順路經過。</p>
+      <div class="note-ok">如果看完還是覺得沒特別想去的，那其實<b>不排景點也是一個答案</b>——睡飽、逛狸小路、吃頓好的蟹、晚上看燈樹節，對第三次來的人來說可能才是對的玩法。</div>
     </div>
   </section>
 
