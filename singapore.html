@@ -199,6 +199,71 @@
   table.mini th,table.mini td{ border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
   table.mini th{ background:var(--paper-2); font-weight:700; color:var(--ink); }
   @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+  /* ===== PDF 匯出 ===== */
+  .pdfbtn{
+    position:fixed;right:16px;bottom:18px;z-index:40;
+    font-family:'Noto Sans TC',sans-serif;font-size:13.5px;font-weight:700;
+    background:var(--jungle);color:#fff;border:none;border-radius:999px;
+    padding:11px 18px;cursor:pointer;box-shadow:0 4px 14px rgba(33,29,23,0.26);
+  }
+  .pdfbtn:active{transform:scale(0.96);}
+  .pdfmask{
+    position:fixed;inset:0;z-index:50;background:rgba(33,29,23,0.45);
+    display:none;
+  }
+  .pdfmask.on{display:block;}
+  .pdfsheet{
+    position:fixed;left:0;right:0;bottom:0;z-index:51;
+    background:var(--paper);border-top-left-radius:18px;border-top-right-radius:18px;
+    padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px));
+    max-height:82vh;overflow-y:auto;display:none;
+    box-shadow:0 -6px 24px rgba(33,29,23,0.22);
+  }
+  .pdfsheet.on{display:block;}
+  .pdfsheet h4{
+    margin:0 0 3px;font-family:'Noto Serif TC',serif;font-size:17px;color:var(--ink);
+  }
+  .pdfsheet .sub{margin:0 0 14px;font-size:12.5px;color:var(--ink-soft);}
+  .pdfitem{
+    display:flex;align-items:center;gap:10px;background:#fff;
+    border:1px solid var(--line);border-radius:10px;
+    padding:11px 12px;margin-bottom:7px;cursor:pointer;
+  }
+  .pdfitem input{width:17px;height:17px;accent-color:var(--jungle);flex:0 0 auto;}
+  .pdfitem span{font-size:14px;color:var(--ink);font-weight:500;}
+  .pdfrow{display:flex;gap:8px;margin-top:14px;}
+  .pdfrow button{
+    flex:1;font-family:'Noto Sans TC',sans-serif;font-size:14px;font-weight:700;
+    padding:12px;border-radius:10px;cursor:pointer;border:1px solid var(--line);
+  }
+  #pdfall{background:#fff;color:var(--ink-soft);flex:0 0 34%;}
+  #pdfgo{background:var(--jungle);color:#fff;border-color:var(--jungle);}
+  .pdfhint{
+    margin:12px 0 0;font-size:11.5px;color:var(--ink-soft);line-height:1.65;
+    background:var(--paper-2);border-radius:8px;padding:10px 11px;
+  }
+
+  @media print{
+    @page{margin:11mm 9mm;}
+    nav.tabs,.pdfbtn,.pdfmask,.pdfsheet,.homelink{display:none !important;}
+    html,body{background:#fff !important;padding:0 !important;margin:0 !important;}
+    main{max-width:none !important;padding:0 !important;}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+    header{break-inside:avoid;break-after:page;}
+    section.panel{display:none !important;}
+    section.panel.printme{display:block !important;break-before:page;}
+    section.panel.printme.first{break-before:auto;}
+    details{break-inside:avoid;}
+    details summary::after{content:"" !important;}
+    .card,.spot,.check-item,.callout,.note-ok,.note-warn,
+    table.mini,table.sched,.svgwrap,.grp{break-inside:avoid;}
+    table.sched tr,table.mini tr{break-inside:avoid;}
+    .day-title{break-after:avoid;}
+    .grp{break-after:avoid;}
+    a{text-decoration:none !important;}
+    footer{break-inside:avoid;}
+  }
+
 </style>
 </head>
 <body>
@@ -1506,6 +1571,93 @@
       }, 45);
     });
   }
+</script>
+
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('nav.tabs button'));
+  if(!tabs.length) return;
+
+  var btn=document.createElement('button');
+  btn.className='pdfbtn'; btn.id='pdfbtn'; btn.textContent='⬇ 存成 PDF';
+  document.body.appendChild(btn);
+
+  var mask=document.createElement('div');
+  mask.className='pdfmask'; mask.id='pdfmask';
+  document.body.appendChild(mask);
+
+  var sheet=document.createElement('div');
+  sheet.className='pdfsheet'; sheet.id='pdfsheet';
+  var rows=tabs.map(function(t){
+    return '<label class="pdfitem"><input type="checkbox" checked value="'+
+      t.dataset.tab+'"><span>'+t.textContent.trim()+'</span></label>';
+  }).join('');
+  sheet.innerHTML=
+    '<h4>新加坡 3天2夜</h4>'+
+    '<p class="sub">勾選要放進 PDF 的章節</p>'+
+    rows+
+    '<div class="pdfrow"><button id="pdfall">全不選</button>'+
+    '<button id="pdfgo">開始匯出</button></div>'+
+    '<p class="pdfhint"><b>iPhone：</b>會跳出分享視窗，選「列印」→ 預覽圖用兩指放大 → 再按分享鈕「儲存到檔案」。<br>'+
+    '<b>Android：</b>印表機選「儲存為 PDF」。<br>'+
+    '<b>電腦：</b>目的地選「另存為 PDF」。</p>';
+  document.body.appendChild(sheet);
+
+  function open(){ mask.classList.add('on'); sheet.classList.add('on'); }
+  function close(){ mask.classList.remove('on'); sheet.classList.remove('on'); }
+  btn.addEventListener('click',open);
+  mask.addEventListener('click',close);
+
+  var allBtn=sheet.querySelector('#pdfall');
+  allBtn.addEventListener('click',function(){
+    var boxes=[].slice.call(sheet.querySelectorAll('input'));
+    var anyOn=boxes.some(function(b){return b.checked;});
+    boxes.forEach(function(b){b.checked=!anyOn;});
+    allBtn.textContent=anyOn?'全選':'全不選';
+  });
+
+  var saved=null;
+  function restore(){
+    if(!saved) return;
+    document.querySelectorAll('section.panel').forEach(function(p){
+      p.classList.remove('printme','first');
+    });
+    saved.details.forEach(function(d){ d.el.open=d.was; });
+    saved=null;
+  }
+
+  sheet.querySelector('#pdfgo').addEventListener('click',function(){
+    var picked=[].slice.call(sheet.querySelectorAll('input:checked'))
+      .map(function(b){return b.value;});
+    if(!picked.length){ alert('至少要選一個章節'); return; }
+    close();
+
+    var details=[].slice.call(document.querySelectorAll('details')).map(function(el){
+      return {el:el, was:el.open};
+    });
+    details.forEach(function(d){ d.el.open=true; });
+    saved={details:details};
+
+    var first=true;
+    picked.forEach(function(id){
+      var p=document.getElementById(id);
+      if(!p) return;
+      p.classList.add('printme');
+      if(first){ p.classList.add('first'); first=false; }
+    });
+
+    setTimeout(function(){ window.print(); },120);
+  });
+
+  window.addEventListener('afterprint',restore);
+  if(window.matchMedia){
+    var mq=window.matchMedia('print');
+    var h=function(e){ if(!e.matches) restore(); };
+    if(mq.addEventListener) mq.addEventListener('change',h);
+    else if(mq.addListener) mq.addListener(h);
+  }
+})();
 </script>
 
 </body>
